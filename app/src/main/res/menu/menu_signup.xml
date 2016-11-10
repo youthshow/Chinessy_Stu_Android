@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.chinessy.chinessy.SignupActivity">
+
+    <item android:id="@+id/signup_menu_login"
+        android:title="@string/Login"
+        app:showAsAction="always"
+        >
+    </item>
+
+</menu>

@@ -1,0 +1,61 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:background="@drawable/btn_long_white"
+    >
+
+    <ImageView
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_centerVertical="true"
+        android:id="@+id/reservationitem_iv_headimg"
+        android:src="@mipmap/me_profilepic"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@id/reservationitem_iv_headimg"
+        android:layout_alignParentTop="true"
+        android:id="@+id/reservationitem_ll_title"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reservationitem_tv_time"
+            android:textSize="@dimen/text_size_l"
+            android:layout_marginRight="3dp"
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/reservationitem_tv_date"
+            android:textSize="@dimen/text_size_s"
+            />
+        
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/reservationitem_tv_intro"
+        android:layout_toRightOf="@id/reservationitem_iv_headimg"
+        android:layout_below="@id/reservationitem_ll_title"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_s"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        />
+
+</RelativeLayout>

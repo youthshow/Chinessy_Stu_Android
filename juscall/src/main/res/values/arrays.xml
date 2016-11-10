@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ringtone_files">
+        <item>@string/ringtone_spring_ding_dong</item>
+    </string-array>
+</resources>

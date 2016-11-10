@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Login</string>
+
+    <string name="error_invalid_email">Email is invalid</string>
+    <string name="error_invalid_password">Password length cannot less then 6</string>
+    <string name="error_incorrect_password">Password is wrong</string>
+    <string name="error_field_required">Please enter your mEmail</string>
+    <string name="error_phone_not_exists">Your mEmail does not registered</string>
+</resources>

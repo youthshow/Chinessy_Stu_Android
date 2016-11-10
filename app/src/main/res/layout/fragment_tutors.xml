@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cube_ptr="http://schemas.android.com/apk/res-auto"
+    tools:context="com.chinessy.chinessy.fragment.TutorsFragment"
+    android:orientation="vertical">
+
+    <!--<com.rey.material.widget.ProgressView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="5dp"-->
+        <!--app:pv_autostart="true"-->
+        <!--app:pv_circular="false"-->
+        <!--app:pv_progressStyle="@style/Material.Drawable.LinearProgress"-->
+        <!--app:pv_progressMode="indeterminate"-->
+        <!--app:lpd_verticalAlign="top"-->
+        <!--android:id="@+id/tutors_pv_loading"-->
+        <!--/>-->
+
+    <in.srain.cube.views.ptr.PtrFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tutors_pf_layout"
+
+        cube_ptr:ptr_resistance="1.7"
+        cube_ptr:ptr_ratio_of_header_height_to_refresh="1.2"
+        cube_ptr:ptr_duration_to_close="200"
+        cube_ptr:ptr_duration_to_close_header="1000"
+        cube_ptr:ptr_keep_header_when_refresh="true"
+        cube_ptr:ptr_pull_to_fresh="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tutors_lv_list"
+                >
+
+            </ListView>
+
+        </LinearLayout>
+
+    </in.srain.cube.views.ptr.PtrFrameLayout>
+
+</LinearLayout>

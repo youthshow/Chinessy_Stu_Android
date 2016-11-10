@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/call_redial_voice_disabled" 	       android:state_enabled="false"/>
+    <item android:drawable="@drawable/call_redial_voice_selected" 		   android:state_selected="true"/>
+    <item android:drawable="@drawable/call_redial_voice_disabled"            android:state_pressed="true"/>
+    <item android:drawable="@drawable/call_redial_voice_normal"/>
+
+</selector>
+<!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/src/main/res/drawable/call_redial_voice_state.xml --><!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/build/intermediates/bundles/debug/res/drawable/call_redial_voice_state.xml -->

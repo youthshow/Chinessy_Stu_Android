@@ -1,0 +1,11 @@
+<resources>
+    <string name="action_signup">Signup</string>
+    <string name="prompt_invitation_code">Invitation Code(Optinonal)</string>
+
+    <string name="error_name_is_invalid">Name is invalid</string>
+    <string name="error_email_is_invalid">Email is invalid</string>
+    <string name="error_password_is_invalid">Password length cannot less than 6</string>
+    <string name="error_invitation_code_is_invalid">Invitation code is invalid</string>
+    <string name="error_account_already_exists">Email account already exists</string>
+
+</resources>

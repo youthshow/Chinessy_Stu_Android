@@ -1,0 +1,161 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_marginTop="40dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:id="@+id/dlgreservation_tv_name"
+                android:layout_gravity="center"
+                android:layout_marginBottom="30dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text="@string/dlg_reservation_howlong"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:id="@+id/dlgreservation_tv_balance"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                >
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textOn="@string/_15min"
+                    android:textOff="@string/_15min"
+                    android:background="@drawable/togglebtn_main"
+                    android:layout_marginRight="10dp"
+                    android:checked="true"
+                    android:id="@+id/dlgreservation_tgbtn_15min"
+                    android:textColor="@color/white"
+                    />
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textOn="@string/_30min"
+                    android:textOff="@string/_30min"
+                    android:background="@drawable/togglebtn_main"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/dlgreservation_tgbtn_30min"
+                    />
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textOn="@string/_45min"
+                    android:textOff="@string/_45min"
+                    android:background="@drawable/togglebtn_main"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/dlgreservation_tgbtn_45min"
+                    />
+
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAllCaps="false"
+                    android:textOn="@string/_60min"
+                    android:textOff="@string/_60min"
+                    android:background="@drawable/togglebtn_main"
+                    android:id="@+id/dlgreservation_tgbtn_60min"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Start_practice_by_calling_me_at"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/gray"
+                android:text="@string/Tutor_will_practice_with_you_over_the_phone"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/dlgreservation_tv_phone"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/main_color"
+                    android:text="@string/Edit"
+                    android:id="@+id/dlgreservation_tv_edit"
+                    android:layout_marginLeft="10dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_long_main"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_l"
+            android:id="@+id/dlgreservation_btn_apply"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_margin="20dp"
+        android:src="@mipmap/profilepic_default"
+        android:background="@drawable/dlgreservation_iv_bg"
+        android:id="@+id/dlgreservation_iv_headimg"
+        android:padding="5dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="OK">OK</string>
+    <string name="Cancel">Cancel</string>
+    <string name="app_name">JusCall</string>
+    <string name="statistics">statistics</string>
+    <string name="Voice_incoming">Voice incoming</string>
+    <string name="Video_incoming">Video incoming</string>
+    <string name="Incoming">Incoming</string>
+    <string name="Paused">Paused</string>
+    
+    <string name="Answering">Answering</string>
+    <string name="Calling">Calling</string>
+    <string name="Ringing">Ringing</string>
+    <string name="Talking">Talking</string>
+    <string name="Connecting">Connecting</string>
+    <string name="Call_ended">Call ended</string>
+    
+    <string name="Speaker">Speaker</string>
+    <string name="Headset">Headset</string>
+    <string name="Receiver">Receiver</string>
+    <string name="Voice_only">Voice only</string>
+    <string name="Rear_camera">Rear camera</string>
+    <string name="Front_camera">Front camera</string>
+    
+    <string name="Camera_off">Camera off</string>
+    
+    <string name="Voice_call">Voice call</string>
+    <string name="Video_call">Video call</string>
+    <string name="Call_disconnected">Call disconnected</string>
+    <string name="Call_ending">Call ending</string>
+    <string name="Busy">Busy</string>
+    <string name="Offline">Offline</string> 
+    <string name="No_answer">No answer</string>
+    <string name="Temporarily_unavailable">Temporarily unavailable</string>
+    <string name="No_internet_connection">No Internet connection</string>
+    <string name="Switched_to_voice_call">Switched to voice call</string>
+    <string name="Switch">Switch</string>
+    <string name="Camera_on">Camera on</string>
+    <string name="Redial">Redial</string>
+    <string name="Camera_device_error">Camera device error</string>
+    <string name="Open_Camera">Open Camera</string>
+    <string name="Open_Camera_app_to_fix_device_error">Open Camera app to fix device error</string>
+    
+    <string name="Not_running">Not running</string>
+    
+    <string name="ringtone_spring_ding_dong">spring_ding_dong.mp3</string>
+    
+	<string name="Reconnecting">Reconnecting</string>
+    <string name="Call_paused">Call paused</string>
+    <string name="Interrupted_by_regular_call_description">Interrupted by regular call, please hold on</string>
+    <string name="Video_paused">Video paused</string>
+    <string name="Poor_connection">Poor connection</string>
+    <string name="Poor_connection_description">The connection is poor. The video will resume automatically when the connection improves.</string>
+    <string name="Other_side_camera_off">Camera off</string>
+    <string name="Please_hang_up_the_regular_call_before_you_answer">Please hang up the regular call before you answer %1$s</string>
+    <string name="Please_check_the_network_connection">Please check the network connection</string>
+    <string name="app_label_hasnot_been_installed">%1$s hasn\'t been installed</string>
+    <string name="Audio_device_error">Audio device error</string>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <color name="base">#ff00bcd4</color>
+
+    <color name="call_name">@android:color/white</color>
+    <color name="call_state">@android:color/white</color>
+    <color name="call_poor_network_bg">#fff7931e</color>
+    <color name="call_video_paused_txt">@android:color/white</color>
+    <color name="call_end_txt_normal">@android:color/white</color>
+    <color name="call_end_txt_disable">#33ffffff</color>
+	<color name="call_menu_txt_normal">#ff5d5d5d</color>
+	<color name="call_menu_txt_disable">#335d5d5d</color>
+	<color name="call_menu_txt_selected">#cc0189ef</color>
+
+    <color name="call_menu_default_bg_normal_color">#00000000</color>
+    <color name="call_menu_default_bg_pressed_color">#80ffffff</color>
+    <color name="call_menu_default_bg_selected_color">#ffffffff</color>
+    <color name="call_menu_default_bg_disabled_color">#00000000</color>
+    <color name="call_menu_default_stroke_color">#ffffffff</color>
+    <color name="call_menu_default_disabled_stroke_color">#4dffffff</color>
+    <color name="call_menu_end_bg_normal_color">#fffc3c40</color>
+    <color name="call_menu_end_bg_pressed_color">#80fc3c40</color>
+    <color name="call_menu_end_bg_disabled_color">#4d000000</color>
+    <color name="call_menu_redial_bg_normal_color">#ff26D650</color>
+    <color name="call_menu_redial_bg_pressed_color">#8026D650</color>
+    <color name="call_menu_redial_bg_disabled_color">#4d000000</color>
+
+    <color name="call_video_background_color">#33000000</color>
+
+    <color name="call_incoming_bg_anim_color">#4d26d650</color>
+    <color name="call_incoming_bg_slide_color">#66ffffff</color>
+    <color name="call_incoming_decline_bg_normal_color">#fc3c40</color>
+    <color name="call_incoming_decline_bg_pressed_color">#ccfc3c40</color>
+    <color name="call_incoming_answer_bg_normal_color">#26d650</color>
+    <color name="call_incoming_answer_bg_pressed_color">#cc26d650</color>
+    <color name="call_incoming_answer_bg_selected_color">#00000000</color>
+    
+    <color name="call_error_bg_color">@color/base</color>
+
+   	<color name="call_btn_text_color">#ffffff</color>
+    <color name="call_btn_text_disabled_color">#4dffffff</color>
+</resources>

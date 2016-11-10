@@ -1,0 +1,201 @@
+<resources>
+    <string name="app_name">Chinessy</string>
+    <string name="title_activity_main">Chinessy</string>
+    <string name="title_activity_splash">Chinessy</string>
+    <string name="title_activity_guide">Chinessy</string>
+    <string name="title_activity_signup">Chinessy</string>
+    <string name="title_activity_person_info">@string/Edit_Profile</string>
+    <string name="title_activity_modify">@string/app_name</string>
+    <string name="title_activity_ratings">Ratings</string>
+
+    <string name="help_email">help@chinessy.com</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="Apply">Apply</string>
+    <string name="Cancle">Cancel</string>
+    <string name="OK">OK</string>
+    <string name="Done">Done</string>
+    <string name="Edit">Edit</string>
+    <string name="Continue">Continue</string>
+    <string name="Save">Save</string>
+    <string name="Waiting">Waiting...</string>
+    <string name="Save_succeed">Save succeed</string>
+    <string name="Submit">Submit</string>
+    <string name="mins">mins</string>
+    <string name="Connecting">Connecting...</string>
+
+    <!--tab-->
+    <string name="tab_home">Home</string>
+    <string name="tab_tutors">Tutors</string>
+    <string name="tab_reservation">Reservation</string>
+    <string name="tab_history">History</string>
+    <string name="tab_me">Me</string>
+
+    <string name="Login">Login</string>
+    <string name="Signup">Signup</string>
+
+    <!--error-->
+    <string name="params_error">params error</string>
+
+    <string name="g_share_message">Improve your oral Mandarin with tutors on Chinessy.com! Download the app and get your 30min free session with this code:</string>
+
+    <!--home fragment-->
+    <string name="Practice_Chinese_With_a_Native_Speaker">Your 1-On-1 Chinese Tutor On-demand</string>
+    <string name="minutes_remaining">minutes remaining</string>
+    <string name="Practice_Now">Practice Now</string>
+    <string name="Get_More_Minutes">Get More Minutes</string>
+    <string name="Picking_up_a_tutor_for_you">Picking up a tutor for you...</string>
+    <string name="Sorry_but_Chinessy_is_still_in_beta_and_currently_doesnot_support_purchasing">Sorry but Chinessy is still in beta.And currently doesnot support purchasing</string>
+    <string name="dialog_no_available_tutor_title">No Tutor Available</string>
+    <string name="dialog_no_available_tutor_message">Please come back later.</string>
+
+    <!--tutors fragment-->
+    <string name="Available">Available</string>
+    <string name="Busy">Busy</string>
+    <string name="Offline">Offline</string>
+
+    <!--reservation fragment-->
+    <string name="Upcoming">Upcoming</string>
+    <string name="History">History</string>
+    <string name="No_Upcoming_Reservations">You don\'t have any record yet.</string>
+    <string name="Go_make_one_by_checking_out_the_tutors_page">Go make one by checking out the tutors page!:)</string>
+    <string name="Cancel_Reservation">Cancel Reservation</string>
+
+
+    <!--my fragment-->
+    <string name="Edit_Profile">Edit Profile</string>
+    <string name="Add_Balance">Add Balance</string>
+    <string name="Balance">Balance</string>
+    <string name="Promotion_Code">Promotion Code</string>
+    <string name="Tell_Friends">Tell Friends</string>
+    <string name="Email_Support">Email Support</string>
+    <string name="About">About</string>
+    <string name="Logout">Logout</string>
+    <string name="dialog_logout_message">Are you sure to logout?</string>
+
+    <!--personal info activity-->
+    <string name="Email">Email</string>
+    <string name="Full_Name">Full Name</string>
+    <string name="Phone_Number">Phone Number</string>
+    <string name="Country">Country</string>
+    <string name="Country_Code">Country Code</string>
+    <string name="dialog_info_not_complete_message">Please enter your name</string>
+
+    <!--modify activity-->
+    <string name="modify_succeed_title">Modify succeed</string>
+    <string name="modify_succeed_message"></string>
+    <string name="modify_failed_title">Modify failed</string>
+    <string name="modify_failed_message">Please check your network and try again.</string>
+
+    <!-- tutor activity -->
+    <string name="title_activity_tutor">Profile</string>
+    <string name="Schedule_a_Reservation">Schedule a Reservation</string>
+    <string name="About_Me">About Me</string>
+    <string name="Education">Education</string>
+    <string name="Spoken_Languages">Spoken Languages</string>
+    <string name="reservation_succeed_title">Reservation Saved</string>
+    <string name="reservation_succeed_message">Tutor will call you on the timeslot you picked.</string>
+    <string name="reservation_conflict_title">Reservation Failed</string>
+    <string name="reservation_conflict_message">This timeslot has conflicted with another one.</string>
+    <string name="reservation_need_to_pay_title">Not Enough Balance</string>
+    <string name="reservation_need_to_pay_message">You can earn free minutes by inviting friends.</string>
+    <string name="practice_now_succeed_title">Request Sent</string>
+    <string name="practice_now_succeed_message">Tutor will call you back at +16468322228.</string>
+    <string name="practice_now_conflict_title">Session Conflicts</string>
+    <string name="practice_now_conflict_message">You\'re already in another tutoring session, your tutor will call you back soon.</string>
+    <string name="practice_now_tutor_unavailable_title">Tutor is Not Available</string>
+    <string name="practice_now_tutor_unavailable_message">Please choose another tutor that is available.</string>
+    <string name="practice_now_need_to_pay_title">Not Enough Balance</string>
+    <string name="practice_now_need_to_pay_message">You can earn free minutes by inviting friends.</string>
+    <string name="practice_now_failed_title">Request Not Sent</string>
+    <string name="practice_now_failed_message">Please check your network connection and try again later.</string>
+    <string name="Added_to_favourites">Added to favourites</string>
+    <string name="Removed_from_favourites">Removed from favourites</string>
+
+
+    <!--dialog resevation-->
+    <string name="dlg_reservation_howlong">How long would you like to practice:</string>
+    <string name="Start_practice_by_calling_me_at">Start practice by calling me at:</string>
+    <string name="Tutor_will_practice_with_you_over_the_phone">(Tutor will practice with you over the phone)</string>
+    <string name="_15min">15min</string>
+    <string name="_30min">30min</string>
+    <string name="_45min">45min</string>
+    <string name="_60min">60min</string>
+    <string name="OK_Call_me_now">OK, Call Me Now</string>
+    <string name="Next">Next</string>
+    <string name="dialog_reservation_no_phone_number_title">Phone Number Required</string>
+    <string name="dialog_reservation_no_phone_number_message">Your name and phone number is needed for a tutoring session.</string>
+
+    <!--timeslots activity-->
+    <string name="title_activity_timeslots">Timeslots</string>
+    <string name="Date">Date</string>
+    <string name="Time">Time</string>
+    <string name="Timeslots_to">Timeslots to</string>
+    <string name="AVOID">AVOID</string>
+    <string name="booking">booking:</string>
+    <string name="Reserved">Reserved</string>
+
+    <!--add balance activity-->
+    <string name="title_activity_add_balance">Add Balance</string>
+    <string name="Tell_friends_Earn_free_minutes">Tell friends, Earn Free Minutes</string>
+    <string name="Each_of_you_and_your_friend_will_get_extra_30_free_minutes_when_complete_register">Each of you and your friend will get extra 30 free minutes when complete register.</string>
+    <string name="Current_Remaining">Current Remaining</string>
+    <string name="min_remaining">min remaining</string>
+    <string name="Today_s_Remaining">Today\'s Remaining</string>
+    <string name="Subscription">Subscription</string>
+    <string name="Extra_Minutes">Extra Minutes</string>
+    <string name="Add_Subscription">Add Subscription</string>
+    <string name="Buy">Buy</string>
+    <string name="Choose_Plan">Choose Plan</string>
+    <string name="Period">Period</string>
+    <string name="Total">Total</string>
+    <string name="Have_a_promo_code">Have a promo code?</string>
+    <string name="Change">Change</string>
+    <string name="Click_to_add_more">Click to add more</string>
+    <string name="Promo_code">Promo code</string>
+    <string name="payment_failed_message">Sorry we can\'t complete your order at this moment, our customer support will contact you very soon.</string>
+    <string name="Transaction_completed">Transaction completed</string>
+
+    <!--promotion code activity-->
+    <string name="title_activity_promotion">Promotion Code</string>
+    <string name="promotion_code_redeem_succeed_title">Redeem Succeed</string>
+    <string name="promotion_code_redeem_succeed_message">Please go to Home page to see the details.</string>
+    <string name="promotion_code_invalid_title">Code Invalid</string>
+    <string name="promotion_code_invalid_message">Please check your code and try again.</string>
+    <string name="promotion_code_expired_title">Code Expired</string>
+    <string name="promotion_code_expired_message">Please try another one.</string>
+    <string name="promotion_code_already_used_title">Code Already Used</string>
+    <string name="promotion_code_already_used_message">Please try another one.</string>
+    <string name="promotion_only_for_discount">This code only valid for adding balance.</string>
+    <string name="promo_code">promo code</string>
+
+    <!--ratings activity-->
+    <string name="Leave_a_comment">Leave a comment</string>
+    <string name="How_s_the_connection_quality">How\'s the connection quality?</string>
+    <string name="How_would_you_rate_this_tutor">How would you rate this tutor?</string>
+    <string name="Duration_colon">Duration:</string>
+    <string name="Review_Succeed">Review Succeed</string>
+
+    <!--subscriptions activity-->
+    <string name="title_activity_subscriptions">Subscriptions</string>
+    <string name="Activated">Activated</string>
+
+    <!--choose plan activity-->
+    <string name="title_activity_choose_plan">Choose Plan</string>
+
+    <!--select period activity-->
+    <string name="title_activity_select_months">Select Period</string>
+
+    <!--add extra minutes activity-->
+    <string name="title_activity_add_minutes">Add Minutes</string>
+    <string name="Choose_Amount">Choose Amount</string>
+    <string name="add_extra_minutes_hint">Extra minutes is pay-as-you-go, and will never expire. This option is only available after purchasing a monthly subscription.</string>
+
+    <!--choose amount activity-->
+    <string name="title_activity_choose_amount">Choose Amount</string>
+
+    <!--get promotion activity-->
+    <string name="title_activity_get_promotion">Promotion Code</string>
+</resources>

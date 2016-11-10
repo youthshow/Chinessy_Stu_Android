@@ -1,0 +1,28 @@
+<!--<RelativeLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/transparent"-->
+    <!-->-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textSize="@dimen/text_size_l"-->
+        <!--android:padding="5dp"-->
+        <!--android:id="@+id/tutoritemheader_tv_header"-->
+        <!--/>-->
+
+<!--</RelativeLayout>-->
+
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:textSize="@dimen/text_size_l"
+    android:padding="5dp"
+    android:id="@+id/tutoritemheader_tv_header"
+    >
+
+</TextView>

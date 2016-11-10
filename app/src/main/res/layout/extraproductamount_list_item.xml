@@ -1,0 +1,49 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    android:paddingRight="10dp"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:background="@drawable/btn_long_white"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/extraproductamount_tv_minutes"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_l"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/extraproductamount_tv_price"
+            android:textSize="@dimen/text_size_l"
+            android:textColor="@color/gray"
+            android:layout_marginRight="10dp"
+            />
+
+        <ImageView
+            android:layout_width="45dp"
+            android:layout_height="15dp"
+            android:src="@mipmap/checked"
+            android:id="@+id/extraproductamount_tv_checked"
+            android:visibility="invisible"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

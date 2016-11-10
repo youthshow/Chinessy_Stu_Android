@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="call_incoming_margin_left">42dp</dimen>
+    <dimen name="call_incoming_margin_right">42dp</dimen>
+    <dimen name="call_incoming_gap_size">3dp</dimen>
+    <dimen name="call_incoming_margin_bottom">34dp</dimen>
+    <dimen name="call_incoming_height">76dp</dimen>
+    <dimen name="call_camera_margin_bottom">23dp</dimen>
+    <dimen name="call_large_circle_button_size">70dp</dimen>
+    <dimen name="call_small_circle_button_size">57dp</dimen>
+    <dimen name="call_large_horizontal_margin">45dp</dimen>
+    <dimen name="call_sub_operation_height">107dp</dimen>
+    <dimen name="call_text_size">12sp</dimen>
+    <dimen name="call_large_text_size">13sp</dimen>
+    <dimen name="call_text_margin_top">5dp</dimen>
+</resources>

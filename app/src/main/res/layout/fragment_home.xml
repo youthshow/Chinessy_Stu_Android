@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.chinessy.chinessy.fragment.HomeFragment">
+    
+    <ImageView
+        android:layout_width="225dp"
+        android:layout_height="225dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="5dp"
+        android:src="@mipmap/logo"
+        android:id="@+id/home_iv_logo"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Practice_Chinese_With_a_Native_Speaker"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/home_iv_logo"
+        android:id="@+id/home_tv_introduction"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_s"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/home_tv_introduction"
+        android:padding="16dp"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_long_main"
+            android:textColor="#fff"
+            android:text="@string/Practice_Now"
+            android:textSize="@dimen/text_size_xl"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/home_btn_practicenow"
+            android:textAllCaps="false"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_long_black"
+            android:textColor="#fff"
+            android:text="@string/Get_More_Minutes"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/home_btn_getmoreminutes"
+            android:textAllCaps="false"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:id="@+id/home_tv_balance"
+                android:layout_marginRight="3dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minutes_remaining"
+                android:textSize="@dimen/text_size_s"
+                />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/home_tv_balance_package"
+            android:textSize="@dimen/text_size_s"
+            android:visibility="gone"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

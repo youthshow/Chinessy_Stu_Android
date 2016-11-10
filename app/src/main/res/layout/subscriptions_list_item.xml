@@ -1,0 +1,50 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="13dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@drawable/btn_long_white"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/subscriptions_tv_minutes"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_l"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/subscriptions_tv_expiredat"
+            android:textColor="@color/gray"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/subscriptions_tv_activated"
+        android:textColor="@color/main_green"
+        android:textSize="@dimen/text_size_l"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="@string/Activated"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
