@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/layout/country_picker.xml",
+        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/src/main/res/layout/country_picker.xml"
+    },
+    {
+        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/layout/row.xml",
+        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/src/main/res/layout/row.xml"
+    }
+]

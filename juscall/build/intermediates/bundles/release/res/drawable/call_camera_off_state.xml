@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/call_camera_off_selected" 		   android:state_selected="true"/>
     <item android:drawable="@drawable/call_camera_off_normal"/>
 
-</selector><!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/src/main/res/drawable/call_camera_off_state.xml -->
+</selector>

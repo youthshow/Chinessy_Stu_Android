@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item android:drawable="@drawable/call_statistic" android:state_pressed="true"/>
-
-</selector><!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/src/main/res/drawable/call_statistic_bg.xml -->

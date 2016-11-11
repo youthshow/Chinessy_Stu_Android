@@ -4,4 +4,4 @@
     <item android:drawable="@drawable/call_audio_receiver_disabled" android:state_enabled="false"/>
     <item android:drawable="@drawable/call_audio_receiver_normal"/>
 
-</selector><!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/src/main/res/drawable/call_audio_receiver.xml -->
+</selector>

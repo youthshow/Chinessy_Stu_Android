@@ -32,8 +32,8 @@ public class Config {
     public static final String JUSTALK_CLOUD_SERVER_ADDRESS = "sudp:dev.ae.justalkcloud.com:9851";
 //    public static final String JUSTALK_CLOUD_SERVER_ADDRESS = "sudp:ae.justalkcloud.com:9851";
 
-    public static final String BASE_URL = "http://apidev.chinessy.com:9090/";
-//    public static final String BASE_URL = "http://api.chinessy.com:8090/";
+    //   public static final String BASE_URL = "http://apidev.chinessy.com:9090/"; //测试服务器
+    public static final String BASE_URL = "http://api.chinessy.com:8090/"; //生产环境的端口
 
     public static final int RC_MAIN_TO_TUTOR = 11;
 

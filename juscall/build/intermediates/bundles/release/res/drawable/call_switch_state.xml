@@ -5,4 +5,4 @@
     <item android:drawable="@drawable/call_switch_selected" 		   android:state_selected="true"/>
     <item android:drawable="@drawable/call_switch_normal"/>
 
-</selector><!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/src/main/res/drawable/call_switch_state.xml -->
+</selector>

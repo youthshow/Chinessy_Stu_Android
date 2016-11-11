@@ -47,9 +47,9 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
         jusTalkHandler = new JusTalkHandler(this.getApplicationContext());
         registerActivityLifecycleCallbacks(this);
 
-        MobclickAgent.updateOnlineConfig(getApplicationContext());
+//        MobclickAgent.updateOnlineConfig(getApplicationContext());
         MobclickAgent.openActivityDurationTrack(false);
-        AnalyticsConfig.enableEncrypt(true);
+//        AnalyticsConfig.enableEncrypt(true);
 
         initPaypal();
     }

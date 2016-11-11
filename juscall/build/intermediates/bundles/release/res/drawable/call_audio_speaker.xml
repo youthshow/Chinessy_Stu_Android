@@ -7,4 +7,4 @@
     <item android:drawable="@drawable/call_audio_speaker_selected" 		   android:state_enabled="true" android:state_selected="true"/>
     <item android:drawable="@drawable/call_audio_speaker_normal"/>
 
-</selector><!-- From: file:/Users/larry/Documents/developer/android/project/chinessy/juscall/src/main/res/drawable/call_audio_speaker.xml -->
+</selector>
