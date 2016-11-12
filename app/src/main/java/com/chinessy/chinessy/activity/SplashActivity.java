@@ -1,13 +1,18 @@
 package com.chinessy.chinessy.activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -37,6 +42,7 @@ import cz.msebera.android.httpclient.Header;
 public class SplashActivity extends Activity {
     public final static String KEY_FIRST_START = "first_start";
     public final static int HANDLER_APP_ACTIVE = 100;
+    private static final int READEXTERNALSTORAGE = 1;
 
     final int duration = 3000;
     LoadTask mLoadTask;
@@ -76,20 +82,25 @@ public class SplashActivity extends Activity {
         });
         UmengUpdateAgent.forceUpdate(SplashActivity.this);
 
+
         checkAutoLogin();
 
-        if(Chinessy.chinessy.isLogined()){
+        if (Chinessy.chinessy.isLogined()) {
             Chinessy.chinessy.getJusTalkHandler().login(null, null);
         }
 
-        mLoadTask = new LoadTask();
-        mLoadTask.execute();
-        mTimer.schedule(mTimerTask, duration);
+
+            mLoadTask = new LoadTask();
+            mLoadTask.execute();
+            mTimer.schedule(mTimerTask, duration);
+
+
+
     }
 
-    private void endLoading(){
+    private void endLoading() {
         if (mFinish) {
-            if(mAutoLogin){
+            if (mAutoLogin) {
                 Intent i = new Intent();
                 i.setClass(SplashActivity.this, MainActivity.class);
                 this.startActivity(i);
@@ -107,6 +118,7 @@ public class SplashActivity extends Activity {
 
     class LoadTask extends AsyncTask<Void, Void, Void> {
         Dialog promptDlg;
+
         @Override
         protected Void doInBackground(Void... params) {
             // TODO Auto-generated method stub
@@ -125,6 +137,7 @@ public class SplashActivity extends Activity {
             super.onPostExecute(result);
             endLoading();
         }
+
         private void doFirst(SharedPreferences sp) {
             makeDirs(sp);
             mHandler.sendEmptyMessage(HANDLER_APP_ACTIVE);
@@ -142,9 +155,9 @@ public class SplashActivity extends Activity {
         }
     }
 
-    private void checkAutoLogin(){
+    private void checkAutoLogin() {
 //        SharedPreferences sp = SplashActivity.this.getSharedPreferences(Config.SP_SETTINGS, MODE_PRIVATE);
-        if(Chinessy.chinessy.isLogined()){
+        if (Chinessy.chinessy.isLogined()) {
             Chinessy.chinessy.autoLogin();
             mAutoLogin = true;
 
@@ -168,10 +181,10 @@ public class SplashActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    class SplashActivityHandler extends Handler{
+    class SplashActivityHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
+            switch (msg.what) {
                 case HANDLER_APP_ACTIVE:
                     appActive();
                     break;
@@ -179,7 +192,7 @@ public class SplashActivity extends Activity {
         }
     }
 
-    private void appActive(){
+    private void appActive() {
         JSONObject jsonObject = new JSONObject();
         try {
             Utils.getPhoneInfo(jsonObject);
@@ -191,7 +204,7 @@ public class SplashActivity extends Activity {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     super.onSuccess(statusCode, headers, response);
                     try {
-                        switch (response.getInt("code")){
+                        switch (response.getInt("code")) {
                             case 10000:
 //                                Toast.makeText(mActivity, "app activited", Toast.LENGTH_SHORT).show();
                                 break;
