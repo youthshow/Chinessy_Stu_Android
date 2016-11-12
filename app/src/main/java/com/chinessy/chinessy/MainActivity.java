@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.TabPagerAdapter;
 import com.chinessy.chinessy.fragment.HomeFragment;
+import com.chinessy.chinessy.fragment.LiveFragment;
 import com.chinessy.chinessy.fragment.TutorsFragment;
 import com.chinessy.chinessy.fragment.MyFragment;
 import com.chinessy.chinessy.fragment.ReservationFragment;
@@ -30,9 +31,8 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements HomeFragment.OnFragmentInteractionListener,
         TutorsFragment.OnFragmentInteractionListener,
-        ReservationFragment.OnFragmentInteractionListener,
-        MyFragment.OnFragmentInteractionListener
-{
+        LiveFragment.OnFragmentInteractionListener,
+        MyFragment.OnFragmentInteractionListener {
 
     private ViewPager mViewPager;
     private FragmentPagerAdapter mAdapter;
@@ -40,17 +40,17 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
 
     private LinearLayout mTabBtnHome;
     private LinearLayout mTabBtnTutors;
-    private LinearLayout mTabBtnReservation;
+    private LinearLayout mTabBtnLive;
     private LinearLayout mTabBtnMe;
 
     private ImageView mIvHome;
     private ImageView mIvTutors;
-    private ImageView mIvReservation;
+    private ImageView mIvLive;
     private ImageView mIvMe;
 
     private TextView mTvHome;
     private TextView mTvTutors;
-    private TextView mTvReservation;
+    private TextView mTvLive;
     private TextView mTvMe;
 
     @Override
@@ -76,22 +76,22 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
 
         mTabBtnHome.setOnClickListener(new TabClickListener());
         mTabBtnTutors.setOnClickListener(new TabClickListener());
-        mTabBtnReservation.setOnClickListener(new TabClickListener());
+        mTabBtnLive.setOnClickListener(new TabClickListener());
         mTabBtnMe.setOnClickListener(new TabClickListener());
     }
 
     class TabClickListener implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-            switch (view.getId()){
+            switch (view.getId()) {
                 case R.id.main_ll_home:
                     mViewPager.setCurrentItem(0, true);
                     break;
                 case R.id.main_ll_tutors:
-                    mViewPager.setCurrentItem(1, true);
-                    break;
-                case R.id.main_ll_reservation:
                     mViewPager.setCurrentItem(2, true);
+                    break;
+                case R.id.main_ll_live:
+                    mViewPager.setCurrentItem(1, true);
                     break;
                 case R.id.main_ll_me:
                     mViewPager.setCurrentItem(3, true);
@@ -105,24 +105,23 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
         private int currentIndex;
 
         @Override
-        public void onPageSelected(int position)
-        {
+        public void onPageSelected(int position) {
             resetTabBtn();
-            switch (position)
-            {
+            switch (position) {
                 case 0:
                     mTvHome.setTextColor(getResources().getColor(R.color.main_color));
                     mIvHome.setImageResource(R.mipmap.tabicon_home_on);
 //                    fragmentManager.beginTransaction().replace(R.id.content_frame, mFragments.get(0)).addToBackStack(null).commit();
                     break;
                 case 1:
+                    mTvLive.setTextColor((getResources().getColor((R.color.main_color))));
+                    mIvLive.setImageResource(R.mipmap.tabicon_live_on);
+                    break;
+                case 2:
                     mTvTutors.setTextColor(getResources().getColor(R.color.main_color));
                     mIvTutors.setImageResource(R.mipmap.tabicon_tutor_on);
                     break;
-                case 2:
-                    mTvReservation.setTextColor((getResources().getColor((R.color.main_color))));
-                    mIvReservation.setImageResource(R.mipmap.tabicon_reservation_on);
-                    break;
+
                 case 3:
                     mTvMe.setTextColor(getResources().getColor(R.color.main_color));
                     mIvMe.setImageResource(R.mipmap.tabicon_me_on);
@@ -133,14 +132,12 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
         }
 
         @Override
-        public void onPageScrolled(int arg0, float arg1, int arg2)
-        {
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
 
         }
 
         @Override
-        public void onPageScrollStateChanged(int arg0)
-        {
+        public void onPageScrollStateChanged(int arg0) {
         }
     }
 
@@ -166,44 +163,42 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
         return super.onOptionsItemSelected(item);
     }
 
-    protected void resetTabBtn()
-    {
+    protected void resetTabBtn() {
         mIvHome.setImageResource(R.mipmap.tabicon_home_off);
         mIvTutors.setImageResource(R.mipmap.tabicon_tutor_off);
-        mIvReservation.setImageResource(R.mipmap.tabicon_reservation_off);
+        mIvLive.setImageResource(R.mipmap.tabicon_live_off);
         mIvMe.setImageResource(R.mipmap.tabicon_me_off);
 
         mTvHome.setTextColor(Color.rgb(204, 204, 204));
         mTvTutors.setTextColor(Color.rgb(204, 204, 204));
-        mTvReservation.setTextColor(Color.rgb(204, 204, 204));
+        mTvLive.setTextColor(Color.rgb(204, 204, 204));
         mTvMe.setTextColor(Color.rgb(204, 204, 204));
     }
 
-    private void initView()
-    {
+    private void initView() {
 
         mTabBtnHome = (LinearLayout) findViewById(R.id.main_ll_home);
         mTabBtnTutors = (LinearLayout) findViewById(R.id.main_ll_tutors);
-        mTabBtnReservation = (LinearLayout) findViewById(R.id.main_ll_reservation);
+        mTabBtnLive = (LinearLayout) findViewById(R.id.main_ll_live);
         mTabBtnMe = (LinearLayout) findViewById(R.id.main_ll_me);
 
         mIvHome = (ImageView) findViewById(R.id.main_iv_home);
         mIvTutors = (ImageView) findViewById(R.id.main_iv_tutors);
-        mIvReservation = (ImageView) findViewById(R.id.main_iv_reservation);
+        mIvLive = (ImageView) findViewById(R.id.main_iv_reservation);
         mIvMe = (ImageView) findViewById(R.id.main_iv_me);
 
         mTvHome = (TextView) findViewById(R.id.main_tv_home);
         mTvTutors = (TextView) findViewById(R.id.main_tv_tutors);
-        mTvReservation = (TextView) findViewById(R.id.main_tv_reservation);
+        mTvLive = (TextView) findViewById(R.id.main_tv_live);
         mTvMe = (TextView) findViewById(R.id.main_tv_me);
 
         HomeFragment tabDebt = new HomeFragment();
         TutorsFragment tabMessage = new TutorsFragment();
-        ReservationFragment tabReservation = new ReservationFragment();
+        LiveFragment tabLive = new LiveFragment();
         MyFragment tabMy = new MyFragment();
         mFragments.add(tabDebt);
+        mFragments.add(tabLive);
         mFragments.add(tabMessage);
-        mFragments.add(tabReservation);
         mFragments.add(tabMy);
     }
 

@@ -4,11 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:layout_alignParentBottom="true"
-    android:background="#fff" >
+    android:background="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:id="@+id/main_ll_home"
@@ -17,7 +17,7 @@
             android:layout_weight="1"
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/main_iv_home"
@@ -27,13 +27,37 @@
                 android:src="@mipmap/tabicon_home_off" />
 
             <TextView
+                android:id="@+id/main_tv_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#ccc"
                 android:text="@string/tab_home"
-                android:id="@+id/main_tv_home"
-                />
+                android:textColor="#ccc"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/main_ll_live"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:descendantFocusability="beforeDescendants"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/main_iv_reservation"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#fff"
+                android:src="@mipmap/tabicon_live_off" />
+
+            <TextView
+                android:id="@+id/main_tv_live"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_live"
+                android:textColor="#ccc"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -43,7 +67,7 @@
             android:layout_weight="1"
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/main_iv_tutors"
@@ -53,40 +77,14 @@
                 android:src="@mipmap/tabicon_tutor_off" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#ccc"
-                android:text="@string/tab_tutors"
                 android:id="@+id/main_tv_tutors"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/main_ll_reservation"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:descendantFocusability="beforeDescendants"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/main_iv_reservation"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="#fff"
-                android:src="@mipmap/tabicon_reservation_off" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
+                android:text="@string/tab_tutors"
                 android:textColor="#ccc"
-                android:text="@string/tab_reservation"
-                android:id="@+id/main_tv_reservation"
-                />
+                android:textSize="12sp" />
         </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/main_ll_me"
@@ -95,7 +93,7 @@
             android:layout_weight="1"
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/main_iv_me"
@@ -105,13 +103,12 @@
                 android:src="@mipmap/tabicon_me_off" />
 
             <TextView
+                android:id="@+id/main_tv_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="#ccc"
                 android:text="@string/tab_me"
-                android:id="@+id/main_tv_me"
-                />
+                android:textColor="#ccc"
+                android:textSize="12sp" />
         </LinearLayout>
 
     </LinearLayout>

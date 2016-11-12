@@ -30,7 +30,7 @@
     <string name="tab_home">Home</string>
     <string name="tab_tutors">Tutors</string>
     <string name="tab_reservation">Reservation</string>
-    <string name="tab_history">History</string>
+    <string name="tab_live">Live</string>
     <string name="tab_me">Me</string>
 
     <string name="Login">Login</string>
