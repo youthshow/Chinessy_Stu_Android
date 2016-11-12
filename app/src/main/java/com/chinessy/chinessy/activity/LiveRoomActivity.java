@@ -1,9 +1,8 @@
 package com.chinessy.chinessy.activity;
 
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 
 import com.chinessy.chinessy.R;
@@ -13,7 +12,6 @@ import com.upyun.upplayer.widget.UpVideoView;
 public class LiveRoomActivity extends AppCompatActivity {
 
     private UpVideoView upVideoView;
-    private View mControlsView;
 
     String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
 
@@ -33,9 +31,6 @@ public class LiveRoomActivity extends AppCompatActivity {
         upVideoView.setVideoPath(path);
         //开始播放
         upVideoView.start();
-
-
-        mControlsView = findViewById(R.id.fullscreen_content_controls);
 
 
     }
