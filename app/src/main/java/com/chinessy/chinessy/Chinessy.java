@@ -21,7 +21,7 @@ import java.util.TimerTask;
 /**
  * Created by larry on 15/7/10.
  */
-public class Chinessy extends Application implements Application.ActivityLifecycleCallbacks{
+public class Chinessy extends Application implements Application.ActivityLifecycleCallbacks {
     final static String tag = "ChinessyApplication";
 
     public static Chinessy chinessy;
@@ -35,11 +35,12 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
 
     private User user;
 
-    int activityCount =0;
+    int activityCount = 0;
     Timer mTimer = new Timer(true);
     boolean ifInBackground = false;
 
     JusTalkHandler jusTalkHandler;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -47,22 +48,21 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
         jusTalkHandler = new JusTalkHandler(this.getApplicationContext());
         registerActivityLifecycleCallbacks(this);
 
-//        MobclickAgent.updateOnlineConfig(getApplicationContext());
+      //  MobclickAgent.updateOnlineConfig(getApplicationContext());
         MobclickAgent.openActivityDurationTrack(false);
-//        AnalyticsConfig.enableEncrypt(true);
+     //   AnalyticsConfig.enableEncrypt(true);
 
         initPaypal();
     }
 
 
-
-    void initPaypal(){
+    void initPaypal() {
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         startService(intent);
     }
 
-    void stopPaypal(){
+    void stopPaypal() {
         stopService(new Intent(this, PayPalService.class));
     }
 
@@ -70,13 +70,13 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
         return config;
     }
 
-    public void addActivity(Activity activity){
+    public void addActivity(Activity activity) {
         activityList.add(activity);
     }
 
-    public void finishActivitys(){
-        for(Activity activity : activityList) {
-            if(null != activity) {
+    public void finishActivitys() {
+        for (Activity activity : activityList) {
+            if (null != activity) {
                 activity.finish();
             }
         }
@@ -94,30 +94,30 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
         System.exit(0);
     }
 
-    public boolean isLogined(){
+    public boolean isLogined() {
         SharedPreferences sp = getSharedPreferences(Config.SP_SETTINGS, MODE_PRIVATE);
         return !sp.getString("user_access_token", "").equals("");
     }
 
-    public void autoLogin(){
+    public void autoLogin() {
         User user = new User();
         user.localRead(chinessy.getApplicationContext());
         setUser(user);
     }
 
-    public void afterLogin(User user){
+    public void afterLogin(User user) {
         setUser(user);
         user.localSave(chinessy.getApplicationContext());
         getJusTalkHandler().login(null, null);
     }
 
-    public void logout(){
+    public void logout() {
         setUser(new User());
         getUser().localSave(chinessy.getApplicationContext());
         getJusTalkHandler().logout(null, null);
     }
 
-    public static void shareReferralCode(Activity activity){
+    public static void shareReferralCode(Activity activity) {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
         sendIntent.putExtra(Intent.EXTRA_TEXT, chinessy.getUser().getUserProfile().getShareMessage(activity));
@@ -127,7 +127,7 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
     }
 
     public User getUser() {
-        if(user==null){
+        if (user == null) {
             autoLogin();
         }
         return user;
@@ -161,10 +161,10 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
         mTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if(activityCount==0){
+                if (activityCount == 0) {
 //                    Log.d(tag, "In Background");
                     ifInBackground = true;
-                }else{
+                } else {
 //                    Log.d(tag, "In Foreground");
                     ifInBackground = false;
                 }
@@ -176,7 +176,7 @@ public class Chinessy extends Application implements Application.ActivityLifecyc
     @Override
     public void onActivityResumed(Activity activity) {
         activityCount++;
-        if(ifInBackground){
+        if (ifInBackground) {
             Chinessy.chinessy.getUser().activeUser(getApplicationContext());
         }
 //        Log.d(tag, "on app resume "+ activityCount);

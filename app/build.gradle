@@ -1,15 +1,33 @@
 apply plugin: 'com.android.application'
 
+
+
+
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
 
+    afterEvaluate {
+        tasks.matching {
+            it.name.startsWith('dex')
+        }.each { dx ->
+            if (dx.additionalParameters == null) {
+                dx.additionalParameters = []
+            }
+            dx.additionalParameters += '--multi-dex' // enable multidex
+
+            // optional
+            // dx.additionalParameters += "--main-dex-list=$projectDir/<filename>".toString() // enable the main-dex-list
+        }
+    }
+
     defaultConfig {
         applicationId "com.chinessy.chinessy"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 22
         versionCode 12
         versionName "1.62"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -17,6 +35,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
 }
 
 dependencies {

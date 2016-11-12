@@ -22,7 +22,7 @@ import cz.msebera.android.httpclient.Header;
 /**
  * Created by larry on 15/7/11.
  */
-public class User implements Serializable{
+public class User implements Serializable {
     static final String tag = "User";
 
     public static final String STATUS_AVAILABLE = "available";
@@ -39,15 +39,15 @@ public class User implements Serializable{
 
     private boolean isFavourites = false;
 
-    public User(){
+    public User() {
 
     }
 
-    public User(String listTag){
+    public User(String listTag) {
         this.listTag = listTag;
     }
 
-    public User(JSONObject jsonObject){
+    public User(JSONObject jsonObject) {
         JSONObject user = null;
         JSONObject userProfile = null;
         try {
@@ -55,28 +55,33 @@ public class User implements Serializable{
             userProfile = jsonObject.getJSONObject("user_profile");
             setEmail(user.getJSONObject("fields").getString("email"));
             setId(user.getInt("pk") + "");
-            if(jsonObject.has("access_token")){
+            if (jsonObject.has("access_token")) {
                 setAccessToken(jsonObject.getString("access_token"));
             }
             setUserProfile(new UserProfile(userProfile));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        try {
+         try {
 //            Log.e(tag, isFavourites()+"_______"+getId()+jsonObject.getJSONObject("favourite_tutor"));
-            JSONObject favouriteTutor = jsonObject.getJSONObject("favourite_tutor");
+
+           JSONObject favouriteTutor = jsonObject.getJSONObject("favourite_tutor");
             if(favouriteTutor != null){
                 String favouriteStatus = favouriteTutor.getJSONObject("fields").getString("status");
                 if(favouriteStatus.equals("valid")){
                     setIsFavourites(true);
                 }
             }
+
+
+
         } catch (JSONException e){
             e.printStackTrace();
         }
+
     }
 
-    public static User generateTeacher(JSONObject jsonObject){
+    public static User generateTeacher(JSONObject jsonObject) {
         User teacher = new User();
 
         JSONObject user = null;
@@ -86,7 +91,7 @@ public class User implements Serializable{
             userProfile = jsonObject.getJSONObject("teacher_profile");
             teacher.setEmail(user.getJSONObject("fields").getString("email"));
             teacher.setId(user.getInt("pk") + "");
-            if(jsonObject.has("access_token")){
+            if (jsonObject.has("access_token")) {
                 teacher.setAccessToken(jsonObject.getString("access_token"));
             }
             teacher.setUserProfile(new UserProfile(userProfile));
@@ -96,23 +101,23 @@ public class User implements Serializable{
         try {
 //            Log.e(tag, isFavourites()+"_______"+getId()+jsonObject.getJSONObject("favourite_tutor"));
             JSONObject favouriteTutor = jsonObject.getJSONObject("favourite_teacher");
-            if(favouriteTutor != null){
+            if (favouriteTutor != null) {
                 String favouriteStatus = favouriteTutor.getJSONObject("fields").getString("status");
-                if(favouriteStatus.equals("valid")){
+                if (favouriteStatus.equals("valid")) {
                     teacher.setIsFavourites(true);
                 }
             }
-        } catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return teacher;
     }
 
-    public void activeUser(final Context context){
+    public void activeUser(final Context context) {
         JSONObject jsonParams = new JSONObject();
         TimeZone tz = TimeZone.getDefault();
 //        Toast.makeText(context, tz.getRawOffset() + "  " + tz.getRawOffset()/3600000, Toast.LENGTH_SHORT).show();
-        int timeZone = tz.getRawOffset()/3600000;
+        int timeZone = tz.getRawOffset() / 3600000;
         try {
             jsonParams.put("time_zone", timeZone);
             jsonParams.put("access_token", Chinessy.chinessy.getUser().getAccessToken());
@@ -138,7 +143,7 @@ public class User implements Serializable{
         }
     }
 
-    public static void updateUserBalance(Context context, JSONObject jsonObject){
+    public static void updateUserBalance(Context context, JSONObject jsonObject) {
         JSONObject data = null;
         try {
             data = jsonObject.getJSONObject("data");
@@ -196,7 +201,7 @@ public class User implements Serializable{
         this.id = id;
     }
 
-    public void localSave(Context context){
+    public void localSave(Context context) {
         SharedPreferences sp = context.getSharedPreferences(Config.SP_SETTINGS, Context.MODE_PRIVATE);
         sp.edit().putString("user_id", getId())
                 .putString("user_access_token", getAccessToken())
@@ -204,7 +209,8 @@ public class User implements Serializable{
         getUserProfile().localSave(context);
         getUserBalancePackage().localSave(context);
     }
-    public void localRead(Context context){
+
+    public void localRead(Context context) {
         SharedPreferences sp = context.getSharedPreferences(Config.SP_SETTINGS, Context.MODE_PRIVATE);
         setId(sp.getString("user_id", ""));
         setAccessToken(sp.getString("user_access_token", ""));
@@ -219,16 +225,16 @@ public class User implements Serializable{
         setUserBalancePackage(userBalancePackage);
     }
 
-    public static ArrayList<User> loadTeachersFromJsonArray(JSONArray jsonArray){
+    public static ArrayList<User> loadTeachersFromJsonArray(JSONArray jsonArray) {
         ArrayList<User> userList = new ArrayList<User>();
-        try{
+        try {
             int length = jsonArray.length();
-            for(int i=0; i<length; i++){
+            for (int i = 0; i < length; i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 User user = new User(jsonObject);
                 userList.add(user);
             }
-        }catch (JSONException e){
+        } catch (JSONException e) {
             Log.w(tag, e.getMessage());
         }
 
@@ -259,7 +265,7 @@ public class User implements Serializable{
         this.listTag = listTag;
     }
 
-    public String getAccountAlias(){
+    public String getAccountAlias() {
         return getEmail().replace('@', '_');
     }
 }

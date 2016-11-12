@@ -172,12 +172,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_receiver_normal.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/release/drawable-xhdpi-v4/call_audio_headset_disabled.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_audio_headset_disabled.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/release/drawable-xhdpi-v4/call_redial_video_normal.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_redial_video_normal.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/release/drawable-xhdpi-v4/call_audio_headset_disabled.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_audio_headset_disabled.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/release/drawable-xhdpi-v4/call_signal_5.png",

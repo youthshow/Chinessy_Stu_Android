@@ -708,12 +708,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_er.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_bz.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_bz.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_so.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_so.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_bz.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_bz.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_va.png",
@@ -916,12 +916,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_yt.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_tv.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_tv.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_dk.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_dk.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_tv.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_tv.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-hdpi-v4/flag_kh.png",
