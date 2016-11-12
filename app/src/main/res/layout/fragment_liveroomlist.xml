@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.chinessy.chinessy.fragment.LiveFragment">
+    tools:context="com.chinessy.chinessy.fragment.LiveRoomListFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />

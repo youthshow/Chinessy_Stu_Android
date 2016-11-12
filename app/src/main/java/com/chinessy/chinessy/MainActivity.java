@@ -3,12 +3,12 @@ package com.chinessy.chinessy;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,13 +16,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.TabPagerAdapter;
 import com.chinessy.chinessy.fragment.HomeFragment;
-import com.chinessy.chinessy.fragment.LiveFragment;
-import com.chinessy.chinessy.fragment.TutorsFragment;
+import com.chinessy.chinessy.fragment.LiveRoomListFragment;
 import com.chinessy.chinessy.fragment.MyFragment;
-import com.chinessy.chinessy.fragment.ReservationFragment;
+import com.chinessy.chinessy.fragment.TutorsFragment;
 import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
@@ -31,7 +29,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements HomeFragment.OnFragmentInteractionListener,
         TutorsFragment.OnFragmentInteractionListener,
-        LiveFragment.OnFragmentInteractionListener,
+        LiveRoomListFragment.OnFragmentInteractionListener,
         MyFragment.OnFragmentInteractionListener {
 
     private ViewPager mViewPager;
@@ -194,7 +192,7 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
 
         HomeFragment tabDebt = new HomeFragment();
         TutorsFragment tabMessage = new TutorsFragment();
-        LiveFragment tabLive = new LiveFragment();
+        LiveRoomListFragment tabLive = new LiveRoomListFragment();
         MyFragment tabMy = new MyFragment();
         mFragments.add(tabDebt);
         mFragments.add(tabLive);
