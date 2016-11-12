@@ -34,7 +34,7 @@ import com.paypal.android.sdk.payments.PaymentActivity;
 import com.paypal.android.sdk.payments.PaymentConfirmation;
 import com.rey.material.app.SimpleDialog;
 
-import org.apache.http.Header;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,6 +43,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 public class AddExtraMinutesActivity extends AppCompatActivity {
     public static final int HANDLER_INIT_SELL_PART = 100;

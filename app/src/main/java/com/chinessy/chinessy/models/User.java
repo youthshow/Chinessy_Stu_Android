@@ -9,7 +9,6 @@ import com.chinessy.chinessy.Config;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,6 +16,8 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.TimeZone;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by larry on 15/7/11.

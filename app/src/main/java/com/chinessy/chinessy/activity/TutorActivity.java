@@ -35,11 +35,12 @@ import com.chinessy.chinessy.utils.Utils;
 import com.rey.material.app.SimpleDialog;
 import com.umeng.analytics.MobclickAgent;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+
+import cz.msebera.android.httpclient.Header;
 
 public class TutorActivity extends AppCompatActivity {
     final String tag = "TutorActivity";

@@ -15,13 +15,14 @@ import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.models.UserBalancePackage;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 public class SubscriptionsActivity extends AppCompatActivity {
     Activity mActivity;

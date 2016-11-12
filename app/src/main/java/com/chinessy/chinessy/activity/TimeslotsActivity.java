@@ -33,7 +33,6 @@ import com.rey.material.app.SimpleDialog;
 import com.rey.material.widget.ProgressView;
 import com.umeng.analytics.MobclickAgent;
 
-import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +40,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import cz.msebera.android.httpclient.Header;
 
 public class TimeslotsActivity extends AppCompatActivity {
     final String tag = "TimeslotsActivity";

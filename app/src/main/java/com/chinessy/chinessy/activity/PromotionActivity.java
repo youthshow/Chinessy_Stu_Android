@@ -16,9 +16,10 @@ import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.models.User;
 import com.rey.material.app.SimpleDialog;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class PromotionActivity extends AppCompatActivity {
     Activity mActivity;

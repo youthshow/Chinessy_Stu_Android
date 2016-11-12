@@ -24,10 +24,11 @@ import com.justalk.cloud.lemon.MtcUeConstants;
 import com.justalk.cloud.zmf.ZmfAudio;
 import com.justalk.cloud.zmf.ZmfVideo;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by larry on 15/11/4.

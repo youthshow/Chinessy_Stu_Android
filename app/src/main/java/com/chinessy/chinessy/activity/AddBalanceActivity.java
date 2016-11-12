@@ -35,7 +35,7 @@ import com.paypal.android.sdk.payments.PaymentConfirmation;
 import com.rey.material.app.SimpleDialog;
 import com.umeng.analytics.MobclickAgent;
 
-import org.apache.http.Header;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,6 +45,8 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 public class AddBalanceActivity extends AppCompatActivity {
     public static final int HANDLER_INIT_SELL_PART = 100;

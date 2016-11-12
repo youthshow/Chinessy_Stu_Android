@@ -10,13 +10,14 @@ import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.utils.DateUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by larry on 15/7/11.

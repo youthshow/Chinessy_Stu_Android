@@ -30,9 +30,10 @@ import com.countrypicker.CountryPickerListener;
 import com.rey.material.app.SimpleDialog;
 import com.umeng.analytics.MobclickAgent;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class PersonInfoActivity extends AppCompatActivity {
     final String tag = "PersonInfoActivity";

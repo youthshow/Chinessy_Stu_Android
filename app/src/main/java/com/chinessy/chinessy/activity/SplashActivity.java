@@ -24,13 +24,14 @@ import com.umeng.update.UmengDialogButtonListener;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UpdateStatus;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.TimeZone;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class SplashActivity extends Activity {

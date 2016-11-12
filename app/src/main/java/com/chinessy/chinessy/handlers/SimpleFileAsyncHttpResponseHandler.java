@@ -5,9 +5,11 @@ import android.util.Log;
 
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
 
-import org.apache.http.Header;
+
 
 import java.io.File;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by larry on 15/8/20.

@@ -19,13 +19,14 @@ import com.chinessy.chinessy.models.Reservation;
 import com.chinessy.chinessy.utils.FileUtil;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
 
-import org.apache.http.Header;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by larry on 15/8/18.

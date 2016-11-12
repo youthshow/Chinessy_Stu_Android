@@ -20,11 +20,12 @@ import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.utils.FileUtil;
 import com.loopj.android.http.FileAsyncHttpResponseHandler;
 
-import org.apache.http.Header;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by larry on 15/8/18.

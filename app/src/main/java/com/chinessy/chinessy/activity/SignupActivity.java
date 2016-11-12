@@ -27,9 +27,10 @@ import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.utils.Utils;
 import com.umeng.analytics.MobclickAgent;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 
 public class SignupActivity extends ActionBarActivity {

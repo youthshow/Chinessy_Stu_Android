@@ -23,11 +23,12 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import com.rey.material.app.SimpleDialog;
 import com.umeng.analytics.MobclickAgent;
 
-import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
