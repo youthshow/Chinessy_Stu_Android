@@ -1,3 +1,5 @@
 include ':app'
 include ':countryPicker'
 include ':juscall'
+include ':ijkplayer-java'
+include ':upplayer'

@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/see_you_again.amr",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/see_you_again.amr"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/can_not_be_connected.amr",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/can_not_be_connected.amr"
     },
@@ -14,26 +10,6 @@
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/busy.amr",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/busy.amr"
-    },
-    {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/not_answered.amr",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/not_answered.amr"
-    },
-    {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/can_not_be_connected.amr",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/can_not_be_connected.amr"
-    },
-    {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/busy.amr",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/busy.amr"
-    },
-    {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/offline.amr",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/offline.amr"
-    },
-    {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/spring_ding_dong.mp3",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/raw/spring_ding_dong.mp3"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/raw/offline.amr",

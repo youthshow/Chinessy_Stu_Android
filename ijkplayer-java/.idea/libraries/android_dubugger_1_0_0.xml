@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="android-dubugger-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../upplayer/src/main/libs/android-dubugger-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

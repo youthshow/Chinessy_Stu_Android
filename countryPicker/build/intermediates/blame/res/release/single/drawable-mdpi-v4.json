@@ -1,9 +1,5 @@
 [
     {
-        "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-mdpi-v4/ic_launcher1.png",
-        "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-mdpi/ic_launcher1.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/release/drawable-mdpi-v4/ic_launcher1.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-mdpi/ic_launcher1.png"
     }
