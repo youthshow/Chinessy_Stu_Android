@@ -1,4 +1,4 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -11,6 +11,10 @@ import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.Config;
+import com.chinessy.chinessy.MainActivity;
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.utils.FileUtil;

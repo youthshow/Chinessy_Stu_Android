@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.chinessy.chinessy.PersonInfoActivity;
+import com.chinessy.chinessy.activity.PersonInfoActivity;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.models.ButtonData;
 import com.chinessy.chinessy.models.User;

@@ -19,7 +19,7 @@ import android.widget.ListView;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.Config;
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.TutorActivity;
+import com.chinessy.chinessy.activity.TutorActivity;
 import com.chinessy.chinessy.adapter.TutorListAdapter;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;

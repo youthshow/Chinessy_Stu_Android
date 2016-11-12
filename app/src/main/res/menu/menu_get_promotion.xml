@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.chinessy.chinessy.GetPromotionActivity">
+    tools:context="com.chinessy.chinessy.activity.GetPromotionActivity">
     <item
         android:id="@+id/getpromotion_menu_apply"
         android:title="@string/Apply"

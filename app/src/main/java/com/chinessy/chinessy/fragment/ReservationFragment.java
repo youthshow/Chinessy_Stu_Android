@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.TutorActivity;
+import com.chinessy.chinessy.activity.TutorActivity;
 import com.chinessy.chinessy.adapter.ReservationListAdapter;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;

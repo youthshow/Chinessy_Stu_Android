@@ -1,4 +1,4 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -35,6 +35,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.MainActivity;
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.models.User;

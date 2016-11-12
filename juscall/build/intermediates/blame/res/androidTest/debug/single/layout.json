@@ -1,5 +1,17 @@
 [
     {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/layout/call.xml",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/layout/call.xml"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/layout/call_primary.xml",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/layout/call_primary.xml"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/layout/call_incoming.xml",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/layout/call_incoming.xml"
+    },
+    {
         "merged": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/layout/call.xml",
         "source": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/layout/call.xml"
     },

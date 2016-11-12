@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.chinessy.chinessy.AddBalanceActivity;
-import com.chinessy.chinessy.GuideActivity;
+import com.chinessy.chinessy.activity.AddBalanceActivity;
+import com.chinessy.chinessy.activity.GuideActivity;
 import com.chinessy.chinessy.Chinessy;
-import com.chinessy.chinessy.PersonInfoActivity;
-import com.chinessy.chinessy.PromotionActivity;
+import com.chinessy.chinessy.activity.PersonInfoActivity;
+import com.chinessy.chinessy.activity.PromotionActivity;
 import com.chinessy.chinessy.R;
 import com.rey.material.app.SimpleDialog;
 import com.umeng.analytics.MobclickAgent;

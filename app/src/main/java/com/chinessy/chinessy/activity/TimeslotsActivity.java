@@ -1,4 +1,4 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,6 +17,9 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.Config;
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.ReservationAvoidListAdapter;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.dialog.CustomTimePickerDialog;

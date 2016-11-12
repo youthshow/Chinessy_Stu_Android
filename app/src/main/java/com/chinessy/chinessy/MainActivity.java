@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.TabPagerAdapter;
 import com.chinessy.chinessy.fragment.HomeFragment;
 import com.chinessy.chinessy.fragment.TutorsFragment;

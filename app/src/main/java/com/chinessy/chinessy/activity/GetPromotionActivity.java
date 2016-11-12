@@ -1,6 +1,7 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,36 +10,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
-import com.chinessy.chinessy.models.User;
+import com.chinessy.chinessy.models.PromotionCode;
 import com.rey.material.app.SimpleDialog;
 
 import org.apache.http.Header;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class PromotionActivity extends AppCompatActivity {
+public class GetPromotionActivity extends AppCompatActivity {
     Activity mActivity;
     EditText mEtPromotionCode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_promotion);
+        setContentView(R.layout.activity_get_promotion);
         mActivity = this;
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.black));
         actionBar.setElevation(0f);
 
-
-        mEtPromotionCode = (EditText)findViewById(R.id.promotion_et_promotioncode);
+        mEtPromotionCode = (EditText)findViewById(R.id.getpromotion_et_promotioncode);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_promotion, menu);
+        getMenuInflater().inflate(R.menu.menu_get_promotion, menu);
         return true;
     }
 
@@ -49,9 +51,10 @@ public class PromotionActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
         if(id == android.R.id.home){
             mActivity.finish();
-        }else if(id == R.id.promotion_menu_apply){
+        }else if(id == R.id.getpromotion_menu_apply){
             String code = mEtPromotionCode.getText().toString();
             if(code.equals("")){
                 final SimpleDialog promptDialog1 = new SimpleDialog(mActivity);
@@ -72,25 +75,17 @@ public class PromotionActivity extends AppCompatActivity {
                 jsonParams.put("access_token", Chinessy.chinessy.getUser().getAccessToken());
                 jsonParams.put("promotion_code", code);
 
-                InternalClient.postJson(mActivity, "promotion_code/use", jsonParams, new SimpleJsonHttpResponseHandler() {
+                InternalClient.postJson(mActivity, "promotion_code/get", jsonParams, new SimpleJsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                         try {
-                            switch (response.getInt("code")){
+                            switch (response.getInt("code")) {
                                 case 10000:
-                                    User.updateUserBalance(mActivity, response);
-                                    final SimpleDialog promptDialog = new SimpleDialog(mActivity);
-                                    promptDialog.title(R.string.promotion_code_redeem_succeed_title);
-                                    promptDialog.message(R.string.promotion_code_redeem_succeed_message);
-                                    promptDialog.positiveAction(R.string.OK);
-                                    promptDialog.positiveActionClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            promptDialog.cancel();
-                                            PromotionActivity.this.finish();
-                                        }
-                                    });
-                                    promptDialog.show();
+                                    PromotionCode promotionCode = new PromotionCode(response.getJSONObject("data"));
+                                    Intent intent = new Intent();
+                                    intent.putExtra("promotion_code", promotionCode);
+                                    GetPromotionActivity.this.setResult(Activity.RESULT_OK, intent);
+                                    GetPromotionActivity.this.finish();
                                     break;
                                 case 10006:
                                     final SimpleDialog promptDialog1 = new SimpleDialog(mActivity);
@@ -131,18 +126,6 @@ public class PromotionActivity extends AppCompatActivity {
                                     });
                                     promptDialog3.show();
                                     break;
-                                case 30003:
-                                    final SimpleDialog promptDialog4 = new SimpleDialog(mActivity);
-                                    promptDialog4.message(R.string.promotion_only_for_discount);
-                                    promptDialog4.positiveAction(R.string.OK);
-                                    promptDialog4.positiveActionClickListener(new View.OnClickListener() {
-                                        @Override
-                                        public void onClick(View v) {
-                                            promptDialog4.cancel();
-                                        }
-                                    });
-                                    promptDialog4.show();
-                                    break;
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -153,7 +136,6 @@ public class PromotionActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
 
         return super.onOptionsItemSelected(item);
     }

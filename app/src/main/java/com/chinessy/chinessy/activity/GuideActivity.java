@@ -1,4 +1,4 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.chinessy.chinessy.R;
 import com.umeng.analytics.MobclickAgent;
 
 

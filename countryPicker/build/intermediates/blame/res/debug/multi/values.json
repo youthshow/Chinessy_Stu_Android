@@ -1,5 +1,147 @@
 [
     {
+        "outputFile": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 48,
+                    "endOffset": 99
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 667,
+                        "endColumn": 48,
+                        "endOffset": 711
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 104,
+                    "endColumn": 47,
+                    "endOffset": 147
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 619,
+                        "endColumn": 47,
+                        "endOffset": 662
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 152,
+                    "endColumn": 50,
+                    "endOffset": 198
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 50,
+                        "endOffset": 63
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 203,
+                    "endColumn": 14202,
+                    "endOffset": 14401
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/strings_countries.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 6115,
+                        "endColumn": 14202,
+                        "endOffset": 20313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 14406,
+                    "endColumn": 42,
+                    "endOffset": 14444
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 68,
+                        "endColumn": 48,
+                        "endOffset": 112
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 14449,
+                    "endLine": 13,
+                    "endColumn": 12,
+                    "endOffset": 14735
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 186,
+                        "endLine": 12,
+                        "endColumn": 12,
+                        "endOffset": 472
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 14740,
+                    "endLine": 16,
+                    "endColumn": 12,
+                    "endOffset": 14895
+                },
+                "from": {
+                    "file": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/values/styles.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 510,
+                        "endLine": 17,
+                        "endColumn": 12,
+                        "endOffset": 665
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "/Users/susan/Desktop/直播/【Android版本】源代码/Chinessy_Stu_Android/countryPicker/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
         "map": [
             {

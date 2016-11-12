@@ -1,4 +1,4 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.PackageProductPeriodListAdapter;
 import com.chinessy.chinessy.models.Product;
 

@@ -1,4 +1,4 @@
-package com.chinessy.chinessy;
+package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -8,11 +8,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.SubscriptionsListAdapter;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.models.UserBalancePackage;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.apache.http.Header;
 import org.json.JSONArray;

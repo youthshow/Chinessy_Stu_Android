@@ -39,7 +39,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon" >
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
@@ -48,7 +48,7 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".activity.SplashActivity"
             android:label="@string/title_activity_splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,31 +57,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".GuideActivity"
+            android:name=".activity.GuideActivity"
             android:label="@string/title_activity_guide" >
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name=".activity.SignupActivity"
             android:label="@string/title_activity_signup" >
         </activity>
         <activity
-            android:name=".PersonInfoActivity"
+            android:name=".activity.PersonInfoActivity"
             android:label="@string/title_activity_person_info" >
         </activity>
         <activity
-            android:name=".ModifyActivity"
+            android:name=".activity.ModifyActivity"
             android:label="@string/title_activity_modify" >
         </activity>
         <activity
-            android:name=".TutorActivity"
+            android:name=".activity.TutorActivity"
             android:label="@string/title_activity_tutor" >
         </activity>
         <activity
-            android:name=".TimeslotsActivity"
+            android:name=".activity.TimeslotsActivity"
             android:label="@string/title_activity_timeslots" >
         </activity>
         <activity
-            android:name=".AddBalanceActivity"
+            android:name=".activity.AddBalanceActivity"
             android:label="@string/title_activity_add_balance" >
         </activity>
         <activity
@@ -89,7 +89,7 @@
             android:configChanges="keyboardHidden|orientation" />
         <activity android:name="io.card.payment.DataEntryActivity" />
         <activity
-            android:name=".PromotionActivity"
+            android:name=".activity.PromotionActivity"
             android:label="@string/title_activity_promotion" >
         </activity>
 
@@ -133,31 +133,31 @@
         <activity android:name="com.paypal.android.sdk.payments.PaymentMethodActivity" />
         <activity android:name="com.paypal.android.sdk.payments.PaymentConfirmActivity" />
         <activity
-            android:name=".RatingsActivity"
+            android:name=".activity.RatingsActivity"
             android:label="@string/title_activity_ratings" >
         </activity>
         <activity
-            android:name=".SubscriptionsActivity"
+            android:name=".activity.SubscriptionsActivity"
             android:label="@string/title_activity_subscriptions" >
         </activity>
         <activity
-            android:name=".ChoosePlanActivity"
+            android:name=".activity.ChoosePlanActivity"
             android:label="@string/title_activity_choose_plan" >
         </activity>
         <activity
-            android:name=".SelectPeriodActivity"
+            android:name=".activity.SelectPeriodActivity"
             android:label="@string/title_activity_select_months" >
         </activity>
         <activity
-            android:name=".AddExtraMinutesActivity"
+            android:name=".activity.AddExtraMinutesActivity"
             android:label="@string/title_activity_add_minutes" >
         </activity>
         <activity
-            android:name=".ChooseAmountActivity"
+            android:name=".activity.ChooseAmountActivity"
             android:label="@string/title_activity_choose_amount" >
         </activity>
         <activity
-            android:name=".GetPromotionActivity"
+            android:name=".activity.GetPromotionActivity"
             android:label="@string/title_activity_get_promotion" >
         </activity>
     </application>

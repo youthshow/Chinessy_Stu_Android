@@ -12,10 +12,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.chinessy.chinessy.AddBalanceActivity;
+import com.chinessy.chinessy.activity.AddBalanceActivity;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.TutorActivity;
+import com.chinessy.chinessy.activity.TutorActivity;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.models.UserBalancePackage;
