@@ -45,7 +45,8 @@
     <string name="Practice_Chinese_With_a_Native_Speaker">Your 1-On-1 Chinese Tutor On-demand</string>
     <string name="minutes_remaining">minutes remaining</string>
     <string name="Practice_Now">Practice Now</string>
-    <string name="Get_More_Minutes">Get More Minutes</string>
+    <string name="One_on_One_Tutor">1-on-1 Tutor</string>
+    <string name="Get_More_Minutes">Get More Minutes/Beans</string>
     <string name="Picking_up_a_tutor_for_you">Picking up a tutor for you...</string>
     <string name="Sorry_but_Chinessy_is_still_in_beta_and_currently_doesnot_support_purchasing">Sorry but Chinessy is still in beta.And currently doesnot support purchasing</string>
     <string name="dialog_no_available_tutor_title">No Tutor Available</string>

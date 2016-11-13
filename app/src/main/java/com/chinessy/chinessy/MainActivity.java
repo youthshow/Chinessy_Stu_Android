@@ -9,6 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,6 +57,7 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
 
         ActionBar actionBar = getSupportActionBar();
@@ -66,11 +69,37 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
         mAdapter = new TabPagerAdapter(getSupportFragmentManager(), mFragments);
 
         mViewPager.setAdapter(mAdapter);
-
         mViewPager.setOnPageChangeListener(new TabChangeListener());
-        mViewPager.setCurrentItem(0);
-        mTvHome.setTextColor(getResources().getColor(R.color.main_color));
-        mIvHome.setImageResource(R.mipmap.tabicon_home_on);
+
+        int showFragmentID = 0;
+        String showFragment = getIntent().getStringExtra("showFragment");
+
+        if (!TextUtils.isEmpty(showFragment)) {
+            resetTabBtn();
+            switch (showFragment) {
+                case "HomeFragment":
+                    showFragmentID = 0;
+                    mTvHome.setTextColor(getResources().getColor(R.color.main_color));
+                    mIvHome.setImageResource(R.mipmap.tabicon_home_on);
+                    break;
+                case "LiveRoomListFragment":
+                    showFragmentID = 1;
+                    mTvLive.setTextColor((getResources().getColor((R.color.main_color))));
+                    mIvLive.setImageResource(R.mipmap.tabicon_live_on);
+                    break;
+                case "TutorsFragment":
+                    showFragmentID = 2;
+                    mTvTutors.setTextColor(getResources().getColor(R.color.main_color));
+                    mIvTutors.setImageResource(R.mipmap.tabicon_tutor_on);
+                    break;
+                case "MyFragment":
+                    showFragmentID = 3;
+                    mTvMe.setTextColor(getResources().getColor(R.color.main_color));
+                    mIvMe.setImageResource(R.mipmap.tabicon_me_on);
+                    break;
+            }
+        }
+        mViewPager.setCurrentItem(showFragmentID);
 
         mTabBtnHome.setOnClickListener(new TabClickListener());
         mTabBtnTutors.setOnClickListener(new TabClickListener());

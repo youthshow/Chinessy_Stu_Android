@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.chinessy.chinessy.MainActivity;
 import com.chinessy.chinessy.activity.AddBalanceActivity;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
@@ -50,7 +52,8 @@ public class HomeFragment extends Fragment {
 
     Activity mActivity;
 
-    Button mBtnPracticeNow;
+    Button mBtnLive;
+    Button mBtn1on1_Tutor;
     Button mBtnGetMoreMinutes;
     TextView mTvBalance;
     TextView mTvBalancePackage;
@@ -96,12 +99,14 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         mActivity = getActivity();
 
-        mBtnPracticeNow = (Button)rootView.findViewById(R.id.home_btn_practicenow);
-        mBtnGetMoreMinutes = (Button)rootView.findViewById(R.id.home_btn_getmoreminutes);
-        mTvBalance = (TextView)rootView.findViewById(R.id.home_tv_balance);
-        mTvBalancePackage = (TextView)rootView.findViewById(R.id.home_tv_balance_package);
+        mBtnLive = (Button) rootView.findViewById(R.id.home_btn_live);
+        mBtn1on1_Tutor = (Button) rootView.findViewById(R.id.home_btn_1on1_Tutor);
+        mBtnGetMoreMinutes = (Button) rootView.findViewById(R.id.home_btn_getmoreminutes);
+        mTvBalance = (TextView) rootView.findViewById(R.id.home_tv_balance);
+        mTvBalancePackage = (TextView) rootView.findViewById(R.id.home_tv_balance_package);
 
-        mBtnPracticeNow.setOnClickListener(new BtnPracticeNowClickListener());
+        mBtnLive.setOnClickListener(new BtnLiveClickListener());
+        mBtn1on1_Tutor.setOnClickListener(new Btn1One1TutorClickListener());
         mBtnGetMoreMinutes.setOnClickListener(new BtnGetMoreMinutesClickListener());
 
 //        refreshHomeBalance();
@@ -109,20 +114,35 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
-    public void refreshHomeBalance(){
+    public void refreshHomeBalance() {
         User user = Chinessy.chinessy.getUser();
         mTvBalance.setText(user.getUserProfile().getBalance() + "");
         UserBalancePackage userBalancePackage = Chinessy.chinessy.getUser().getUserBalancePackage();
-        if(userBalancePackage.getEndAt() != null && userBalancePackage.getEndAt().getTime()!=0){
+        if (userBalancePackage.getEndAt() != null && userBalancePackage.getEndAt().getTime() != 0) {
             SimpleDateFormat format = new SimpleDateFormat("MMM d,yyyy");
             mTvBalancePackage.setText(userBalancePackage.getMinutes() + "mins/day, Expired On " + format.format(userBalancePackage.getEndAt()));
             mTvBalancePackage.setVisibility(View.VISIBLE);
         }
     }
 
-    class BtnPracticeNowClickListener implements View.OnClickListener{
+    class Btn1One1TutorClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), MainActivity.class);
+            intent.putExtra("showFragment","TutorsFragment");
+            getContext().startActivity(intent);
+        }
+    }
+
+    class BtnLiveClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), MainActivity.class);
+            intent.putExtra("showFragment","LiveRoomListFragment");
+            getContext().startActivity(intent);
+            /*
             mPdPracticeNow = new ProgressDialog(mActivity);
             mPdPracticeNow.setMessage(getString(R.string.Picking_up_a_tutor_for_you));
             mPdPracticeNow.show();
@@ -173,10 +193,12 @@ public class HomeFragment extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+            */
         }
     }
 
-    class BtnGetMoreMinutesClickListener implements View.OnClickListener{
+    class BtnGetMoreMinutesClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
@@ -230,6 +252,7 @@ public class HomeFragment extends Fragment {
         MobclickAgent.onPageStart("HomeFragment");
         refreshHomeBalance();
     }
+
     @Override
     public void onPause() {
         super.onPause();
