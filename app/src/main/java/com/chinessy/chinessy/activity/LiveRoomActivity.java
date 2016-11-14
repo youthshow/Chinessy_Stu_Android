@@ -3,6 +3,7 @@ package com.chinessy.chinessy.activity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.chinessy.chinessy.R;
@@ -31,6 +32,15 @@ public class LiveRoomActivity extends AppCompatActivity {
         upVideoView.setVideoPath(path);
         //开始播放
         upVideoView.start();
+
+
+        findViewById(R.id.tv_exit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                upVideoView.releaseWithoutStop();
+                finish();
+            }
+        });
 
 
     }
