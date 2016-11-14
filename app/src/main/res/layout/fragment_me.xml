@@ -102,6 +102,66 @@
                     </RelativeLayout>
 
                     <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:padding="5dp"
+                    android:id="@+id/my_rl_binded_minutes"
+                    android:background="@drawable/btn_long_white"
+                    android:layout_marginBottom="1dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/text_size_l"
+                        android:text="@string/Binded_Minutes"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_m"
+                        android:id="@+id/my_tv_binded_minutes"
+                        />
+                </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:padding="5dp"
+                        android:id="@+id/my_rl_history"
+                        android:background="@drawable/btn_long_white"
+                        android:layout_marginBottom="1dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentLeft="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l"
+                            android:text="@string/History"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_m"
+                            />
+                    </RelativeLayout>
+
+
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:padding="5dp"
@@ -129,6 +189,9 @@
                             android:id="@+id/my_tv_balance"
                             />
                     </RelativeLayout>
+
+
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="48dp"

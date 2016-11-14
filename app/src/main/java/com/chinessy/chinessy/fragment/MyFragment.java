@@ -11,10 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chinessy.chinessy.activity.AddBalanceActivity;
 import com.chinessy.chinessy.activity.GuideActivity;
 import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.activity.HistoryActivity;
 import com.chinessy.chinessy.activity.PersonInfoActivity;
 import com.chinessy.chinessy.activity.PromotionActivity;
 import com.chinessy.chinessy.R;
@@ -49,12 +51,15 @@ public class MyFragment extends Fragment {
     RelativeLayout mRlTellFriends;
     RelativeLayout mRlEmailSupport;
     RelativeLayout mRlAbout;
+    RelativeLayout mRlBindedMinutes;
+    RelativeLayout mRlHistory;
     RelativeLayout mRlPersonalInfo;
     Button mBtnLogout;
     TextView mTvName;
     TextView mTvPhone;
     TextView mReferralCode;
     TextView mTvBalance;
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -87,7 +92,7 @@ public class MyFragment extends Fragment {
 
     }
 
-    class EditProfileOnClickListener implements View.OnClickListener{
+    class EditProfileOnClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
@@ -97,7 +102,7 @@ public class MyFragment extends Fragment {
         }
     }
 
-    class AddBalanceOnClickListener implements  View.OnClickListener{
+    class AddBalanceOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
@@ -106,7 +111,7 @@ public class MyFragment extends Fragment {
         }
     }
 
-    class PromotionOnClickListener implements View.OnClickListener{
+    class PromotionOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
@@ -115,16 +120,32 @@ public class MyFragment extends Fragment {
         }
     }
 
-    class TellFriendsOnClickListener implements View.OnClickListener{
+
+    private class BindedMinutesOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(getContext(), "my_tv_binded_minutes", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private class HistoryOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(getContext(), HistoryActivity.class));
+        }
+    }
+
+    class TellFriendsOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Chinessy.shareReferralCode(mActivity);
         }
     }
-    class EmailSupportOnClickListener implements View.OnClickListener{
+
+    class EmailSupportOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(Intent.ACTION_SEND);
+            Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("plain/text");
 
             //调用系统发送邮件
@@ -134,7 +155,8 @@ public class MyFragment extends Fragment {
             mActivity.startActivity(intent);
         }
     }
-    class AboutOnClickListener implements View.OnClickListener{
+
+    class AboutOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
 
@@ -173,7 +195,7 @@ public class MyFragment extends Fragment {
         }
     }
 
-    class RlPersonalInfoClickListener implements View.OnClickListener{
+    class RlPersonalInfoClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
@@ -189,20 +211,24 @@ public class MyFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_me, container, false);
         mActivity = getActivity();
 
-        mRlEditProfile = (RelativeLayout)rootView.findViewById(R.id.my_rl_editprofile);
-        mRlAddBalance = (RelativeLayout)rootView.findViewById(R.id.my_rl_addbalance);
-        mRlPromotion = (RelativeLayout)rootView.findViewById(R.id.my_rl_promotion);
-        mRlTellFriends = (RelativeLayout)rootView.findViewById(R.id.my_rl_tellfriends);
-        mRlEmailSupport = (RelativeLayout)rootView.findViewById(R.id.my_rl_emailsupport);
-        mRlAbout = (RelativeLayout)rootView.findViewById(R.id.my_rl_about);
-        mTvName = (TextView)rootView.findViewById(R.id.my_tv_name);
-        mTvPhone = (TextView)rootView.findViewById(R.id.my_tv_phone);
-        mTvBalance = (TextView)rootView.findViewById(R.id.my_tv_balance);
-        mRlPersonalInfo = (RelativeLayout)rootView.findViewById(R.id.my_rl_personalinfo);
+        mRlEditProfile = (RelativeLayout) rootView.findViewById(R.id.my_rl_editprofile);
+        mRlAddBalance = (RelativeLayout) rootView.findViewById(R.id.my_rl_addbalance);
+        mRlPromotion = (RelativeLayout) rootView.findViewById(R.id.my_rl_promotion);
+        mRlTellFriends = (RelativeLayout) rootView.findViewById(R.id.my_rl_tellfriends);
+        mRlEmailSupport = (RelativeLayout) rootView.findViewById(R.id.my_rl_emailsupport);
+        mRlBindedMinutes = (RelativeLayout) rootView.findViewById(R.id.my_rl_binded_minutes);
+        mRlHistory = (RelativeLayout) rootView.findViewById(R.id.my_rl_history);
+        mRlAbout = (RelativeLayout) rootView.findViewById(R.id.my_rl_about);
+        mTvName = (TextView) rootView.findViewById(R.id.my_tv_name);
+        mTvPhone = (TextView) rootView.findViewById(R.id.my_tv_phone);
+        mTvBalance = (TextView) rootView.findViewById(R.id.my_tv_balance);
+        mRlPersonalInfo = (RelativeLayout) rootView.findViewById(R.id.my_rl_personalinfo);
 
-        mReferralCode = (TextView)rootView.findViewById(R.id.my_tv_referralcode);
+        mReferralCode = (TextView) rootView.findViewById(R.id.my_tv_referralcode);
 
         mRlEditProfile.setOnClickListener(new EditProfileOnClickListener());
+        mRlBindedMinutes.setOnClickListener(new BindedMinutesOnClickListener());
+        mRlHistory.setOnClickListener(new HistoryOnClickListener());
         mRlAddBalance.setOnClickListener(new AddBalanceOnClickListener());
         mRlPromotion.setOnClickListener(new PromotionOnClickListener());
         mRlTellFriends.setOnClickListener(new TellFriendsOnClickListener());
@@ -210,7 +236,7 @@ public class MyFragment extends Fragment {
         mRlAbout.setOnClickListener(new AboutOnClickListener());
         mRlPersonalInfo.setOnClickListener(new RlPersonalInfoClickListener());
 
-        mBtnLogout = (Button)rootView.findViewById(R.id.my_btn_logout);
+        mBtnLogout = (Button) rootView.findViewById(R.id.my_btn_logout);
         mBtnLogout.setOnClickListener(new BtnLogoutClickListener());
 
         return rootView;
@@ -255,7 +281,7 @@ public class MyFragment extends Fragment {
         public void onFragmentInteraction(Uri uri);
     }
 
-    void refreshContent(){
+    void refreshContent() {
         String name = Chinessy.chinessy.getUser().getUserProfile().getName();
         name = name.equals("") ? Chinessy.chinessy.getUser().getEmail() : name;
         mTvName.setText(name);
@@ -270,9 +296,11 @@ public class MyFragment extends Fragment {
         MobclickAgent.onPageStart("MyFragment");
         refreshContent();
     }
+
     @Override
     public void onPause() {
         super.onPause();
         MobclickAgent.onPageEnd("MyFragment");
     }
+
 }

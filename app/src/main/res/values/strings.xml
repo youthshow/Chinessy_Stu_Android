@@ -59,7 +59,7 @@
 
     <!--reservation fragment-->
     <string name="Upcoming">Upcoming</string>
-    <string name="History">History</string>
+
     <string name="No_Upcoming_Reservations">You don\'t have any record yet.</string>
     <string name="Go_make_one_by_checking_out_the_tutors_page">Go make one by checking out the tutors page!:)</string>
     <string name="Cancel_Reservation">Cancel Reservation</string>
@@ -68,6 +68,8 @@
     <!--my fragment-->
     <string name="Edit_Profile">Edit Profile</string>
     <string name="Add_Balance">Add Balance</string>
+    <string name="Binded_Minutes">Binded Minutes</string>
+    <string name="History">History</string>
     <string name="Balance">Balance</string>
     <string name="Promotion_Code">Promotion Code</string>
     <string name="Tell_Friends">Tell Friends</string>

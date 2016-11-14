@@ -23,7 +23,6 @@ import android.widget.Toast;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.clients.InternalClient;
-import com.chinessy.chinessy.fragment.ReservationFragment;
 import com.chinessy.chinessy.handlers.SimpleFileAsyncHttpResponseHandler;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.models.CallData;
@@ -416,7 +415,7 @@ public class TutorActivity extends AppCompatActivity {
 
     void practiceNow2(){
         Chinessy.chinessy.getJusTalkHandler().justLogin();
-        ReservationFragment.setIsNeed2Refresh(true);
+        HistoryActivity.setIsNeed2Refresh(true);
         mCallData = new CallData(mTutor);
         Chinessy.chinessy.getJusTalkHandler().call(mCallData, Chinessy.chinessy.getUser().getUserProfile().getName());
     }

@@ -23,7 +23,6 @@ import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.ReservationAvoidListAdapter;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.dialog.CustomTimePickerDialog;
-import com.chinessy.chinessy.fragment.ReservationFragment;
 import com.chinessy.chinessy.models.Reservation;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.rey.material.app.DatePickerDialog;
@@ -295,7 +294,7 @@ public class TimeslotsActivity extends AppCompatActivity {
                                         public void onClick(View v) {
                                             promptDialog.cancel();
                                             mActivity.finish();
-                                            ReservationFragment.setIsNeed2Refresh(true);
+                                            HistoryActivity.setIsNeed2Refresh(true);
                                         }
                                     });
                                     promptDialog.show();

@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
     android:paddingBottom="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:background="@color/base"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:background="@android:color/white"
         android:orientation="horizontal">
 
         <com.chinessy.chinessy.Views.CustomRoundView
@@ -28,14 +27,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
-            android:background="@color/btn_main_disabled"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/btn_white_pressed">
+                android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/tv_name"
@@ -60,51 +57,50 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@color/busy_red">
+                android:layout_weight="1">
 
 
                 <ImageView
-                    android:layout_centerVertical="true"
                     android:id="@+id/iv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:src="@mipmap/location" />
 
                 <TextView
-                    android:layout_centerVertical="true"
                     android:id="@+id/tv_location"
-                    android:layout_toRightOf="@id/iv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_location"
                     android:text="xian, China"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_s" />
 
                 <ImageView
-                    android:layout_centerVertical="true"
                     android:id="@+id/iv_country"
-                    android:layout_toRightOf="@id/tv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
+                    android:layout_toRightOf="@id/tv_location"
                     android:src="@mipmap/earth" />
 
                 <TextView
-                    android:layout_centerVertical="true"
                     android:id="@+id/tv_country"
-                    android:layout_toRightOf="@id/iv_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/iv_country"
                     android:text="xian, China"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_s" />
 
                 <TextView
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:text="Online"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_s" />
@@ -128,11 +124,13 @@
             android:src="@mipmap/startpage" />
 
         <TextView
+            android:layout_alignParentRight="true"
             android:id="@+id/tv_onlive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/bg_live"
             android:text="@string/tab_live"
             android:textColor="@android:color/white"
