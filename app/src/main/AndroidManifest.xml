@@ -148,7 +148,8 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_live_room"
             android:theme="@style/FullscreenTheme" />
-        <activity android:name=".activity.HistoryActivity"></activity>
+        <activity android:name=".activity.HistoryActivity" />
+        <activity android:name=".activity.BindedTeacherListActivity"></activity>
     </application>
 
 </manifest>

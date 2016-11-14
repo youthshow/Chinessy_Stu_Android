@@ -208,4 +208,9 @@
     <string name="title_activity_live_room">LiveRoomActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+
+    <!--binded minutes-->
+    <string name="Teacher">"Teacher"</string>
+    <string name="Binding_Time">"Binding Time(remain)"</string>
 </resources>

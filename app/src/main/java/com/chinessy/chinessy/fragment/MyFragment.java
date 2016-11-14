@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chinessy.chinessy.activity.AddBalanceActivity;
+import com.chinessy.chinessy.activity.BindedTeacherListActivity;
 import com.chinessy.chinessy.activity.GuideActivity;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.activity.HistoryActivity;
@@ -124,7 +125,8 @@ public class MyFragment extends Fragment {
     private class BindedMinutesOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Toast.makeText(getContext(), "my_tv_binded_minutes", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getContext(), "my_tv_binded_minutes", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getContext(), BindedTeacherListActivity.class));
         }
     }
 

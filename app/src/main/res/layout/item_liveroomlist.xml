@@ -35,15 +35,16 @@
                 android:layout_weight="1">
 
                 <TextView
+                    android:layout_alignParentBottom="true"
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:text="Lucy 李红"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/text_size_m" />
 
                 <TextView
+                    android:layout_alignParentBottom="true"
                     android:id="@+id/tv_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -57,50 +58,54 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginRight="8dp"
                 android:layout_weight="1">
 
 
                 <ImageView
+                    android:layout_centerVertical="true"
                     android:id="@+id/iv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:src="@mipmap/location" />
 
                 <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
                     android:id="@+id/tv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/iv_location"
                     android:text="xian, China"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_s" />
 
                 <ImageView
+                    android:layout_centerVertical="true"
                     android:id="@+id/iv_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
                     android:layout_toRightOf="@id/tv_location"
                     android:src="@mipmap/earth" />
 
+
                 <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="2dp"
                     android:id="@+id/tv_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/iv_country"
                     android:text="xian, China"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_s" />
 
                 <TextView
+                    android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
                     android:text="Online"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/text_size_s" />
@@ -124,13 +129,13 @@
             android:src="@mipmap/startpage" />
 
         <TextView
+            android:layout_marginRight="8dp"
             android:layout_alignParentRight="true"
             android:id="@+id/tv_onlive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/bg_live"
             android:text="@string/tab_live"
             android:textColor="@android:color/white"
