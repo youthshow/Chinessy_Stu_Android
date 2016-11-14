@@ -2,9 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.chinessy.chinessy.fragment.MyFragment"
     android:orientation="vertical"
-    >
+    tools:context="com.chinessy.chinessy.fragment.MyFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,46 +15,43 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/my_rl_personalinfo"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
-                android:background="@mipmap/bg_me"
-                android:id="@+id/my_rl_personalinfo">
+                android:background="@mipmap/bg_me">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="30dp"
-                    android:orientation="horizontal"
                     android:layout_centerVertical="true"
-                    >
+                    android:layout_margin="30dp"
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@mipmap/me_profilepic"
-                        />
+                        android:src="@mipmap/me_profilepic" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_marginLeft="25dp"
-                        >
+                        android:orientation="vertical">
+
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/my_tv_name"
-                            android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:layout_margin="5dp"
-                            />
-                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/my_tv_phone"
-                            android:textColor="@color/white"
                             android:layout_margin="5dp"
-                            />
+                            android:textColor="@color/white"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/my_tv_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/white" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -70,183 +66,169 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginBottom="10dp">
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical">
 
                     <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:padding="5dp"
                         android:id="@+id/my_rl_editprofile"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
                         android:layout_marginBottom="1dp"
                         android:background="@drawable/btn_long_white"
-                        >
+                        android:padding="5dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
+                            android:layout_centerVertical="true"
                             android:text="@string/Edit_Profile"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
-                            />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:padding="5dp"
-                    android:id="@+id/my_rl_binded_minutes"
-                    android:background="@drawable/btn_long_white"
-                    android:layout_marginBottom="1dp"
-                    >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/text_size_l"
-                        android:text="@string/Binded_Minutes"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:textColor="@color/gray"
-                        android:textSize="@dimen/text_size_m"
-                        android:id="@+id/my_tv_binded_minutes"
-                        />
-                </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:padding="5dp"
-                        android:id="@+id/my_rl_history"
-                        android:background="@drawable/btn_long_white"
-                        android:layout_marginBottom="1dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
                             android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
-                            android:text="@string/History"
-                            />
+                            android:textSize="@dimen/text_size_l" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
-                            />
+                            android:textSize="@dimen/text_size_m" />
                     </RelativeLayout>
 
-
-
                     <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:padding="5dp"
                         android:id="@+id/my_rl_addbalance"
-                        android:background="@drawable/btn_long_white"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
                         android:layout_marginBottom="1dp"
-                        >
+                        android:background="@drawable/btn_long_white"
+                        android:padding="5dp">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
+                            android:layout_centerVertical="true"
                             android:text="@string/Add_Balance"
-                            />
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
                             android:id="@+id/my_tv_balance"
-                            />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_m" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/my_rl_binded_minutes"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="1dp"
+                        android:background="@drawable/btn_long_white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/Binded_Minutes"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
+
+                        <TextView
+                            android:id="@+id/my_tv_binded_minutes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_m" />
                     </RelativeLayout>
 
 
-
                     <RelativeLayout
+                        android:id="@+id/my_rl_history"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:padding="5dp"
+                        android:layout_marginBottom="1dp"
+                        android:background="@drawable/btn_long_white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/History"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_m" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
                         android:id="@+id/my_rl_promotion"
-                        android:background="@drawable/btn_long_white"
-                        android:layout_marginBottom="1dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
-                            android:text="@string/Promotion_Code"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
-                            android:id="@+id/my_tv_promotion"
-                            />
-                    </RelativeLayout>
-                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:padding="5dp"
-                        android:id="@+id/my_rl_tellfriends"
-                        android:background="@drawable/btn_long_white"
                         android:layout_marginBottom="1dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
-                            android:text="@string/Tell_Friends"
-                            />
+                        android:background="@drawable/btn_long_white"
+                        android:padding="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
+                            android:text="@string/Promotion_Code"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
+
+                        <TextView
+                            android:id="@+id/my_tv_promotion"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
+                            android:textSize="@dimen/text_size_m" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/my_rl_tellfriends"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="1dp"
+                        android:background="@drawable/btn_long_white"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/Tell_Friends"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
+
+                        <TextView
                             android:id="@+id/my_tv_referralcode"
-                            />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_m" />
                     </RelativeLayout>
 
                 </LinearLayout>
@@ -255,37 +237,34 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    >
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
 
                     <RelativeLayout
+                        android:id="@+id/my_rl_emailsupport"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:padding="5dp"
-                        android:id="@+id/my_rl_emailsupport"
-                        android:background="@drawable/btn_long_white"
                         android:layout_marginBottom="1dp"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
-                            android:text="@string/Email_Support"
-                            />
+                        android:background="@drawable/btn_long_white"
+                        android:padding="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
+                            android:text="@string/Email_Support"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
                             android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
-                            />
+                            android:textSize="@dimen/text_size_m" />
                     </RelativeLayout>
 
                     <!--<RelativeLayout-->
@@ -317,47 +296,43 @@
                     <!--</RelativeLayout>-->
 
                     <RelativeLayout
+                        android:id="@+id/my_rl_about"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
-                        android:padding="5dp"
-                        android:id="@+id/my_rl_about"
                         android:background="@drawable/btn_long_white"
-                        >
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/text_size_l"
-                            android:text="@string/About"
-                            />
+                        android:padding="5dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
+                            android:text="@string/About"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_size_l" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
-                            android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m"
+                            android:layout_centerVertical="true"
                             android:text="v1.62"
-                            />
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_m" />
                     </RelativeLayout>
 
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/my_btn_logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/Logout"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/btn_long_white"
-                    android:textColor="@color/main_color"
-                    android:id="@+id/my_btn_logout"
+                    android:text="@string/Logout"
                     android:textAllCaps="false"
-                    android:layout_marginBottom="20dp"
-                    >
-                </Button>
+                    android:textColor="@color/main_color"></Button>
 
             </LinearLayout>
 

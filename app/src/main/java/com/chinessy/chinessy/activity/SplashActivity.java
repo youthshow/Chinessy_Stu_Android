@@ -20,9 +20,7 @@ import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.utils.FileUtil;
 import com.chinessy.chinessy.utils.Utils;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.update.UmengDialogButtonListener;
-import com.umeng.update.UmengUpdateAgent;
-import com.umeng.update.UpdateStatus;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,6 +61,9 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash);
         // umeng force update
         mActivity = this;
+
+
+        /*
         UmengUpdateAgent.setUpdateOnlyWifi(false);
         UmengUpdateAgent.setDialogListener(new UmengDialogButtonListener() {
             @Override
@@ -76,7 +77,7 @@ public class SplashActivity extends Activity {
             }
         });
         UmengUpdateAgent.forceUpdate(SplashActivity.this);
-
+*/
 
         checkAutoLogin();
 

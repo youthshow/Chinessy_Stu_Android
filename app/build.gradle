@@ -47,8 +47,6 @@ dependencies {
     compile project(':juscall')
     compile project(':upplayer')
     compile files('src/main/libs/PayPalAndroidSDK-2.10.0.jar')
-    compile files('src/main/libs/umeng-update-v2.6.0.1.jar')
-    compile 'com.google.android.gms:play-services:9.8.0'
     compile 'com.github.rey5137:material:1.2.1'
     compile 'com.umeng.analytics:analytics:latest.integration'
     compile 'in.srain.cube:ultra-ptr:1.0.10'
