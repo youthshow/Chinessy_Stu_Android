@@ -84,6 +84,7 @@
     <string name="Receiver">Receiver</string>
     <string name="Reconnecting">Reconnecting</string>
     <string name="Redial">Redial</string>
+    <string name="Reserve">Reserve</string>
     <string name="Ringing">Ringing</string>
     <string name="Speaker">Speaker</string>
     <string name="Switch">Switch</string>
@@ -101,13 +102,9 @@
     <string name="ringtone_spring_ding_dong">spring_ding_dong.mp3</string>
     <string name="statistics">statistics</string>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        <!--
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        -->
+        
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        
     </style>
 </resources>

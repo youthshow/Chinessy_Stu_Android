@@ -44,7 +44,6 @@
     <!--home fragment-->
     <string name="Practice_Chinese_With_a_Native_Speaker">Your 1-On-1 Chinese Tutor On-demand</string>
     <string name="minutes_remaining">minutes remaining</string>
-    <string name="Practice_Now">Practice Now</string>
     <string name="One_on_One_Tutor">1-on-1 Tutor</string>
     <string name="Get_More_Minutes">Get More Minutes/Beans</string>
     <string name="Picking_up_a_tutor_for_you">Picking up a tutor for you...</string>
@@ -79,6 +78,7 @@
     <string name="dialog_logout_message">Are you sure to logout?</string>
 
     <!--personal info activity-->
+    <string name="WaitingForComfirmation">waitingforcomfirmation</string>
     <string name="Email">Email</string>
     <string name="Full_Name">Full Name</string>
     <string name="Phone_Number">Phone Number</string>

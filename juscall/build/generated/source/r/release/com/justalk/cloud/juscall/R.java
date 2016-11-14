@@ -235,35 +235,29 @@ public final class R {
         public static int Receiver=0x7f0a001f;
         public static int Reconnecting=0x7f0a0020;
         public static int Redial=0x7f0a0021;
-        public static int Ringing=0x7f0a0022;
-        public static int Speaker=0x7f0a0023;
-        public static int Switch=0x7f0a0024;
-        public static int Switched_to_voice_call=0x7f0a0025;
-        public static int Talking=0x7f0a0026;
-        public static int Temporarily_unavailable=0x7f0a0027;
-        public static int Video_call=0x7f0a0028;
-        public static int Video_incoming=0x7f0a0029;
-        public static int Video_paused=0x7f0a002a;
-        public static int Voice_call=0x7f0a002b;
-        public static int Voice_incoming=0x7f0a002c;
-        public static int Voice_only=0x7f0a002d;
-        public static int app_label_hasnot_been_installed=0x7f0a002e;
-        public static int app_name=0x7f0a002f;
-        public static int ringtone_spring_ding_dong=0x7f0a0030;
-        public static int statistics=0x7f0a0031;
+        public static int Reserve=0x7f0a0022;
+        public static int Ringing=0x7f0a0023;
+        public static int Speaker=0x7f0a0024;
+        public static int Switch=0x7f0a0025;
+        public static int Switched_to_voice_call=0x7f0a0026;
+        public static int Talking=0x7f0a0027;
+        public static int Temporarily_unavailable=0x7f0a0028;
+        public static int Video_call=0x7f0a0029;
+        public static int Video_incoming=0x7f0a002a;
+        public static int Video_paused=0x7f0a002b;
+        public static int Voice_call=0x7f0a002c;
+        public static int Voice_incoming=0x7f0a002d;
+        public static int Voice_only=0x7f0a002e;
+        public static int app_label_hasnot_been_installed=0x7f0a002f;
+        public static int app_name=0x7f0a0030;
+        public static int ringtone_spring_ding_dong=0x7f0a0031;
+        public static int statistics=0x7f0a0032;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
          */
         public static int AppBaseTheme=0x7f050000;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static int AppTheme=0x7f050001;
     }
 }

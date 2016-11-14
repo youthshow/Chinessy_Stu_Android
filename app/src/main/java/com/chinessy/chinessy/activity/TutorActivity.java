@@ -67,15 +67,21 @@ public class TutorActivity extends AppCompatActivity {
     ImageView mIvStar3;
     ImageView mIvStar4;
 //    ImageView mIvStatus;
-
-    Button mBtnPracticeNow;
+//todo +++++++++++++++++++++++++
+//    Button mBtnPracticeNow;
+    //todo +++++++++++++++++++++++++
 //    Button mBtnScheduleaReservation;
+
+    private TextView mTvRemainTime;
+    private Button mBtnResrve;
+    private Button mBtnLive;
 
     Handler mHandler = new TutorHandler();
 
     boolean mPracticeNow = false;
     int mListPosition = -1;
     CallData mCallData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,47 +95,61 @@ public class TutorActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        mTutor = (User)intent.getSerializableExtra("tutor");
+        mTutor = (User) intent.getSerializableExtra("tutor");
         mPracticeNow = intent.getBooleanExtra("practice_now", false);
         mListPosition = intent.getIntExtra("position", -1);
 
-        mRlProfile = (RelativeLayout)findViewById(R.id.tutor_rl_profile);
-        mTvName = (TextView)findViewById(R.id.tutor_tv_name);
-        mTvStatus = (TextView)findViewById(R.id.tutor_tv_status);
-        mTvIntroduction = (TextView)findViewById(R.id.tutor_tv_aboutme);
-        mTvEducation = (TextView)findViewById(R.id.tutor_tv_education);
-        mTvSpokenLanguages = (TextView)findViewById(R.id.tutor_tv_spokenlanguages);
-        mTvAddress = (TextView)findViewById(R.id.tutor_tv_address);
-        mTvScore = (TextView)findViewById(R.id.tutor_tv_score);
-        mTvServedTime = (TextView)findViewById(R.id.tutor_tv_servedtime);
-        mIvHeadImg = (ImageView)findViewById(R.id.tutor_iv_headimg);
-        mIvProfileBg = (ImageView)findViewById(R.id.tutor_iv_profilebg);
-        mIvStar0 = (ImageView)findViewById(R.id.tutor_iv_star0);
-        mIvStar1 = (ImageView)findViewById(R.id.tutor_iv_star1);
-        mIvStar2 = (ImageView)findViewById(R.id.tutor_iv_star2);
-        mIvStar3 = (ImageView)findViewById(R.id.tutor_iv_star3);
-        mIvStar4 = (ImageView)findViewById(R.id.tutor_iv_star4);
-
-        mBtnPracticeNow = (Button)findViewById(R.id.tutor_btn_practicenow);
-
-        mBtnPracticeNow.setOnClickListener(new BtnPracticeNowClickListener());
-
+        mRlProfile = (RelativeLayout) findViewById(R.id.tutor_rl_profile);
+        mTvName = (TextView) findViewById(R.id.tutor_tv_name);
+        mTvStatus = (TextView) findViewById(R.id.tutor_tv_status);
+        mTvIntroduction = (TextView) findViewById(R.id.tutor_tv_aboutme);
+        mTvEducation = (TextView) findViewById(R.id.tutor_tv_education);
+        mTvSpokenLanguages = (TextView) findViewById(R.id.tutor_tv_spokenlanguages);
+        mTvAddress = (TextView) findViewById(R.id.tutor_tv_address);
+        mTvScore = (TextView) findViewById(R.id.tutor_tv_score);
+        mTvServedTime = (TextView) findViewById(R.id.tutor_tv_servedtime);
+        mIvHeadImg = (ImageView) findViewById(R.id.tutor_iv_headimg);
+        mIvProfileBg = (ImageView) findViewById(R.id.tutor_iv_profilebg);
+        mIvStar0 = (ImageView) findViewById(R.id.tutor_iv_star0);
+        mIvStar1 = (ImageView) findViewById(R.id.tutor_iv_star1);
+        mIvStar2 = (ImageView) findViewById(R.id.tutor_iv_star2);
+        mIvStar3 = (ImageView) findViewById(R.id.tutor_iv_star3);
+        mIvStar4 = (ImageView) findViewById(R.id.tutor_iv_star4);
         fillTutor(mTutor);
+//todo +++++++++++++++++++++++++
+
+        mTvRemainTime = (TextView) findViewById(R.id.tv_remain_time);
+        mBtnResrve = (Button) findViewById(R.id.tutor_btn_resrve);
+        mBtnLive = (Button) findViewById(R.id.tutor_btn_live);
+
+
+
+
+
+
+  /*      mBtnPracticeNow = (Button)findViewById(R.id.tutor_btn_practicenow);
+
+         mBtnPracticeNow.setOnClickListener(new BtnPracticeNowClickListener());
+
+
 
         if(mPracticeNow){
             mBtnPracticeNow.performClick();
         }
+
+        */
+        //todo +++++++++++++++++++++++++
     }
 
-    void fillTutor(final User tutor){
+    void fillTutor(final User tutor) {
         mTvName.setText(tutor.getUserProfile().getName());
         changeTutorStatus(tutor, tutor.getUserProfile().getStatus());
         mTvIntroduction.setText(tutor.getUserProfile().getIntroduction());
         mTvEducation.setText(tutor.getUserProfile().getEducation());
         mTvAddress.setText(tutor.getUserProfile().getCountry());
-        mTvScore.setText(tutor.getUserProfile().getScore()+"");
+        mTvScore.setText(tutor.getUserProfile().getScore() + "");
         long minutes = tutor.getUserProfile().getServedMinutes();
-        mTvServedTime.setText(((int)Math.floor(minutes/60))+"h"+minutes%60+"mins");
+        mTvServedTime.setText(((int) Math.floor(minutes / 60)) + "h" + minutes % 60 + "mins");
         mTvSpokenLanguages.setText(tutor.getUserProfile().getSpokenLanguages());
         fillScore(tutor);
 
@@ -137,11 +157,11 @@ public class TutorActivity extends AppCompatActivity {
 //            mBtnPracticeNow.setEnabled(false);
 //        }
 
-        if(tutor.getUserProfile().getHeadImg().getBitmap() != null){
+        if (tutor.getUserProfile().getHeadImg().getBitmap() != null) {
             mIvHeadImg.setImageBitmap(tutor.getUserProfile().getHeadImg().getBitmap());
             blurHeadImage(tutor);
-        }else if(!tutor.getUserProfile().getHeadImg().getKey().equals("")){
-            InternalClient.getFile(tutor.getUserProfile().getHeadImg().getKey(), new SimpleFileAsyncHttpResponseHandler(mActivity){
+        } else if (!tutor.getUserProfile().getHeadImg().getKey().equals("")) {
+            InternalClient.getFile(tutor.getUserProfile().getHeadImg().getKey(), new SimpleFileAsyncHttpResponseHandler(mActivity) {
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, File file) {
                     super.onFailure(statusCode, headers, throwable, file);
@@ -159,45 +179,45 @@ public class TutorActivity extends AppCompatActivity {
         }
     }
 
-    void fillScore(final User tutor){
+    void fillScore(final User tutor) {
         float score = tutor.getUserProfile().getScore();
-        if(score<0.25){
+        if (score < 0.25) {
             //do nothing
-        }else if(score>=0.25 && score<0.75){
+        } else if (score >= 0.25 && score < 0.75) {
             mIvStar0.setImageResource(R.mipmap.star_half);
-        }else if(score>=0.75 && score<1.25){
+        } else if (score >= 0.75 && score < 1.25) {
             mIvStar0.setImageResource(R.mipmap.star_on);
-        }else if(score>=1.25 && score<1.75){
+        } else if (score >= 1.25 && score < 1.75) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_half);
-        }else if(score>=1.75 && score<2.25){
+        } else if (score >= 1.75 && score < 2.25) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
-        }else if(score>=2.25 && score<2.75){
+        } else if (score >= 2.25 && score < 2.75) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
             mIvStar2.setImageResource(R.mipmap.star_half);
-        }else if(score>=2.75 && score<3.25){
+        } else if (score >= 2.75 && score < 3.25) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
             mIvStar2.setImageResource(R.mipmap.star_on);
-        }else if(score>=3.25 && score<3.75){
+        } else if (score >= 3.25 && score < 3.75) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
             mIvStar2.setImageResource(R.mipmap.star_on);
             mIvStar3.setImageResource(R.mipmap.star_half);
-        }else if(score>=3.75 && score<4.25){
+        } else if (score >= 3.75 && score < 4.25) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
             mIvStar2.setImageResource(R.mipmap.star_on);
             mIvStar3.setImageResource(R.mipmap.star_on);
-        }else if(score>=4.25 && score<4.75){
+        } else if (score >= 4.25 && score < 4.75) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
             mIvStar2.setImageResource(R.mipmap.star_on);
             mIvStar3.setImageResource(R.mipmap.star_on);
             mIvStar4.setImageResource(R.mipmap.star_half);
-        }else if(score>=4.75){
+        } else if (score >= 4.75) {
             mIvStar0.setImageResource(R.mipmap.star_on);
             mIvStar1.setImageResource(R.mipmap.star_on);
             mIvStar2.setImageResource(R.mipmap.star_on);
@@ -206,7 +226,7 @@ public class TutorActivity extends AppCompatActivity {
         }
     }
 
-    void blurHeadImage(User tutor){
+    void blurHeadImage(User tutor) {
         Bitmap bitmap = tutor.getUserProfile().getHeadImg().getBitmap(true);
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
@@ -219,19 +239,27 @@ public class TutorActivity extends AppCompatActivity {
         mIvProfileBg.setImageBitmap(resizedBmp);
     }
 
-    void changeTutorStatus(User tutor, String status){
+    void changeTutorStatus(User tutor, String status) {
         tutor.getUserProfile().setStatus(status);
 
         mTvStatus.setText(Utils.captureName(status));
-        if(status.equals(User.STATUS_AVAILABLE)){
+        if (status.equals(User.STATUS_AVAILABLE)) {
             mTvStatus.setBackgroundResource(R.color.main_color);
-            mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_main);
-        }else if(status.equals(User.STATUS_BUSY)){
+
+            //todo +++++++++++++++++++++++++
+            //  mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_main);
+
+            //todo +++++++++++++++++++++++++
+        } else if (status.equals(User.STATUS_BUSY)) {
             mTvStatus.setBackgroundResource(R.color.busy_red);
-            mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_disable);
-        }else if(status.equals(User.STATUS_OFFLINE)){
+            //todo +++++++++++++++++++++++++
+//            mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_disable);
+            //todo +++++++++++++++++++++++++
+        } else if (status.equals(User.STATUS_OFFLINE)) {
             mTvStatus.setBackgroundResource(R.color.gray);
-            mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_disable);
+            //todo +++++++++++++++++++++++++
+//            mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_disable);
+            //todo +++++++++++++++++++++++++
         }
     }
 
@@ -245,10 +273,10 @@ public class TutorActivity extends AppCompatActivity {
         return true;
     }
 
-    void setFavouritesStatus(MenuItem miFavourites){
-        if(mTutor.isFavourites()){
+    void setFavouritesStatus(MenuItem miFavourites) {
+        if (mTutor.isFavourites()) {
             miFavourites.setIcon(R.mipmap.profile_starred);
-        }else{
+        } else {
             miFavourites.setIcon(R.mipmap.profile_unstarred);
         }
     }
@@ -265,24 +293,24 @@ public class TutorActivity extends AppCompatActivity {
 //            return true;
 //        }
 
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             Intent intent = new Intent();
             intent.putExtra("is_favourites", mTutor.isFavourites());
             intent.putExtra("position", mListPosition);
             TutorActivity.this.setResult(RESULT_OK, intent);
             TutorActivity.this.finish();
-        }else if(id == R.id.tutor_menu_favourite){
+        } else if (id == R.id.tutor_menu_favourite) {
             JSONObject jsonObject = new JSONObject();
             try {
                 jsonObject.put("access_token", Chinessy.chinessy.getUser().getAccessToken());
                 jsonObject.put("tutor_id", mTutor.getId());
-                if(mTutor.isFavourites()){
-                    InternalClient.postJson(mActivity, "internal/user/cancel_favourite_tutor", jsonObject, new SimpleJsonHttpResponseHandler(){
+                if (mTutor.isFavourites()) {
+                    InternalClient.postJson(mActivity, "internal/user/cancel_favourite_tutor", jsonObject, new SimpleJsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             super.onSuccess(statusCode, headers, response);
                             try {
-                                switch (response.getInt("code")){
+                                switch (response.getInt("code")) {
                                     case 10000:
                                         mTutor.setIsFavourites(false);
                                         setFavouritesStatus(item);
@@ -297,13 +325,13 @@ public class TutorActivity extends AppCompatActivity {
                             }
                         }
                     });
-                }else{
-                    InternalClient.postJson(mActivity, "internal/user/add_favourite_tutor", jsonObject, new SimpleJsonHttpResponseHandler(){
+                } else {
+                    InternalClient.postJson(mActivity, "internal/user/add_favourite_tutor", jsonObject, new SimpleJsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             super.onSuccess(statusCode, headers, response);
                             try {
-                                switch (response.getInt("code")){
+                                switch (response.getInt("code")) {
                                     case 10000:
                                         mTutor.setIsFavourites(true);
                                         setFavouritesStatus(item);
@@ -327,25 +355,26 @@ public class TutorActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    class TutorHandler extends Handler{
+    class TutorHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case HANDLER_HEAD_IMG_DOWNLOADED:
                     Bitmap bitmap = mTutor.getUserProfile().getHeadImg().getBitmap();
-                    if(bitmap != null){
+                    if (bitmap != null) {
                         mIvHeadImg.setImageBitmap(bitmap);
                         blurHeadImage(mTutor);
-                    }else{
+                    } else {
                         Log.w(tag, "image still null after loading");
                     }
                     break;
             }
         }
     }
-    void changeButtonMode(int status){
-        switch (status){
+
+    void changeButtonMode(int status) {
+        switch (status) {
             case 0:
 //                final Timer timer = new Timer();
 //                final TimerTask timerTask = new TimerTask() {
@@ -357,24 +386,29 @@ public class TutorActivity extends AppCompatActivity {
 //                    }
 //                };
 //                timer.schedule(timerTask, 1000);
-                mBtnPracticeNow.setText(R.string.Practice_Now);
-                mBtnPracticeNow.setEnabled(true);
+                //todo +++++++++++++++++++++++++
+//                mBtnPracticeNow.setText(R.string.Practice_Now);
+//                mBtnPracticeNow.setEnabled(true);
+                //todo +++++++++++++++++++++++++
                 break;
             case 1:
-                mBtnPracticeNow.setText(R.string.Connecting);
-                mBtnPracticeNow.setEnabled(false);
-                mBtnPracticeNow.setTextColor(Color.WHITE);
+                //todo +++++++++++++++++++++++++
+//                mBtnPracticeNow.setText(R.string.Connecting);
+//                mBtnPracticeNow.setEnabled(false);
+//                mBtnPracticeNow.setTextColor(Color.WHITE);
+                //todo +++++++++++++++++++++++++
                 break;
         }
     }
-    class BtnPracticeNowClickListener implements View.OnClickListener{
+
+    class BtnPracticeNowClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            if(mTutor.getUserProfile().getStatus().equals(User.STATUS_AVAILABLE)){
+            if (mTutor.getUserProfile().getStatus().equals(User.STATUS_AVAILABLE)) {
                 changeButtonMode(1);
                 UserProfile userProfile = Chinessy.chinessy.getUser().getUserProfile();
                 userProfile.refreshBalance(mActivity, new AfterRefreshBalance());
-            }else{
+            } else {
                 final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
                 simpleDialog.title(R.string.practice_now_tutor_unavailable_title);
                 simpleDialog.message(R.string.practice_now_tutor_unavailable_message);
@@ -389,12 +423,12 @@ public class TutorActivity extends AppCompatActivity {
             }
         }
 
-        class AfterRefreshBalance implements UserProfile.IAfterRefreshBalance{
+        class AfterRefreshBalance implements UserProfile.IAfterRefreshBalance {
 
             @Override
             public void execute() {
                 changeButtonMode(0);
-                if(Chinessy.chinessy.getUser().getUserProfile().getBalance() <= 0){
+                if (Chinessy.chinessy.getUser().getUserProfile().getBalance() <= 0) {
                     final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
                     simpleDialog.title(R.string.practice_now_need_to_pay_title);
                     simpleDialog.message(R.string.practice_now_need_to_pay_message);
@@ -406,22 +440,22 @@ public class TutorActivity extends AppCompatActivity {
                         }
                     });
                     simpleDialog.show();
-                }else{
+                } else {
                     practiceNow2();
                 }
             }
         }
     }
 
-    void practiceNow2(){
+    void practiceNow2() {
         Chinessy.chinessy.getJusTalkHandler().justLogin();
         HistoryActivity.setIsNeed2Refresh(true);
         mCallData = new CallData(mTutor);
         Chinessy.chinessy.getJusTalkHandler().call(mCallData, Chinessy.chinessy.getUser().getUserProfile().getName());
     }
 
-    void onCallFinished(){
-        if(mCallData!=null && mCallData.isConnected()){
+    void onCallFinished() {
+        if (mCallData != null && mCallData.isConnected()) {
             Intent intent = new Intent();
             intent.setClass(mActivity, RatingsActivity.class);
             intent.putExtra("call_data", mCallData);
