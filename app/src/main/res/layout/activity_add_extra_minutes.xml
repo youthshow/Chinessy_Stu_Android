@@ -124,7 +124,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/main_green"
+                    android:textColor="@color/main_color"
                     android:text="@string/Have_a_promo_code"
                     android:id="@+id/addextraminutes_tv_addpromocode"
                     android:textStyle="bold"
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/Buy"
-                android:textColor="@color/main_green"
+                android:textColor="@color/main_color"
                 android:background="@drawable/btn_long_white"
                 android:layout_marginTop="15dp"
                 android:id="@+id/addextraminutes_btn_buy"

@@ -225,7 +225,7 @@ public class TutorActivity extends AppCompatActivity {
 
         mTvStatus.setText(Utils.captureName(status));
         if(status.equals(User.STATUS_AVAILABLE)){
-            mTvStatus.setBackgroundResource(R.color.main_green);
+            mTvStatus.setBackgroundResource(R.color.main_color);
             mBtnPracticeNow.setBackgroundResource(R.drawable.btn_long_main);
         }else if(status.equals(User.STATUS_BUSY)){
             mTvStatus.setBackgroundResource(R.color.busy_red);

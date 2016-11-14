@@ -18,7 +18,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/main_green"
+                android:background="@color/main_color"
                 android:orientation="vertical"
                 android:paddingTop="10dp"
                 android:paddingBottom="15dp">
@@ -81,7 +81,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/balance_tv_balancepackage"
-                            android:textColor="@color/main_green"
+                            android:textColor="@color/main_color"
                             android:layout_gravity="right"
                             />
                         <TextView
@@ -125,7 +125,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/balance_tv_balanceextra"
-                            android:textColor="@color/main_green"
+                            android:textColor="@color/main_color"
                             android:layout_gravity="right"
                             />
                         <TextView
@@ -287,7 +287,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/main_green"
+                        android:textColor="@color/main_color"
                         android:text="@string/Have_a_promo_code"
                         android:id="@+id/balance_tv_addpromocode"
                         android:textStyle="bold"
@@ -299,7 +299,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/Buy"
-                    android:textColor="@color/main_green"
+                    android:textColor="@color/main_color"
                     android:background="@drawable/btn_long_white"
                     android:layout_marginTop="15dp"
                     android:id="@+id/balance_btn_buy"
