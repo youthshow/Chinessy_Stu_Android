@@ -1,23 +1,23 @@
 [
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_switch_disabled.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_switch_disabled.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_camera_off_selected.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_camera_off_selected.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_switch_disabled.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_switch_disabled.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_end_normal.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_end_normal.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_signal_0.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_signal_0.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_answer_camera_off.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_answer_camera_off.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_signal_0.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_signal_0.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_answer_video.png",
@@ -28,12 +28,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_signal_5.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_camera_front_disabled.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_video_camera_front_disabled.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_voice_only_normal.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_video_voice_only_normal.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_camera_front_disabled.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_video_camera_front_disabled.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_camera_rear_disabled.png",
@@ -44,12 +44,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_audio_speaker_selected.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_audio_headset_normal.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_audio_headset_normal.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_decline.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_decline.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_audio_headset_normal.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_audio_headset_normal.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_speaker_normal.png",
@@ -60,12 +60,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_audio_receiver_normal.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_camera_rear_normal.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_video_camera_rear_normal.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_camera_on_normal.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_camera_on_normal.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_camera_rear_normal.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_video_camera_rear_normal.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_statistic.png",
@@ -208,12 +208,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_redial_video_disabled.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_camera_on_disabled.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_camera_on_disabled.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_audio_speaker_normal.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_audio_speaker_normal.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_camera_on_disabled.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/bundles/debug/res/drawable-xhdpi-v4/call_camera_on_disabled.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/androidTest/debug/drawable-xhdpi-v4/call_video_camera_off_disabled.png",
