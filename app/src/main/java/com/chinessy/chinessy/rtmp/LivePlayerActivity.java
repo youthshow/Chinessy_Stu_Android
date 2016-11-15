@@ -94,7 +94,7 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
         }
 
         mPlayerView = (TXCloudVideoView) view.findViewById(R.id.video_view);
-         mLoadingView = (ProgressBar) view.findViewById(R.id.progressbar);
+        mLoadingView = (ProgressBar) view.findViewById(R.id.progressbar);
 
 
         mVideoPlay = false;
@@ -401,53 +401,53 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
 //        }
 //    }
 
-    private boolean checkPlayUrl(String playUrl) {
-        playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-        if (TextUtils.isEmpty(playUrl) || (!playUrl.startsWith("http://") && !playUrl.startsWith("https://") && !playUrl.startsWith("rtmp://"))) {
-            Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，目前仅支持rtmp,flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-
-        switch (mActivityType) {
-            case RTMPBaseActivity.ACTIVITY_TYPE_LIVE_PLAY: {
-                if (playUrl.startsWith("rtmp://")) {
-                    mPlayType = TXLivePlayer.PLAY_TYPE_LIVE_RTMP;
-                } else if ((playUrl.startsWith("http://") || playUrl.startsWith("https://")) && playUrl.contains(".flv")) {
-                    mPlayType = TXLivePlayer.PLAY_TYPE_LIVE_FLV;
-                } else {
-                    Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，直播目前仅支持rtmp,flv播放方式!", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
-            }
-            break;
-            case RTMPBaseActivity.ACTIVITY_TYPE_VOD_PLAY: {
-                if (playUrl.startsWith("http://") || playUrl.startsWith("https://")) {
-                    if (playUrl.contains(".flv")) {
-                        mPlayType = TXLivePlayer.PLAY_TYPE_VOD_FLV;
-                    } else if (playUrl.contains(".m3u8")) {
-                        mPlayType = TXLivePlayer.PLAY_TYPE_VOD_HLS;
-                    } else if (playUrl.toLowerCase().contains(".mp4")) {
-                        mPlayType = TXLivePlayer.PLAY_TYPE_VOD_MP4;
-                    } else {
-                        Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，点播目前仅支持flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
-                        return false;
-                    }
-                } else {
-                    Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，点播目前仅支持flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
-            }
-            break;
-            default:
-                Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，目前仅支持rtmp,flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
-                return false;
-        }
-        return true;
-    }
+//    private boolean checkPlayUrl(String playUrl) {
+//        //playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+//        if (TextUtils.isEmpty(playUrl) || (!playUrl.startsWith("http://") && !playUrl.startsWith("https://") && !playUrl.startsWith("rtmp://"))) {
+//            Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，目前仅支持rtmp,flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
+//            return false;
+//        }
+//
+//        switch (mActivityType) {
+//            case RTMPBaseActivity.ACTIVITY_TYPE_LIVE_PLAY: {
+//                if (playUrl.startsWith("rtmp://")) {
+//                    mPlayType = TXLivePlayer.PLAY_TYPE_LIVE_RTMP;
+//                } else if ((playUrl.startsWith("http://") || playUrl.startsWith("https://")) && playUrl.contains(".flv")) {
+//                    mPlayType = TXLivePlayer.PLAY_TYPE_LIVE_FLV;
+//                } else {
+//                    Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，直播目前仅支持rtmp,flv播放方式!", Toast.LENGTH_SHORT).show();
+//                    return false;
+//                }
+//            }
+//            break;
+//            case RTMPBaseActivity.ACTIVITY_TYPE_VOD_PLAY: {
+//                if (playUrl.startsWith("http://") || playUrl.startsWith("https://")) {
+//                    if (playUrl.contains(".flv")) {
+//                        mPlayType = TXLivePlayer.PLAY_TYPE_VOD_FLV;
+//                    } else if (playUrl.contains(".m3u8")) {
+//                        mPlayType = TXLivePlayer.PLAY_TYPE_VOD_HLS;
+//                    } else if (playUrl.toLowerCase().contains(".mp4")) {
+//                        mPlayType = TXLivePlayer.PLAY_TYPE_VOD_MP4;
+//                    } else {
+//                        Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，点播目前仅支持flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
+//                        return false;
+//                    }
+//                } else {
+//                    Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，点播目前仅支持flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
+//                    return false;
+//                }
+//            }
+//            break;
+//            default:
+//                Toast.makeText(getActivity().getApplicationContext(), "播放地址不合法，目前仅支持rtmp,flv,hls,mp4播放方式!", Toast.LENGTH_SHORT).show();
+//                return false;
+//        }
+//        return true;
+//    }
 
     private boolean startPlayRtmp() {
-        String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-
+        //String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+        String playUrl = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
 //        if (!checkPlayUrl(playUrl)) {
 //            return false;
 //        }
