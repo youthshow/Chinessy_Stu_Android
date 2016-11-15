@@ -1,59 +1,47 @@
 package com.chinessy.chinessy.activity;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.chinessy.chinessy.R;
-
+import com.chinessy.chinessy.rtmp.LivePlayerActivity;
+import com.tencent.rtmp.ITXLivePlayListener;
+import com.tencent.rtmp.TXLiveConstants;
+import com.tencent.rtmp.TXLivePlayConfig;
+import com.tencent.rtmp.TXLivePlayer;
+import com.tencent.rtmp.ui.TXCloudVideoView;
 
 public class LiveRoomActivity extends AppCompatActivity {
-
-
-//    String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-    String path = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
-
+    private FrameLayout frameLayout;
+    LivePlayerActivity mPlayerVodFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_live_room);
-
-
         SystemSetting();
-/*
-        upVideoView = (UpVideoView) findViewById(R.id.uvv_vido);
-        // todo 设置背景图片
-        //upVideoView.setImage(R.mipmap.startpage);
-        //设置播放地址
-        upVideoView.setVideoPath(path);
-        //开始播放
-        upVideoView.start();
-*/
-
+        frameLayout = (FrameLayout) findViewById(R.id.content_layout);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        mPlayerVodFragment = new LivePlayerActivity();
+        transaction.replace(R.id.content_layout, mPlayerVodFragment);
+        transaction.commit();
         findViewById(R.id.tv_exit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-          //      upVideoView.releaseWithoutStop();
                 finish();
             }
         });
-
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-  //      upVideoView.setVideoPath(path);
-        // 重新开始播放器
- //       upVideoView.resume();
-  //      upVideoView.start();
-
     }
 
     private void SystemSetting() {
@@ -62,9 +50,6 @@ public class LiveRoomActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
     }
-
 }

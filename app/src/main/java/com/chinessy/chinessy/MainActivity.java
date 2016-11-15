@@ -77,6 +77,7 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
         if (TextUtils.isEmpty(showFragment)) {
             showFragment = "HomeFragment";
         }
+
         resetTabBtn();
         switch (showFragment) {
             case "HomeFragment":
