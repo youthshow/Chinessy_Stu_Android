@@ -74,31 +74,33 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
         int showFragmentID = 0;
         String showFragment = getIntent().getStringExtra("showFragment");
 
-        if (!TextUtils.isEmpty(showFragment)) {
-            resetTabBtn();
-            switch (showFragment) {
-                case "HomeFragment":
-                    showFragmentID = 0;
-                    mTvHome.setTextColor(getResources().getColor(R.color.main_color));
-                    mIvHome.setImageResource(R.mipmap.tabicon_home_on);
-                    break;
-                case "LiveRoomListFragment":
-                    showFragmentID = 1;
-                    mTvLive.setTextColor((getResources().getColor((R.color.main_color))));
-                    mIvLive.setImageResource(R.mipmap.tabicon_live_on);
-                    break;
-                case "TutorsFragment":
-                    showFragmentID = 2;
-                    mTvTutors.setTextColor(getResources().getColor(R.color.main_color));
-                    mIvTutors.setImageResource(R.mipmap.tabicon_tutor_on);
-                    break;
-                case "MyFragment":
-                    showFragmentID = 3;
-                    mTvMe.setTextColor(getResources().getColor(R.color.main_color));
-                    mIvMe.setImageResource(R.mipmap.tabicon_me_on);
-                    break;
-            }
+        if (TextUtils.isEmpty(showFragment)) {
+            showFragment = "HomeFragment";
         }
+        resetTabBtn();
+        switch (showFragment) {
+            case "HomeFragment":
+                showFragmentID = 0;
+                mTvHome.setTextColor(getResources().getColor(R.color.main_color));
+                mIvHome.setImageResource(R.mipmap.tabicon_home_on);
+                break;
+            case "LiveRoomListFragment":
+                showFragmentID = 1;
+                mTvLive.setTextColor((getResources().getColor((R.color.main_color))));
+                mIvLive.setImageResource(R.mipmap.tabicon_live_on);
+                break;
+            case "TutorsFragment":
+                showFragmentID = 2;
+                mTvTutors.setTextColor(getResources().getColor(R.color.main_color));
+                mIvTutors.setImageResource(R.mipmap.tabicon_tutor_on);
+                break;
+            case "MyFragment":
+                showFragmentID = 3;
+                mTvMe.setTextColor(getResources().getColor(R.color.main_color));
+                mIvMe.setImageResource(R.mipmap.tabicon_me_on);
+                break;
+        }
+
         mViewPager.setCurrentItem(showFragmentID);
 
         mTabBtnHome.setOnClickListener(new TabClickListener());

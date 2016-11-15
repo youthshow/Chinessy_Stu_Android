@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.WindowManager;
 
 import com.chinessy.chinessy.R;
-import com.upyun.upplayer.widget.UpVideoView;
 
 
 public class LiveRoomActivity extends AppCompatActivity {
 
-    private UpVideoView upVideoView;
 
-    String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+//    String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    String path = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class LiveRoomActivity extends AppCompatActivity {
 
 
         SystemSetting();
-
+/*
         upVideoView = (UpVideoView) findViewById(R.id.uvv_vido);
         // todo 设置背景图片
         //upVideoView.setImage(R.mipmap.startpage);
@@ -32,12 +32,12 @@ public class LiveRoomActivity extends AppCompatActivity {
         upVideoView.setVideoPath(path);
         //开始播放
         upVideoView.start();
-
+*/
 
         findViewById(R.id.tv_exit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                upVideoView.releaseWithoutStop();
+          //      upVideoView.releaseWithoutStop();
                 finish();
             }
         });
@@ -49,10 +49,10 @@ public class LiveRoomActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        upVideoView.setVideoPath(path);
+  //      upVideoView.setVideoPath(path);
         // 重新开始播放器
-        upVideoView.resume();
-        upVideoView.start();
+ //       upVideoView.resume();
+  //      upVideoView.start();
 
     }
 

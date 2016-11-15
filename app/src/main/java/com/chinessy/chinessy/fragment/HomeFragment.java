@@ -6,31 +6,21 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.chinessy.chinessy.MainActivity;
-import com.chinessy.chinessy.activity.AddBalanceActivity;
 import com.chinessy.chinessy.Chinessy;
+import com.chinessy.chinessy.MainActivity;
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.activity.TutorActivity;
-import com.chinessy.chinessy.clients.InternalClient;
+import com.chinessy.chinessy.activity.AddBalanceActivity;
 import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.models.UserBalancePackage;
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.rey.material.app.SimpleDialog;
 import com.umeng.analytics.MobclickAgent;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
-
-import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.

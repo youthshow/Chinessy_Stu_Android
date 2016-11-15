@@ -45,7 +45,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':countryPicker')
     compile project(':juscall')
-    compile project(':upplayer')
     compile files('src/main/libs/PayPalAndroidSDK-2.10.0.jar')
     compile 'com.github.rey5137:material:1.2.1'
     compile 'com.umeng.analytics:analytics:latest.integration'
