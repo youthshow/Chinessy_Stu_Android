@@ -1,6 +1,7 @@
 package com.chinessy.chinessy.clients;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.chinessy.chinessy.Config;
 import com.loopj.android.http.AsyncHttpClient;
@@ -77,5 +78,18 @@ public class InternalClient {
     }
     public static String getBaseStaticUrl(String key){
         return BASE_STATIC_URL + key;
+    }
+
+    //重载 postInternalJson  区别 HK公司服务器 请求网站不一样
+    public static void HKpostInternalJson(Context context, String shortUrl, JSONObject jsonParams, AsyncHttpResponseHandler responseHandler) {
+        StringEntity entity = null;
+        try {
+            entity = new StringEntity(jsonParams.toString());
+            entity.setContentType(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
+            client.post(context, ConstValue.BasicUrl + shortUrl, entity, "application/json", responseHandler);
+            Log.d("HK", ConstValue.BasicUrl + shortUrl);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 }

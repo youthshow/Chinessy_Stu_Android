@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,6 +75,13 @@ public class HistoryActivity extends AppCompatActivity {
         // Inflate the layout for this fragment
         mActivity = this;
         setContentView(R.layout.fragment_reservation);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.black));
+        actionBar.setTitle(R.string.History);
+        actionBar.setElevation(0f);
+        actionBar.setDisplayHomeAsUpEnabled(true);// 设置back按钮是否可见
+
 
         mPtrFrameLayout = (PtrFrameLayout) findViewById(R.id.tutors_pf_layout);
         // header

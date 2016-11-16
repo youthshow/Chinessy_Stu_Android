@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.Views.CustomRoundView;
+import com.chinessy.chinessy.rtmp.CustomRoundView;
 
 import java.util.List;
 

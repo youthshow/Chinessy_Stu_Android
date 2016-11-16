@@ -14,7 +14,7 @@
         android:background="@android:color/white"
         android:orientation="horizontal">
 
-        <com.chinessy.chinessy.Views.CustomRoundView
+        <com.chinessy.chinessy.rtmp.CustomRoundView
             android:id="@+id/roundview_avatar"
             android:layout_width="50dp"
             android:layout_height="50dp"

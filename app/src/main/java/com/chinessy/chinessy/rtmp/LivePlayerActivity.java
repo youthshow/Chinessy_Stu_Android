@@ -21,11 +21,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chinessy.chinessy.R;
+import com.chinessy.chinessy.clients.ConstValue;
+import com.chinessy.chinessy.clients.InternalClient;
+import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.tencent.rtmp.ITXLivePlayListener;
 import com.tencent.rtmp.TXLiveConstants;
 import com.tencent.rtmp.TXLivePlayConfig;
 import com.tencent.rtmp.TXLivePlayer;
 import com.tencent.rtmp.ui.TXCloudVideoView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import cz.msebera.android.httpclient.Header;
 
 public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayListener {
     private static final String TAG = LivePlayerActivity.class.getSimpleName();
@@ -89,6 +97,7 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
         View view = inflater.inflate(R.layout.activity_play, null);
 //        initView(view);
 
+        webRequest();
         if (mLivePlayer == null) {
             mLivePlayer = new TXLivePlayer(getActivity());
         }
@@ -446,8 +455,8 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
 //    }
 
     private boolean startPlayRtmp() {
-        //String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-        String playUrl = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
+        String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+        //String playUrl = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
 //        if (!checkPlayUrl(playUrl)) {
 //            return false;
 //        }
@@ -619,5 +628,40 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
         if (mLoadingView.getVisibility() == View.VISIBLE) {
             mLoadingView.setVisibility(View.GONE);
         }
+    }
+
+    private void webRequest() {
+        JSONObject jsonParams = new JSONObject();
+
+        //todo 修改房间号
+        try {
+            jsonParams.put("roomId", "001");
+            //  jsonParams.put("Key", Key);
+            //  jsonParams.put("Time", "2016-12-12 12:00:00");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        InternalClient.HKpostInternalJson(getContext(), ConstValue.getPlayUrl, jsonParams, new SimpleJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                super.onSuccess(statusCode, headers, responseString);
+                Log.d("PostPost", responseString + "");
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("PostPost", responseString + "-----onFailure");
+            }
+        });
+
     }
 }

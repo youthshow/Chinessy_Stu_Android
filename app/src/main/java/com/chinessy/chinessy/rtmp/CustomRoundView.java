@@ -1,4 +1,4 @@
-package com.chinessy.chinessy.Views;
+package com.chinessy.chinessy.rtmp;
 
 import android.content.Context;
 import android.content.res.TypedArray;
