@@ -1,6 +1,7 @@
 package com.chinessy.chinessy.activity;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,6 +25,9 @@ public class BindedTeacherListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binded_teacherlist);
+
+        SystemSetting();
+
         mRv_bindedtecherlists = (RecyclerView) findViewById(R.id.rv_bindedtecherlists);
         mRv_bindedtecherlists.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -62,5 +66,20 @@ public class BindedTeacherListActivity extends AppCompatActivity {
         });
         // specify an adapter (see also next example)
         mRv_bindedtecherlists.setAdapter(mAdapter);
+    }
+
+
+    private void SystemSetting() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.black));
+        actionBar.setTitle(R.string.Binded_Minutes);
+        actionBar.setElevation(0f);
+        actionBar.setDisplayHomeAsUpEnabled(true);// 设置back按钮是否可见
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
     }
 }

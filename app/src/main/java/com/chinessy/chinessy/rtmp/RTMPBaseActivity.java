@@ -1,17 +1,9 @@
 package com.chinessy.chinessy.rtmp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
-import com.chinessy.chinessy.R;
 import com.tencent.rtmp.TXLiveConstants;
 
 import java.text.SimpleDateFormat;

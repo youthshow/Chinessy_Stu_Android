@@ -13,15 +13,8 @@ import java.util.List;
 /**
  * 这里是聊天列表的数据适配器，比如大家使用的是环信或者第三方直播的聊天室功能，都会用的listview，
  * 对于聊天列表里面的交互以及显示方式，大家都可以在这里修改，以及布局文件
- *
- * Success is the sum of small efforts, repeated day in and day out.
- * 成功就是日复一日那一点点小小努力的积累。
- * AndroidGroup：158423375
+ * <p>https://github.com/Qiang3570/LiveLayout<p>
  * Author：Johnny
- * AuthorQQ：956595454
- * AuthorWX：Qiang_it
- * AuthorPhone：nothing
- * Created by 2016/9/22.
  */
 public class MessageAdapter extends BaseAdapter {
 

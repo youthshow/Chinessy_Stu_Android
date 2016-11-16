@@ -28,15 +28,8 @@ import java.util.WeakHashMap;
 
 /**
  * 该自定义view是用于显示礼物数字的
- *
- * Success is the sum of small efforts, repeated day in and day out.
- * 成功就是日复一日那一点点小小努力的积累。
- * AndroidGroup：158423375
+ * <p>https://github.com/Qiang3570/LiveLayout<p>
  * Author：Johnny
- * AuthorQQ：956595454
- * AuthorWX：Qiang_it
- * AuthorPhone：nothing
- * Created by 2016/9/22.
  */
 public class MagicTextView extends TextView {
 

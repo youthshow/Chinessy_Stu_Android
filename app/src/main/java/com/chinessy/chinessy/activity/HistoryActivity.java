@@ -76,11 +76,7 @@ public class HistoryActivity extends AppCompatActivity {
         mActivity = this;
         setContentView(R.layout.fragment_reservation);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.black));
-        actionBar.setTitle(R.string.History);
-        actionBar.setElevation(0f);
-        actionBar.setDisplayHomeAsUpEnabled(true);// 设置back按钮是否可见
+        SystemSetting();
 
 
         mPtrFrameLayout = (PtrFrameLayout) findViewById(R.id.tutors_pf_layout);
@@ -114,6 +110,21 @@ public class HistoryActivity extends AppCompatActivity {
         fillTutorList();
 
     }
+
+    private void SystemSetting() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.black));
+        actionBar.setTitle(R.string.History);
+        actionBar.setElevation(0f);
+        actionBar.setDisplayHomeAsUpEnabled(true);// 设置back按钮是否可见
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return super.onSupportNavigateUp();
+    }
+
 
     void fillTutorList() {
         JSONObject jsonParams = new JSONObject();

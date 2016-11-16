@@ -7,15 +7,8 @@ import android.view.ViewTreeObserver;
 
 /**
  * 该类用于监听软键盘是否显示并获取其高度
- *
- * Success is the sum of small efforts, repeated day in and day out.
- * 成功就是日复一日那一点点小小努力的积累。
- * AndroidGroup：158423375
+ * <p>https://github.com/Qiang3570/LiveLayout<p>
  * Author：Johnny
- * AuthorQQ：956595454
- * AuthorWX：Qiang_it
- * AuthorPhone：nothing
- * Created by 2016/9/22.
  */
 public class SoftKeyBoardListener {
 
@@ -68,6 +61,7 @@ public class SoftKeyBoardListener {
 
     public interface OnSoftKeyBoardChangeListener {
         void keyBoardShow(int height);
+
         void keyBoardHide(int height);
     }
 

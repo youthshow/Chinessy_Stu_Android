@@ -8,12 +8,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_audio_headset_normal.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_video_camera_off_disabled.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_video_camera_off_disabled.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_audio_speaker_selected_disabled.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_audio_speaker_selected_disabled.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_video_camera_off_disabled.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_video_camera_off_disabled.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_end_selected.png",
@@ -148,12 +148,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_redial_video_normal.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_bluetooth_normal.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_bluetooth_normal.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_audio_speaker_normal.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_audio_speaker_normal.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_bluetooth_normal.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/src/main/res/drawable-xhdpi/call_bluetooth_normal.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/juscall/build/intermediates/res/merged/debug/drawable-xhdpi-v4/call_error_cancel.png",

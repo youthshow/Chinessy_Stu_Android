@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +12,8 @@ import android.os.Message;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,13 +26,14 @@ import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.rtmp.AudienceAdapter;
+import com.chinessy.chinessy.rtmp.AudienceListAdapter;
 import com.chinessy.chinessy.rtmp.CustomRoundView;
 import com.chinessy.chinessy.rtmp.LivePlayerActivity;
 import com.chinessy.chinessy.rtmp.MagicTextView;
@@ -70,7 +74,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
      */
     private LinearLayout llpicimage;
     private RelativeLayout rlsentimenttime;
-//    private HorizontalListView hlvaudience;
+    private RecyclerView rvAudience;
     private TextView tvtime;
     private TextView tvdate;
     private LinearLayout llgiftcontent;
@@ -80,7 +84,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
     private TextView tvSendthree;
     private TextView tvSendfor;
     private EditText etInput;
-    private TextView tvChat;
+    private ImageView IvChat;
     private TextView sendInput;
     private LinearLayout llInputParent;
 
@@ -110,12 +114,12 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
 
         llpicimage = (LinearLayout) findViewById(R.id.llpicimage);
         rlsentimenttime = (RelativeLayout) findViewById(R.id.rlsentimenttime);
-//        hlvaudience = (HorizontalListView) findViewById(R.id.hlvaudience);
+        rvAudience = (RecyclerView) findViewById(R.id.rv_audience);
         tvtime = (TextView) findViewById(R.id.tvtime);
         tvdate = (TextView) findViewById(R.id.tvdate);
         llgiftcontent = (LinearLayout) findViewById(R.id.llgiftcontent);
         lvmessage = (ListView) findViewById(R.id.lvmessage);
-        tvChat = (TextView) findViewById(R.id.tvChat);
+        IvChat = (ImageView) findViewById(R.id.ivChat);
         tvSendone = (TextView) findViewById(R.id.tvSendone);
         tvSendtwo = (TextView) findViewById(R.id.tvSendtwo);
         tvSendthree = (TextView) findViewById(R.id.tvSendthree);
@@ -123,7 +127,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         llInputParent = (LinearLayout) findViewById(R.id.llinputparent);
         etInput = (EditText) findViewById(R.id.etInput);
         sendInput = (TextView) findViewById(R.id.sendInput);
-        tvChat.setOnClickListener(this);
+        IvChat.setOnClickListener(this);
         tvSendone.setOnClickListener(this);
         tvSendtwo.setOnClickListener(this);
         tvSendthree.setOnClickListener(this);
@@ -138,7 +142,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
             @Override
             public void onClick(View v) {
                 if (llInputParent.getVisibility() == View.VISIBLE) {
-                    tvChat.setVisibility(View.VISIBLE);
+                    IvChat.setVisibility(View.VISIBLE);
                     llInputParent.setVisibility(View.GONE);
                     hideKeyboard();
                 }
@@ -151,8 +155,67 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         messageAdapter = new MessageAdapter(this, messageData);
         lvmessage.setAdapter(messageAdapter);
         lvmessage.setSelection(messageData.size());
-       // hlvaudience.setAdapter(new AudienceAdapter(this));
+        // hlvaudience.setAdapter(new AudienceAdapter(this));
         startTimer();
+
+        rvAudience.setHasFixedSize(true);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvAudience.setLayoutManager(layoutManager);
+
+        List list = new ArrayList<Integer>();
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+
+        AudienceListAdapter mAdapter = new AudienceListAdapter(LiveRoomActivity.this, list);
+        mAdapter.setOnItemClickListener(new AudienceListAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Dialog_AudienceInfo();
+            }
+        });
+        // specify an adapter (see also next example)
+        rvAudience.setAdapter(mAdapter);
+
+    }
+
+
+    public void Dialog_AudienceInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = View.inflate(this, R.layout.dialog_audienceinfo, null);
+        ImageView cancel = (ImageView) view.findViewById(R.id.iv_cancel);
+
+        builder.setView(view);
+        final AlertDialog dialog = builder.create();
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+
+            }
+        });
+
+        dialog.show();
     }
 
 
@@ -178,7 +241,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvChat:/*聊天*/
+            case R.id.ivChat:/*聊天*/
                 showChat();
                 break;
             case R.id.sendInput:/*发送*/
@@ -316,7 +379,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
      * 显示聊天布局
      */
     private void showChat() {
-        tvChat.setVisibility(View.GONE);
+        IvChat.setVisibility(View.GONE);
         llInputParent.setVisibility(View.VISIBLE);
         llInputParent.requestFocus();
         showKeyboard();
@@ -384,7 +447,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void keyBoardHide(int height) {/*软键盘隐藏：隐藏聊天输入框并显示聊天按钮，执行显示title动画，并修改listview高度和装载礼物容器的高度*/
-                tvChat.setVisibility(View.VISIBLE);
+                IvChat.setVisibility(View.VISIBLE);
                 llInputParent.setVisibility(View.GONE);
                 animateToShow();
                 dynamicChangeListviewH(150);

@@ -10,7 +10,7 @@
     <color name="busy_red">#FF4D4D</color>
 
     <color name="main_bg_gray">#E8E8E7</color>
-
+    <color name="light_gray_text">#7F7F7F</color>
     <color name="btn_main_pressed">#63a100</color>
     <color name="btn_white_pressed">#ddd</color>
     <color name="btn_black_pressed">#555</color>

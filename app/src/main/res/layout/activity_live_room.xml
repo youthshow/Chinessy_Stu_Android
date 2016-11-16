@@ -43,14 +43,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Johnny"
+                        android:text="pappaapapapapapapa"
                         android:textColor="@android:color/white"
                         android:textSize="12sp" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Android工程师"
+                        android:text="Online"
                         android:textColor="@android:color/white"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -63,12 +63,12 @@
                     app:border_width="0dp" />
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/hlvaudience"
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_audience"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginLeft="10dp"
-                android:background="@color/main_color"></TextView>
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp" />
         </LinearLayout>
 
         <RelativeLayout
@@ -90,7 +90,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
-                android:text="交流群: 158423375"
+                android:text="Beans:238742  Binded minutes:129"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
 
@@ -160,15 +160,12 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp">
 
-                <TextView
-                    android:id="@+id/tvChat"
+                <ImageView
+                    android:id="@+id/ivChat"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="聊天"
-                    android:textColor="#333"
-                    android:textSize="10sp" />
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/chat" />
 
                 <TextView
                     android:id="@+id/tvSendone"
@@ -176,6 +173,7 @@
                     android:layout_height="40dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:background="@mipmap/chat"
                     android:gravity="center"
                     android:text="礼物1"
                     android:textColor="#333"
@@ -189,6 +187,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/tvSendone"
+                    android:background="@mipmap/chat"
                     android:gravity="center"
                     android:text="礼物2"
                     android:textColor="#333"
@@ -202,6 +201,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/tvSendtwo"
+                    android:background="@mipmap/chat"
                     android:gravity="center"
                     android:text="礼物3"
                     android:textColor="#333"
@@ -215,6 +215,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="5dp"
                     android:layout_toLeftOf="@+id/tvSendthree"
+                    android:background="@mipmap/chat"
                     android:gravity="center"
                     android:text="礼物4"
                     android:textColor="#333"
