@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.multidex.MultiDexApplication;
 
 import com.chinessy.chinessy.handlers.JusTalkHandler;
 import com.chinessy.chinessy.models.User;
@@ -21,7 +22,7 @@ import java.util.TimerTask;
 /**
  * Created by larry on 15/7/10.
  */
-public class Chinessy extends Application implements Application.ActivityLifecycleCallbacks {
+public class Chinessy extends MultiDexApplication implements Application.ActivityLifecycleCallbacks {
     final static String tag = "ChinessyApplication";
 
     public static Chinessy chinessy;
