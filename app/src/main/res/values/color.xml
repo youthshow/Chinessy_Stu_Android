@@ -21,6 +21,7 @@
     <color name="google_blue">#FF375BF1</color>
     <color name="google_yellow">#FFF7D23E</color>
     <color name="google_green">#FF34A350</color>
-    <color name="transparent_grey">#5F6767</color>
+    <color name="transparent_grey_lighter">#80000000</color>
+    <color name="transparent_grey_darker">#A0000000</color>
 
 </resources>

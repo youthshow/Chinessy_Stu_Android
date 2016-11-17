@@ -213,4 +213,6 @@
     <!--binded minutes-->
     <string name="Teacher">"Teacher"</string>
     <string name="Binding_Time">"Binding Time(remain)"</string>
+    <string name="Recharge">Recharge:</string>
+    <string name="send">send</string>
 </resources>

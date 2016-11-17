@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,9 +16,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -104,6 +107,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
     private List<String> messageData = new LinkedList<>();
     private MessageAdapter messageAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,6 +141,16 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         outAnim = (TranslateAnimation) AnimationUtils.loadAnimation(this, R.anim.gift_out);
         giftNumAnim = new NumAnim();
         clearTiming();
+
+        findViewById(R.id.ivExit).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        SendGiftBtn();
+
 
         frameLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,6 +209,211 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         // specify an adapter (see also next example)
         rvAudience.setAdapter(mAdapter);
 
+    }
+
+    //礼物
+
+    ImageView iv_choose_bravo;
+    ImageView iv_choose_applause;
+    ImageView iv_choose_flower;
+    ImageView iv_choose_bouquet;
+    ImageView iv_choose_water;
+    ImageView iv_choose_chocolate;
+    ImageView iv_choose_red_packet;
+    ImageView iv_choose_medal;
+
+
+    TextView tv_charge_bravo;
+    TextView tv_charge_applause;
+    TextView tv_charge_flower;
+    TextView tv_charge_bouquet;
+    TextView tv_charge_water;
+    TextView tv_charge_chocolate;
+    TextView tv_charge_red_packet;
+    TextView tv_charge_medal;
+    String GiftArray[] = new String[]{"bravo", "applause", "flower", "bouquet", "water", "chocolate", "redPacket", "medal"};
+
+    int ChooseGiftIndex = -1;
+    String ChargeCoin;
+
+    private void SendGiftBtn() {
+        findViewById(R.id.ivGift).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (IvChat.getVisibility() == View.GONE) {
+                    IvChat.setVisibility(View.VISIBLE);
+                }
+                if (lvmessage.getVisibility() == View.GONE) {
+                    lvmessage.setVisibility(View.VISIBLE);
+                }
+                // 使用不带Theme的构造器, 获得的dialog边框距离屏幕仍有几毫米的缝隙。
+                Dialog dialog = new Dialog(LiveRoomActivity.this, R.style.BottomDialog);
+
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 设置Content前设定
+                dialog.setContentView(R.layout.dialog_bottom_giftlist);
+                dialog.setCanceledOnTouchOutside(true); // 外部点击取消
+
+                // 设置宽度为屏宽, 靠近屏幕底部。
+                Window window = dialog.getWindow();
+                WindowManager.LayoutParams lp = window.getAttributes();
+                lp.gravity = Gravity.BOTTOM; // 紧贴底部
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT; // 宽度持平
+                window.setAttributes(lp);
+
+                dialog.findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo 送出礼物
+                    }
+                });
+
+
+                dialog.findViewById(R.id.ll_recharge).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo       tv_recharge
+                    }
+                });
+
+
+                iv_choose_bravo = (ImageView) dialog.findViewById(R.id.iv_choose_bravo);
+                iv_choose_applause = (ImageView) dialog.findViewById(R.id.iv_choose_applause);
+                iv_choose_flower = (ImageView) dialog.findViewById(R.id.iv_choose_flower);
+                iv_choose_bouquet = (ImageView) dialog.findViewById(R.id.iv_choose_bouquet);
+                iv_choose_water = (ImageView) dialog.findViewById(R.id.iv_choose_water);
+                iv_choose_chocolate = (ImageView) dialog.findViewById(R.id.iv_choose_chocolate);
+                iv_choose_red_packet = (ImageView) dialog.findViewById(R.id.iv_choose_red_packet);
+                iv_choose_medal = (ImageView) dialog.findViewById(R.id.iv_choose_medal);
+
+
+                tv_charge_bravo = (TextView) dialog.findViewById(R.id.tv_charge_bravo);
+                tv_charge_applause = (TextView) dialog.findViewById(R.id.tv_charge_applause);
+                tv_charge_flower = (TextView) dialog.findViewById(R.id.tv_charge_flower);
+                tv_charge_bouquet = (TextView) dialog.findViewById(R.id.tv_charge_bouquet);
+                tv_charge_water = (TextView) dialog.findViewById(R.id.tv_charge_water);
+                tv_charge_chocolate = (TextView) dialog.findViewById(R.id.tv_charge_chocolate);
+                tv_charge_red_packet = (TextView) dialog.findViewById(R.id.tv_charge_red_packet);
+                tv_charge_medal = (TextView) dialog.findViewById(R.id.tv_charge_medal);
+
+
+                dialog.findViewById(R.id.rl_bravo).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_bravo tv_charge_bravo
+                        RestChoose();
+                        ChooseGiftIndex = 0;
+                        iv_choose_bravo.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_bravo.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_applause).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_applause
+                        RestChoose();
+                        ChooseGiftIndex = 1;
+                        iv_choose_applause.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_applause.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_flower).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_flower
+                        RestChoose();
+                        ChooseGiftIndex = 2;
+                        iv_choose_flower.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_flower.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_bouquet).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_bouquet
+                        RestChoose();
+                        ChooseGiftIndex = 3;
+                        iv_choose_bouquet.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_bouquet.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_water).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_water
+                        RestChoose();
+                        ChooseGiftIndex = 4;
+                        iv_choose_water.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_water.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_chocolate).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_chocolate
+                        RestChoose();
+                        ChooseGiftIndex = 5;
+                        iv_choose_chocolate.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_chocolate.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_red_packet).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_red_packet
+                        RestChoose();
+                        ChooseGiftIndex = 6;
+                        iv_choose_red_packet.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_red_packet.getText().toString();
+                    }
+                });
+                dialog.findViewById(R.id.rl_medal).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //todo      iv_choose_medal
+                        RestChoose();
+                        ChooseGiftIndex = 7;
+                        RestChoose();
+                        iv_choose_medal.setVisibility(View.VISIBLE);
+                        ChargeCoin = tv_charge_medal.getText().toString();
+                    }
+                });
+
+
+                dialog.show();
+            }
+        });
+    }
+
+    private void RestChoose() {
+        if (ChooseGiftIndex > 0) {
+            switch (GiftArray[ChooseGiftIndex]) {
+                case "bravo":
+                    iv_choose_bravo.setVisibility(View.INVISIBLE);
+                    break;
+                case "applause":
+                    iv_choose_applause.setVisibility(View.INVISIBLE);
+                    break;
+                case "flower":
+                    iv_choose_flower.setVisibility(View.INVISIBLE);
+                    break;
+                case "bouquet":
+                    iv_choose_bouquet.setVisibility(View.INVISIBLE);
+                    break;
+                case "water":
+                    iv_choose_water.setVisibility(View.INVISIBLE);
+                    break;
+                case "chocolate":
+                    iv_choose_chocolate.setVisibility(View.INVISIBLE);
+                    break;
+                case "redPacket":
+                    iv_choose_red_packet.setVisibility(View.INVISIBLE);
+                    break;
+                case "medal":
+                    iv_choose_medal.setVisibility(View.INVISIBLE);
+                    break;
+
+            }
+        }
     }
 
 
@@ -602,5 +821,6 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
             animSet.start();
         }
     }
+
 
 }

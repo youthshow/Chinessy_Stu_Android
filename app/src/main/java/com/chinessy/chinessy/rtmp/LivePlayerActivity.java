@@ -445,8 +445,8 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
 //    }
 
     private boolean startPlayRtmp() {
-        // String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
-        String playUrl = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
+         String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+        //String playUrl = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
 //        if (!checkPlayUrl(playUrl)) {
 //            return false;
 //        }

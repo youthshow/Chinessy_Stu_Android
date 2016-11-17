@@ -167,12 +167,30 @@
                     android:scaleType="centerInside"
                     android:src="@mipmap/chat" />
 
+                <ImageView
+                    android:id="@+id/ivExit"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/exit" />
+
+                <ImageView
+                    android:layout_toLeftOf="@+id/ivExit"
+                    android:id="@+id/ivGift"
+                    android:layout_width="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_height="40dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/gift" />
+
                 <TextView
                     android:id="@+id/tvSendone"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/ivGift"
                     android:background="@mipmap/chat"
                     android:gravity="center"
                     android:text="礼物1"
