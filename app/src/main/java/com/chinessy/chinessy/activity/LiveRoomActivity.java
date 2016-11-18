@@ -7,6 +7,7 @@ import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,14 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
+import com.chinessy.chinessy.beans.liveBeans;
+import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.rtmp.AudienceListAdapter;
 import com.chinessy.chinessy.rtmp.CustomRoundView;
 import com.chinessy.chinessy.rtmp.LivePlayerActivity;
@@ -43,14 +52,19 @@ import com.chinessy.chinessy.rtmp.MagicTextView;
 import com.chinessy.chinessy.rtmp.MessageAdapter;
 import com.chinessy.chinessy.rtmp.SoftKeyBoardListener;
 import com.chinessy.chinessy.utils.DisplayUtil;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import cz.msebera.android.httpclient.util.TextUtils;
 
 public class LiveRoomActivity extends AppCompatActivity implements View.OnClickListener {
     private FrameLayout frameLayout;
@@ -90,7 +104,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
     private ImageView IvChat;
     private TextView sendInput;
     private LinearLayout llInputParent;
-
+    private FrameLayout Fl_bottom;
     /**
      * 动画相关
      */
@@ -114,8 +128,9 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
 
         setContentView(R.layout.activity_live_room);
         SystemSetting();
-        ShowLive();
-
+        webRequest();
+        frameLayout = (FrameLayout) findViewById(R.id.content_layout);
+        Fl_bottom = (FrameLayout) findViewById(R.id.layout_bottom);
         llpicimage = (LinearLayout) findViewById(R.id.llpicimage);
         rlsentimenttime = (RelativeLayout) findViewById(R.id.rlsentimenttime);
         rvAudience = (RecyclerView) findViewById(R.id.rv_audience);
@@ -240,19 +255,35 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         findViewById(R.id.ivGift).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (IvChat.getVisibility() == View.GONE) {
-                    IvChat.setVisibility(View.VISIBLE);
-                }
-                if (lvmessage.getVisibility() == View.GONE) {
-                    lvmessage.setVisibility(View.VISIBLE);
-                }
+
                 // 使用不带Theme的构造器, 获得的dialog边框距离屏幕仍有几毫米的缝隙。
                 Dialog dialog = new Dialog(LiveRoomActivity.this, R.style.BottomDialog);
 
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE); // 设置Content前设定
                 dialog.setContentView(R.layout.dialog_bottom_giftlist);
                 dialog.setCanceledOnTouchOutside(true); // 外部点击取消
-
+                dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
+                    @Override
+                    public void onDismiss(DialogInterface dialogInterface) {
+                        if (Fl_bottom.getVisibility() == View.GONE) {
+                            Fl_bottom.setVisibility(View.VISIBLE);
+                        }
+                        if (lvmessage.getVisibility() == View.GONE) {
+                            lvmessage.setVisibility(View.VISIBLE);
+                        }
+                    }
+                });
+                dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        if (Fl_bottom.getVisibility() == View.VISIBLE) {
+                            Fl_bottom.setVisibility(View.GONE);
+                        }
+                        if (lvmessage.getVisibility() == View.VISIBLE) {
+                            lvmessage.setVisibility(View.GONE);
+                        }
+                    }
+                });
                 // 设置宽度为屏宽, 靠近屏幕底部。
                 Window window = dialog.getWindow();
                 WindowManager.LayoutParams lp = window.getAttributes();
@@ -437,13 +468,118 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         dialog.show();
     }
 
+    private void webRequest() {
+        Log.d("VolleyPostPost", "VolleyPostPost -> ");
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getPlayUrl,
+                // StringRequest stringRequest = new StringRequest(Request.Method.GET, ConstValue.BasicUrl + "getPlayUrl"+"?roomId=002",
+                new Response.Listener() {
+                    @Override
+                    public void onResponse(Object response) {
+                        Log.d("=============", "response -> " + response);
+                        //Toast.makeText()
 
-    private void ShowLive() {
-        frameLayout = (FrameLayout) findViewById(R.id.content_layout);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        mPlayerVodFragment = new LivePlayerActivity();
-        transaction.replace(R.id.content_layout, mPlayerVodFragment);
-        transaction.commit();
+                        liveBeans Beans = new Gson().fromJson(response.toString(), liveBeans.class);
+                        if ("true".equals(Beans.getStatus().toString())) {
+                            String playUrl = Beans.getData();
+                            Log.d("=============", "playUrl -> " + playUrl);
+
+                            //    if (!TextUtils.isEmpty(playUrl)) {
+                            Log.d("-----------", "playUrl" + playUrl);
+                            ShowLive(playUrl);
+                              /*  if (mVideoPlay) {
+                                    if (mPlayType == TXLivePlayer.PLAY_TYPE_VOD_FLV || mPlayType == TXLivePlayer.PLAY_TYPE_VOD_HLS || mPlayType == TXLivePlayer.PLAY_TYPE_VOD_MP4) {
+                                        if (mVideoPause) {
+                                            mLivePlayer.resume();
+                                            // mBtnPlay.setBackgroundResource(R.drawable.play_pause);
+                                        } else {
+                                            mLivePlayer.pause();
+                                            //  mBtnPlay.setBackgroundResource(R.drawable.play_start);
+                                        }
+                                        mVideoPause = !mVideoPause;
+
+                                    } else {
+                                        stopPlayRtmp();
+                                        mVideoPlay = !mVideoPlay;
+                                    }
+
+                                } else {
+                                    if (startPlayRtmp()) {
+                                        mVideoPlay = !mVideoPlay;
+                                    }
+                                }
+*/
+                            //   }
+                        }
+                    }
+
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("VolleyPostPost", error.getMessage(), error);
+            }
+        }) {
+            @Override
+            protected Map getParams() {
+                //在这里设置需要post的参数
+                Map map = new HashMap();
+                map.put("roomId", "002");
+
+                return map;
+            }
+        };
+
+        Chinessy.requestQueue.add(stringRequest);
+
+        /*
+        JSONObject jsonParams = new JSONObject();
+
+        //todo 修改房间号
+        try {
+            jsonParams.put("roomId", "001");
+            //  jsonParams.put("Key", Key);
+            //  jsonParams.put("Time", "2016-12-12 12:00:00");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        InternalClient.HKpostInternalJson(getContext(), ConstValue.getPlayUrl, jsonParams, new SimpleJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                super.onSuccess(statusCode, headers, responseString);
+                Log.d("PostPost", responseString + "");
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+                Log.d("PostPost", responseString + "-----onFailure");
+            }
+        });
+*/
+    }
+
+    private void ShowLive(String playurl) {
+
+        if (!TextUtils.isEmpty(playurl)) {
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            mPlayerVodFragment = new LivePlayerActivity();
+            Bundle bundle = new Bundle();
+            bundle.putString("url", playurl);
+            mPlayerVodFragment.setArguments(bundle);
+            transaction.replace(R.id.content_layout, mPlayerVodFragment);
+            transaction.commit();
+            Log.d("playurl", "ShowLive");
+        }
+
+
     }
 
     private void SystemSetting() {

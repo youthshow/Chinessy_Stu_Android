@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.multidex.MultiDexApplication;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.chinessy.chinessy.handlers.JusTalkHandler;
 import com.chinessy.chinessy.models.User;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
@@ -41,6 +43,7 @@ public class Chinessy extends MultiDexApplication implements Application.Activit
     boolean ifInBackground = false;
 
     JusTalkHandler jusTalkHandler;
+    public static RequestQueue requestQueue;
 
     @Override
     public void onCreate() {
@@ -49,10 +52,10 @@ public class Chinessy extends MultiDexApplication implements Application.Activit
         jusTalkHandler = new JusTalkHandler(this.getApplicationContext());
         registerActivityLifecycleCallbacks(this);
 
-      //  MobclickAgent.updateOnlineConfig(getApplicationContext());
+        //  MobclickAgent.updateOnlineConfig(getApplicationContext());
         MobclickAgent.openActivityDurationTrack(false);
-     //   AnalyticsConfig.enableEncrypt(true);
-
+        //   AnalyticsConfig.enableEncrypt(true);
+        requestQueue = Volley.newRequestQueue(getApplicationContext());
         initPaypal();
     }
 

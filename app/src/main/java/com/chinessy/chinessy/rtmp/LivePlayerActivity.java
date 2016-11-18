@@ -10,10 +10,17 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
+import com.chinessy.chinessy.beans.liveBeans;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
+import com.google.gson.Gson;
 import com.tencent.rtmp.ITXLivePlayListener;
 import com.tencent.rtmp.TXLiveConstants;
 import com.tencent.rtmp.TXLivePlayConfig;
@@ -23,7 +30,11 @@ import com.tencent.rtmp.ui.TXCloudVideoView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.util.TextUtils;
 
 public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayListener {
     private static final String TAG = LivePlayerActivity.class.getSimpleName();
@@ -71,10 +82,14 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
     private int mPlayType = TXLivePlayer.PLAY_TYPE_LIVE_RTMP;
     private TXLivePlayConfig mPlayConfig;
     private long mStartPlayTS = 0;
+    String playUrl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        playUrl = getArguments().getString("url");
+
         mCurrentRenderMode = TXLiveConstants.RENDER_MODE_FULL_FILL_SCREEN;
         mCurrentRenderRotation = TXLiveConstants.RENDER_ROTATION_PORTRAIT;
 
@@ -87,7 +102,6 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
         View view = inflater.inflate(R.layout.activity_play, null);
 //        initView(view);
 
-        webRequest();
         if (mLivePlayer == null) {
             mLivePlayer = new TXLivePlayer(getActivity());
         }
@@ -98,14 +112,15 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
 
         mVideoPlay = false;
 
+        Log.d(TAG, "click playbtn isplay:" + mVideoPlay + " ispause:" + mVideoPause + " playtype:" + mPlayType);
         if (mVideoPlay) {
             if (mPlayType == TXLivePlayer.PLAY_TYPE_VOD_FLV || mPlayType == TXLivePlayer.PLAY_TYPE_VOD_HLS || mPlayType == TXLivePlayer.PLAY_TYPE_VOD_MP4) {
                 if (mVideoPause) {
                     mLivePlayer.resume();
-                    // mBtnPlay.setBackgroundResource(R.drawable.play_pause);
+                    //mBtnPlay.setBackgroundResource(R.drawable.play_pause);
                 } else {
                     mLivePlayer.pause();
-                    //  mBtnPlay.setBackgroundResource(R.drawable.play_start);
+                    //mBtnPlay.setBackgroundResource(R.drawable.play_start);
                 }
                 mVideoPause = !mVideoPause;
 
@@ -445,12 +460,11 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
 //    }
 
     private boolean startPlayRtmp() {
-         String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+        // String playUrl = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
         //String playUrl = "http://2000.liveplay.myqcloud.com/live/2000_1f4652b179af11e69776e435c87f075e.flv";
 //        if (!checkPlayUrl(playUrl)) {
 //            return false;
 //        }
-
         clearLog();
 
         int[] ver = TXLivePlayer.getSDKVersion();
@@ -620,38 +634,5 @@ public class LivePlayerActivity extends RTMPBaseActivity implements ITXLivePlayL
         }
     }
 
-    private void webRequest() {
-        JSONObject jsonParams = new JSONObject();
 
-        //todo 修改房间号
-        try {
-            jsonParams.put("roomId", "001");
-            //  jsonParams.put("Key", Key);
-            //  jsonParams.put("Time", "2016-12-12 12:00:00");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        InternalClient.HKpostInternalJson(getContext(), ConstValue.getPlayUrl, jsonParams, new SimpleJsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                super.onSuccess(statusCode, headers, response);
-
-            }
-
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, String responseString) {
-                super.onSuccess(statusCode, headers, responseString);
-                Log.d("PostPost", responseString + "");
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
-                super.onFailure(statusCode, headers, responseString, throwable);
-                Log.d("PostPost", responseString + "-----onFailure");
-            }
-        });
-
-    }
 }

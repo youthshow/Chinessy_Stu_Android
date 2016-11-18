@@ -123,13 +123,13 @@
             android:name="UMENG_CHANNEL"
             android:value="TEST" />
 
-        <service
-            android:name="com.umeng.update.net.DownloadingService"
-            android:process=":DownloadingService" />
+        <!--<service-->
+            <!--android:name="com.umeng.update.net.DownloadingService"-->
+            <!--android:process=":DownloadingService" />-->
 
-        <activity
-            android:name="com.umeng.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--<activity-->
+            <!--android:name="com.umeng.update.UpdateDialogActivity"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
 
         <service
             android:name="com.paypal.android.sdk.payments.PayPalService"
