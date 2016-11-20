@@ -180,8 +180,8 @@
                         <Button
                             android:id="@+id/tutor_btn_live"
                             style="?android:attr/buttonStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="60dp"
+                            android:layout_height="35dp"
                             android:background="@android:color/darker_gray"
                             android:text="@string/tab_live"
                             android:textAllCaps="false"
@@ -191,7 +191,7 @@
                         <Button
                             android:id="@+id/tutor_btn_resrve"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="35dp"
                             android:layout_marginLeft="20dp"
                             android:background="@drawable/btn_long_main"
                             android:text="@string/Cancel"

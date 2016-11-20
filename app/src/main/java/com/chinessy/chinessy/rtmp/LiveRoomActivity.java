@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
@@ -563,21 +565,21 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
     }
 
 
-    public void DismissGiftsView() {
-        if (RlMainBottom.getVisibility() == View.GONE) {
-            RlMainBottom.setVisibility(View.VISIBLE);
-        }
-        if (LvMessage.getVisibility() == View.GONE) {
-            LvMessage.setVisibility(View.VISIBLE);
-        }
-
-        if (RlGift.getVisibility() == View.VISIBLE) {
-            RlGift.setVisibility(View.GONE);
-        }
-        if (RlGiftBottom.getVisibility() == View.VISIBLE) {
-            RlGiftBottom.setVisibility(View.GONE);
-        }
-    }
+//    public void DismissGiftsView() {
+//        if (RlMainBottom.getVisibility() == View.GONE) {
+//            RlMainBottom.setVisibility(View.VISIBLE);
+//        }
+//        if (LvMessage.getVisibility() == View.GONE) {
+//            LvMessage.setVisibility(View.VISIBLE);
+//        }
+//
+//        if (RlGift.getVisibility() == View.VISIBLE) {
+//            RlGift.setVisibility(View.GONE);
+//        }
+//        if (RlGiftBottom.getVisibility() == View.VISIBLE) {
+//            RlGiftBottom.setVisibility(View.GONE);
+//        }
+//    }
 
     public void ShowGiftsView() {
         if (RlMainBottom.getVisibility() == View.VISIBLE) {
@@ -799,6 +801,28 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    public class MedalAnim {
+        private Animator lastAnimator = null;
+
+        public void start(View view) {
+            if (lastAnimator != null) {
+                lastAnimator.removeAllListeners();
+                lastAnimator.end();
+                lastAnimator.cancel();
+            }
+            ObjectAnimator reduceX = ObjectAnimator.ofFloat(view, "scaleX", 1F, 0.7F, 1.0f, 0.7f, 1.0f);
+            ObjectAnimator reduceY = ObjectAnimator.ofFloat(view, "scaleY", 1F, 0.7F, 1.0f, 0.7f, 1.0f);
+            ObjectAnimator rotationright = ObjectAnimator.ofFloat(view, "rotation", 0F, 10F, 0f, -10f, 0f);
+            ObjectAnimator alpha = ObjectAnimator.ofFloat(view, "alpha", 0F, 1f, 1f, 1f, 0f);
+
+            AnimatorSet animSet = new AnimatorSet();
+            lastAnimator = animSet;
+            animSet.setDuration(3000);
+            animSet.playTogether(reduceX, reduceY, rotationright, alpha);
+            animSet.start();
+        }
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -847,17 +871,18 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.btn_gift_send:/*送礼物动画*/
                 showGift("Johnny1");
+                RestBottoms();
+                // showGift("Johnny2");
+                // showGift("Johnny3");
+                // showGift("Johnny4");
+                //奖牌动画
+                if (IvAnim.getVisibility() == View.GONE) {
+                    IvAnim.setVisibility(View.VISIBLE);
+                }
+                MedalAnim medalAnim = new MedalAnim();
+                medalAnim.start(IvAnim);
                 break;
-//            case R.id.btn_bind_min:/*跳转绑定时间*/
-//                Toast.makeText(LiveRoomActivity.this, "绑定时间", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.content_layout:/*全局点击的时候*/
-//                if (llInputParent.getVisibility() == View.VISIBLE) {
-//                    IvChat.setVisibility(View.VISIBLE);
-//                    llInputParent.setVisibility(View.GONE);
-//                    hideKeyboard();
-//                }
-//                break;
+
             case R.id.rl_bravo:
                 // iv_choose_bravo tv_charge_bravo
                 RestChoose();
@@ -978,35 +1003,39 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.content_layout:
                 //显示原来的底部
-                if (RlGift.getVisibility() == View.VISIBLE) {
-                    RlGift.setVisibility(View.GONE);
-                }
-                if (RlBindminsList.getVisibility() == View.VISIBLE) {
-                    RlBindminsList.setVisibility(View.GONE);
-                }
-                if (btnInvisbleSend.getVisibility() == View.VISIBLE) {
-                    btnInvisbleSend.setVisibility(View.GONE);
-                }
-
-                if (LlInputBottom.getVisibility() == View.VISIBLE) {
-                    LlInputBottom.setVisibility(View.GONE);
-                }
-                if (RlBindMinutesBottom.getVisibility() == View.VISIBLE) {
-                    RlBindMinutesBottom.setVisibility(View.GONE);
-                }
-                if (RlGiftBottom.getVisibility() == View.VISIBLE) {
-                    RlGiftBottom.setVisibility(View.GONE);
-                }
-                if (RlMainBottom.getVisibility() == View.GONE) {
-                    RlMainBottom.setVisibility(View.VISIBLE);
-                }
-                if (LlRechargeList.getVisibility() == View.VISIBLE) {
-                    LlRechargeList.setVisibility(View.GONE);
-                }
+                RestBottoms();
                 hideKeyboard();
 
                 break;
 
+        }
+    }
+
+    private void RestBottoms() {
+        if (RlGift.getVisibility() == View.VISIBLE) {
+            RlGift.setVisibility(View.GONE);
+        }
+        if (RlBindminsList.getVisibility() == View.VISIBLE) {
+            RlBindminsList.setVisibility(View.GONE);
+        }
+        if (btnInvisbleSend.getVisibility() == View.VISIBLE) {
+            btnInvisbleSend.setVisibility(View.GONE);
+        }
+
+        if (LlInputBottom.getVisibility() == View.VISIBLE) {
+            LlInputBottom.setVisibility(View.GONE);
+        }
+        if (RlBindMinutesBottom.getVisibility() == View.VISIBLE) {
+            RlBindMinutesBottom.setVisibility(View.GONE);
+        }
+        if (RlGiftBottom.getVisibility() == View.VISIBLE) {
+            RlGiftBottom.setVisibility(View.GONE);
+        }
+        if (RlMainBottom.getVisibility() == View.GONE) {
+            RlMainBottom.setVisibility(View.VISIBLE);
+        }
+        if (LlRechargeList.getVisibility() == View.VISIBLE) {
+            LlRechargeList.setVisibility(View.GONE);
         }
     }
 
