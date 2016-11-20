@@ -64,7 +64,6 @@ public class User implements Serializable {
         }
          try {
 //            Log.e(tag, isFavourites()+"_______"+getId()+jsonObject.getJSONObject("favourite_tutor"));
-
            JSONObject favouriteTutor = jsonObject.getJSONObject("favourite_tutor");
             if(favouriteTutor != null){
                 String favouriteStatus = favouriteTutor.getJSONObject("fields").getString("status");
@@ -72,9 +71,6 @@ public class User implements Serializable {
                     setIsFavourites(true);
                 }
             }
-
-
-
         } catch (JSONException e){
             e.printStackTrace();
         }

@@ -4,6 +4,8 @@ apply plugin: 'com.android.application'
 
 
 android {
+
+
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
 
@@ -37,6 +39,10 @@ android {
     }
     dexOptions {
         javaMaxHeapSize "4g"
+    }
+
+    configurations {
+        all*.exclude group: 'com.google.firebase', module: 'firebase-common'
     }
 
 }

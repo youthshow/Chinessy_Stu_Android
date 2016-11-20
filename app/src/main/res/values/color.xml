@@ -23,5 +23,6 @@
     <color name="google_green">#FF34A350</color>
     <color name="transparent_grey_lighter">#80000000</color>
     <color name="transparent_grey_darker">#A0000000</color>
+    <color name="transparent_white">#A0ffffff</color>
 
 </resources>

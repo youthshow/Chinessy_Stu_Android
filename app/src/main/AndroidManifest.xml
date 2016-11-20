@@ -26,7 +26,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
 
-    <!--腾讯云- https://www.qcloud.com/doc/api/258/5319-->
+    <!-- 腾讯云- https://www.qcloud.com/doc/api/258/5319 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -37,19 +37,16 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
 
-
     <uses-feature android:name="android.hardware.Camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
-    <!--腾讯云- https://www.qcloud.com/doc/api/258/5319-->
 
-
-    <!--<uses-feature-->
-        <!--android:name="android.hardware.camera"-->
-        <!--android:required="false" />-->
-    <!--<uses-feature-->
-        <!--android:name="android.hardware.camera.autofocus"-->
-        <!--android:required="false" />-->
-
+    <!-- 腾讯云- https://www.qcloud.com/doc/api/258/5319 -->
+    <!-- <uses-feature -->
+    <!-- android:name="android.hardware.camera" -->
+    <!-- android:required="false" /> -->
+    <!-- <uses-feature -->
+    <!-- android:name="android.hardware.camera.autofocus" -->
+    <!-- android:required="false" /> -->
     <application
         android:name=".Chinessy"
         android:allowBackup="true"
@@ -123,13 +120,14 @@
             android:name="UMENG_CHANNEL"
             android:value="TEST" />
 
-        <!--<service-->
-            <!--android:name="com.umeng.update.net.DownloadingService"-->
-            <!--android:process=":DownloadingService" />-->
+        <!-- <service -->
+        <!-- android:name="com.umeng.update.net.DownloadingService" -->
+        <!-- android:process=":DownloadingService" /> -->
 
-        <!--<activity-->
-            <!--android:name="com.umeng.update.UpdateDialogActivity"-->
-            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+
+        <!-- <activity -->
+        <!-- android:name="com.umeng.update.UpdateDialogActivity" -->
+        <!-- android:theme="@android:style/Theme.Translucent.NoTitleBar" /> -->
 
         <service
             android:name="com.paypal.android.sdk.payments.PayPalService"
@@ -166,7 +164,8 @@
             android:label="@string/title_activity_live_room"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".activity.HistoryActivity" />
-        <activity android:name=".activity.BindedTeacherListActivity"></activity>
+        <activity android:name=".activity.BindedTeacherListActivity" />
+        <activity android:name=".rtmp.LiveRoomActivity"></activity>
     </application>
 
 </manifest>

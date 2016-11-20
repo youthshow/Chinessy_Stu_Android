@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.activity.LiveRoomActivity;
 import com.chinessy.chinessy.adapter.LiveRoomListAdapter;
 import com.chinessy.chinessy.rtmp.LivePlayerActivity;
+import com.chinessy.chinessy.rtmp.LiveRoomActivity;
 import com.chinessy.chinessy.rtmp.RTMPBaseActivity;
 
 import java.util.ArrayList;

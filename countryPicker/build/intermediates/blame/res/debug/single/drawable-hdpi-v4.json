@@ -216,12 +216,12 @@
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_ma.png"
     },
     {
-        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/debug/drawable-hdpi-v4/flag_et.png",
-        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_et.png"
-    },
-    {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/debug/drawable-hdpi-v4/flag_vi.png",
         "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_vi.png"
+    },
+    {
+        "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/debug/drawable-hdpi-v4/flag_et.png",
+        "source": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/src/main/res/drawable-hdpi/flag_et.png"
     },
     {
         "merged": "/Users/susan/Desktop/Chinessy_Stu_Android/countryPicker/build/intermediates/res/merged/debug/drawable-hdpi-v4/flag_ni.png",

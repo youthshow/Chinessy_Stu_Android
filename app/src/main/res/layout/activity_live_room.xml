@@ -7,16 +7,14 @@
     <FrameLayout
         android:id="@+id/content_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </FrameLayout>
+        android:layout_height="match_parent" />
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <!--直播头部-->
         <LinearLayout
-            android:id="@+id/llpicimage"
+            android:id="@+id/top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -41,8 +39,11 @@
                     android:paddingTop="5dp">
 
                     <TextView
+                        android:id="@+id/tv_host_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:lines="1"
                         android:text="pappaapapapapapapa"
                         android:textColor="@android:color/white"
                         android:textSize="12sp" />
@@ -56,6 +57,7 @@
                 </LinearLayout>
 
                 <com.chinessy.chinessy.rtmp.CustomRoundView
+                    android:id="@+id/crv_host_avatar"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@mipmap/me_profilepic"
@@ -72,16 +74,16 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@+id/rlsentimenttime"
+            android:id="@+id/rl_host_total_beans_min"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/llpicimage"
+            android:layout_below="@id/top"
             android:layout_marginTop="5dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
 
             <TextView
-                android:id="@+id/tvqq"
+                android:id="@+id/tv_host_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -92,160 +94,168 @@
                 android:paddingTop="5dp"
                 android:text="Beans:238742  Binded minutes:129"
                 android:textColor="@android:color/white"
-                android:textSize="12sp" />
+                android:textSize="@dimen/text_size_xs" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:orientation="vertical">
+            <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="vertical">-->
 
-                <TextView
-                    android:id="@+id/tvtime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="00:00:00"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
+            <!--<TextView-->
+            <!--android:id="@+id/tvtime"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="00:00:00"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="12sp" />-->
 
-                <TextView
-                    android:id="@+id/tvdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="00/00/00"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-            </LinearLayout>
+            <!--<TextView-->
+            <!--android:id="@+id/tvdate"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="00/00/00"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="12sp" />-->
+            <!--</LinearLayout>-->
         </RelativeLayout>
 
-        <LinearLayout
-            android:id="@+id/llgiftcontent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/lvmessage"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:animateLayoutChanges="true"
-            android:gravity="top"
-            android:orientation="vertical" />
-
-        <ListView
-            android:id="@+id/lvmessage"
-            android:layout_width="300dp"
-            android:layout_height="150dp"
-            android:layout_above="@+id/layout_bottom"
-            android:layout_marginLeft="10dp"
-            android:cacheColorHint="#00000000"
-            android:divider="@null"
-            android:dividerHeight="5dp"
-            android:listSelector="#00000000"
-            android:scrollbarStyle="outsideOverlay"
-            android:scrollbars="none"
-            android:transcriptMode="normal" />
-
+        <!--各种底部-->
         <FrameLayout
-            android:id="@+id/layout_bottom"
+            android:id="@+id/bottoms"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentBottom="true">
 
+            <!--礼物 -底部-->
             <RelativeLayout
+                android:id="@+id/rl_gift_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:orientation="horizontal"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                android:layout_height="50dp"
+                android:background="@color/transparent_grey_darker"
+                android:padding="10dp"
+                android:visibility="gone">
 
-                <ImageView
-                    android:id="@+id/ivChat"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/chat" />
+                <LinearLayout
+                    android:id="@+id/ll_recharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
 
-                <ImageView
-                    android:id="@+id/ivExit"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginRight="5dp"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Recharge"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <TextView
+                        android:id="@+id/tv_recharge_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="0"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_l" />
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:src="@mipmap/coin" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text=">"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_l" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_gift_send"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
                     android:layout_alignParentRight="true"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/exit" />
-
-                <ImageView
-                    android:layout_toLeftOf="@+id/ivExit"
-                    android:id="@+id/ivGift"
-                    android:layout_width="40dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_height="40dp"
-                    android:scaleType="centerInside"
-                    android:src="@mipmap/gift" />
+                    android:layout_centerVertical="true"
+                    android:background="@color/main_color"
+                    android:text="@string/send"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_m" />
 
                 <TextView
-                    android:id="@+id/tvSendone"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/btn_gift_money"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
                     android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/ivGift"
-                    android:background="@mipmap/chat"
-                    android:gravity="center"
-                    android:text="礼物1"
-                    android:textColor="#333"
-                    android:textSize="10sp" />
+                    android:layout_toLeftOf="@id/btn_gift_send"
+                    android:background="@drawable/bg_green_frame"
+                    android:text="0"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_m" />
 
-                <TextView
-                    android:id="@+id/tvSendtwo"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_toLeftOf="@+id/tvSendone"
-                    android:background="@mipmap/chat"
-                    android:gravity="center"
-                    android:text="礼物2"
-                    android:textColor="#333"
-                    android:textSize="10sp" />
 
-                <TextView
-                    android:id="@+id/tvSendthree"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_toLeftOf="@+id/tvSendtwo"
-                    android:background="@mipmap/chat"
-                    android:gravity="center"
-                    android:text="礼物3"
-                    android:textColor="#333"
-                    android:textSize="10sp" />
-
-                <TextView
-                    android:id="@+id/tvSendfor"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="5dp"
-                    android:layout_toLeftOf="@+id/tvSendthree"
-                    android:background="@mipmap/chat"
-                    android:gravity="center"
-                    android:text="礼物4"
-                    android:textColor="#333"
-                    android:textSize="10sp" />
             </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/llinputparent"
+            <!--1对1绑定时间-底部-->
+            <RelativeLayout
+                android:id="@+id/rl_bindminutes_bottom"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/transparent_grey_darker"
+                android:padding="10dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_green_border_radius"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:text="@string/OneOnOne_Tutor_packag"
+                    android:textColor="@color/main_color"
+                    android:textSize="@dimen/text_size_s" />
+
+                <Button
+                    android:id="@+id/btn_bind"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/main_color"
+                    android:text="@string/Bind"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_s" />
+
+                <TextView
+                    android:id="@+id/btn_bind_min"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="90dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/btn_bind"
+                    android:background="@drawable/bg_green_frame"
+                    android:text="@string/_0min"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_s" />
+            </RelativeLayout>
+            <!--输入法-底部-->
+            <LinearLayout
+                android:id="@+id/llinput_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginTop="5dp"
-                android:background="@android:color/white"
+                android:background="@color/transparent_white"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:visibility="gone">
@@ -261,30 +271,717 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@android:color/white"
-                        android:hint="在此输入你要说的话!"
+                        android:background="@null"
+                        android:hint="@string/say_something"
                         android:maxLength="30"
                         android:paddingBottom="10dp"
                         android:paddingTop="10dp"
-                        android:textColor="#888889"
-                        android:textColorHint="#c8c8c8"
-                        android:textSize="12sp" />
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="@dimen/text_size_s" />
 
                     <TextView
                         android:id="@+id/sendInput"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:background="@android:color/holo_blue_bright"
                         android:paddingBottom="5dp"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:paddingTop="5dp"
-                        android:text="发送"
-                        android:textColor="@android:color/white"
-                        android:textSize="12sp" />
+                        android:text="@string/send"
+                        android:textColor="@color/main_color"
+                        android:textSize="@dimen/text_size_l" />
                 </LinearLayout>
+
+
             </LinearLayout>
+            <!--主界面-底部-->
+            <RelativeLayout
+                android:id="@+id/rl_main_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <ImageView
+                    android:id="@+id/ivChat"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/chat" />
+
+                <ImageView
+                    android:id="@+id/ivExit"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/exit" />
+
+                <ImageView
+                    android:id="@+id/ivGift"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/ivExit"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/gift" />
+
+                <ImageView
+                    android:id="@+id/ivbinde"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/ivGift"
+                    android:scaleType="centerInside"
+                    android:src="@mipmap/share" />
+
+            </RelativeLayout>
+
         </FrameLayout>
+        <!--各种底部弹窗-->
+        <FrameLayout
+            android:id="@+id/mid"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_above="@id/bottoms">
+            <!--listView,1minute-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ListView
+                    android:id="@+id/lvmessage"
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:layout_alignParentBottom="true"
+                    android:cacheColorHint="#00000000"
+                    android:divider="@null"
+                    android:dividerHeight="5dp"
+                    android:listSelector="#00000000"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="none"
+                    android:transcriptMode="normal" />
+
+                <TextView
+                    android:id="@+id/btn_invisble_send"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@color/main_color"
+                    android:layout_marginRight="10dp"
+                    android:text="@string/Bind"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/text_size_s"
+                    android:visibility="gone"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_bindmins_list"
+                    android:layout_width="90dp"
+                    android:layout_height="200dp"
+                    android:layout_toLeftOf="@id/btn_invisble_send"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_1_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/transparent_grey_darker"
+                        android:gravity="center"
+                        android:paddingTop="5dp"
+                        android:text="@string/_1min"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_s" />
+
+
+                    <TextView
+                        android:id="@+id/tv_10_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_1_min"
+                        android:background="@color/transparent_grey_lighter"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/_10min"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_s" />
+
+
+                    <TextView
+                        android:id="@+id/tv_30_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_10_min"
+                        android:background="@color/transparent_grey_darker"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/_30min"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_60_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_30_min"
+                        android:background="@color/transparent_grey_lighter"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/_60min"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_100_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_60_min"
+                        android:background="@color/transparent_grey_darker"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/_100min"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_s" />
+
+                    <TextView
+                        android:id="@+id/tv_200_min"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@id/tv_100_min"
+                        android:background="@color/transparent_grey_lighter"
+                        android:gravity="center"
+                        android:paddingBottom="5dp"
+                        android:paddingTop="5dp"
+                        android:text="@string/_200min"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_s" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+            <!--礼物 和充值-->
+            <RelativeLayout
+                android:id="@+id/rl_gift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_topline_gift"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_bravo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_lighter">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_bravo"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_bravo" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_bravo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_applause"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_darker">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_applause"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_applause" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_applause"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="60"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_flower"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_lighter">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_flower"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_flower" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_flower"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="80"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_bouquet"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_darker">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_bouquet"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_bouquet" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_bouquet"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="180"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_second_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/ll_topline_gift">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_water"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_darker">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_water"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_water" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_water"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="500"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_chocolate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_lighter">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_chocolate"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_chocolate" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_chocolate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1200"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_star"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_darker">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_star"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_star" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_star"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="2800"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rl_medal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/transparent_grey_lighter">
+
+                        <ImageView
+                            android:id="@+id/iv_choose_medal"
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="4dp"
+                            android:src="@mipmap/choose"
+                            android:visibility="invisible" />
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/gift_medal" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@mipmap/coin" />
+
+                            <TextView
+                                android:id="@+id/tv_charge_medal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5880"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/text_size_m" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_rechargelist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/Recharge"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_l"
+                        android:visibility="invisible" />
+
+                    <RelativeLayout
+                        android:layout_width="80dp"
+                        android:layout_height="200dp">
+
+                        <TextView
+                            android:id="@+id/tv_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/transparent_grey_darker"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_m" />
+
+
+                        <TextView
+                            android:id="@+id/tv_10"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_1"
+                            android:background="@color/transparent_grey_lighter"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="10"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_m" />
+
+
+                        <TextView
+                            android:id="@+id/tv_30"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_10"
+                            android:background="@color/transparent_grey_darker"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="30"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <TextView
+                            android:id="@+id/tv_60"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_30"
+                            android:background="@color/transparent_grey_lighter"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="60"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <TextView
+                            android:id="@+id/tv_100"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_60"
+                            android:background="@color/transparent_grey_darker"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="100"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_m" />
+
+                        <TextView
+                            android:id="@+id/tv_200"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/tv_100"
+                            android:background="@color/transparent_grey_lighter"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="5dp"
+                            android:text="200"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/text_size_m" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/llgiftcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/mid"
+            android:layout_below="@id/rl_host_total_beans_min"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@mipmap/anim_medal"
+                android:visibility="gone" />
+        </LinearLayout>
     </RelativeLayout>
 </FrameLayout>
