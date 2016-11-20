@@ -6,17 +6,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.Config;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.BindedTeacherListAdapter;
 import com.chinessy.chinessy.adapter.LiveRoomListAdapter;
+import com.chinessy.chinessy.beans.BindTeacher;
+import com.chinessy.chinessy.beans.liveBeans;
+import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.fragment.TutorsFragment;
+import com.chinessy.chinessy.models.User;
+import com.chinessy.chinessy.utils.LogUtils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BindedTeacherListActivity extends AppCompatActivity {
     private RecyclerView mRv_bindedtecherlists;
@@ -27,45 +41,14 @@ public class BindedTeacherListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_binded_teacherlist);
 
         SystemSetting();
-
+        webRequest();
         mRv_bindedtecherlists = (RecyclerView) findViewById(R.id.rv_bindedtecherlists);
         mRv_bindedtecherlists.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRv_bindedtecherlists.setLayoutManager(layoutManager);
 
-        List list = new ArrayList<Integer>();
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
 
-        BindedTeacherListAdapter mAdapter = new BindedTeacherListAdapter(BindedTeacherListActivity.this, list);
-        mAdapter.setOnItemClickListener(new BindedTeacherListAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(BindedTeacherListActivity.this, "跳转老师详情", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent();
-//                intent.setClass(mActivity, TutorActivity.class);
-//                intent.putExtra("tutor", tutor);
-//                intent.putExtra("position", position);
-//                TutorsFragment.this.startActivityForResult(intent, Config.RC_MAIN_TO_TUTOR);
-            }
-        });
-        // specify an adapter (see also next example)
-        mRv_bindedtecherlists.setAdapter(mAdapter);
     }
 
 
@@ -82,4 +65,56 @@ public class BindedTeacherListActivity extends AppCompatActivity {
         finish();
         return super.onSupportNavigateUp();
     }
+
+    private void webRequest() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getStudentBinds,
+                new Response.Listener() {
+                    //﻿{"data":{"teacher":[""]},"msg":"没有数据！学生端一对一绑定信息列表","status":"true"}
+                    @Override
+                    public void onResponse(Object response) {
+                        LogUtils.d(ConstValue.getStudentBinds + " :-->" + response.toString());
+                        BindTeacher Beans = new Gson().fromJson(response.toString(), BindTeacher.class);
+                        if ("true".equals(Beans.getStatus().toString())) {
+                            BindTeacher.DataBean beans = Beans.getData();
+                            List<BindTeacher.DataBean.TeacherBean> teacherBeanList = Beans.getData().getTeacher();
+
+
+                            BindedTeacherListAdapter mAdapter = new BindedTeacherListAdapter(BindedTeacherListActivity.this, teacherBeanList);
+                            mAdapter.setOnItemClickListener(new BindedTeacherListAdapter.ItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+                                    Toast.makeText(BindedTeacherListActivity.this, "跳转老师详情", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent();
+//                intent.setClass(mActivity, TutorActivity.class);
+//                intent.putExtra("tutor", tutor);
+//                intent.putExtra("position", position);
+//                TutorsFragment.this.startActivityForResult(intent, Config.RC_MAIN_TO_TUTOR);
+                                }
+                            });
+                            // specify an adapter (see also next example)
+                            mRv_bindedtecherlists.setAdapter(mAdapter);
+                        }
+                    }
+
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                LogUtils.d(ConstValue.getStudentBinds + " :error-->" + error.toString());
+            }
+        }) {
+            @Override
+            protected Map getParams() {
+                //在这里设置需要post的参数
+                Map map = new HashMap();
+                //  map.put("userId", Chinessy.chinessy.getUser().getId());
+                map.put("userId", "611");
+
+                return map;
+            }
+        };
+
+        Chinessy.requestQueue.add(stringRequest);
+    }
+
 }

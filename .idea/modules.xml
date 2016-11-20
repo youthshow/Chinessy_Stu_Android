@@ -5,9 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Chinessy_Stu_Android.iml" filepath="$PROJECT_DIR$/Chinessy_Stu_Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/countryPicker/countryPicker.iml" filepath="$PROJECT_DIR$/countryPicker/countryPicker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ijkplayer-java/ijkplayer-java.iml" filepath="$PROJECT_DIR$/ijkplayer-java/ijkplayer-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/juscall/juscall.iml" filepath="$PROJECT_DIR$/juscall/juscall.iml" />
-      <module fileurl="file://$PROJECT_DIR$/upplayer/upplayer.iml" filepath="$PROJECT_DIR$/upplayer/upplayer.iml" />
     </modules>
   </component>
 </project>

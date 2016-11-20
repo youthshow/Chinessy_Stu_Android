@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
@@ -142,13 +143,14 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_binding_min"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="30 minute"
             android:textColor="@color/main_color"
-            android:textSize="@dimen/text_size_l" />
+            android:textSize="@dimen/text_size_l"
+            tools:text="30 minute" />
 
 
     </LinearLayout>

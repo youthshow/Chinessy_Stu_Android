@@ -112,7 +112,7 @@ public class TutorsFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_tutors, container, false);
 
-        mPtrFrameLayout = (PtrFrameLayout)rootView.findViewById(R.id.tutors_pf_layout);
+        mPtrFrameLayout = (PtrFrameLayout) rootView.findViewById(R.id.tutors_pf_layout);
         // header
         final MaterialHeader header = new MaterialHeader(mActivity);
         int[] colors = getResources().getIntArray(R.array.google_colors);
@@ -128,7 +128,7 @@ public class TutorsFragment extends Fragment {
         mPtrFrameLayout.setPinContent(true);
 
 //        mPvLoading = (ProgressView)rootView.findViewById(R.id.tutors_pv_loading);
-        mLvTutor = (ListView)rootView.findViewById(R.id.tutors_lv_list);
+        mLvTutor = (ListView) rootView.findViewById(R.id.tutors_lv_list);
 
         mLaTutor = new TutorListAdapter(mActivity);
 
@@ -159,11 +159,11 @@ public class TutorsFragment extends Fragment {
         }
 
         public boolean canChildScrollUp(View view) {
-            if(Build.VERSION.SDK_INT < 14) {
-                if(!(view instanceof AbsListView)) {
+            if (Build.VERSION.SDK_INT < 14) {
+                if (!(view instanceof AbsListView)) {
                     return view.getScrollY() > 0;
                 } else {
-                    AbsListView absListView = (AbsListView)view;
+                    AbsListView absListView = (AbsListView) view;
                     return absListView.getChildCount() > 0 && (absListView.getFirstVisiblePosition() > 0 || absListView.getChildAt(0).getTop() < absListView.getPaddingTop());
                 }
             } else {
@@ -172,7 +172,7 @@ public class TutorsFragment extends Fragment {
         }
     }
 
-    void fillTutorList(){
+    void fillTutorList() {
         JSONObject jsonParams = new JSONObject();
         try {
             jsonParams.put("access_token", Chinessy.chinessy.getUser().getAccessToken());
@@ -180,6 +180,8 @@ public class TutorsFragment extends Fragment {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 //                    super.onSuccess(statusCode, headers, response);
+
+                    Log.w(tag, response.toString()+"teacherteacherteacherteacher");
                     try {
                         switch (response.getInt("code")) {
                             case 10000:
@@ -268,11 +270,11 @@ public class TutorsFragment extends Fragment {
         public void onFragmentInteraction(Uri uri);
     }
 
-    class TutorsHandler extends Handler{
+    class TutorsHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
+            switch (msg.what) {
                 case HANDLER_AFTER_LOADING:
                     mLaTutor.notifyDataSetChanged();
 
@@ -282,11 +284,11 @@ public class TutorsFragment extends Fragment {
         }
     }
 
-    class LvTutorItemClickListener implements AdapterView.OnItemClickListener{
+    class LvTutorItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             User tutor = mLaTutor.getTutorList().get(position);
-            if(!tutor.getListTag().equals("")){
+            if (!tutor.getListTag().equals("")) {
                 return;
             }
 
@@ -301,11 +303,11 @@ public class TutorsFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case Config.RC_MAIN_TO_TUTOR:
-                if(resultCode == Activity.RESULT_OK){
+                if (resultCode == Activity.RESULT_OK) {
                     int position = data.getIntExtra("position", -1);
-                    if(position != -1){
+                    if (position != -1) {
                         mLaTutor.onFavouritesChanged(data, position);
                     }
                 }
@@ -319,6 +321,7 @@ public class TutorsFragment extends Fragment {
 //        fillTutorList();
         MobclickAgent.onPageStart("TutorsFragment");
     }
+
     @Override
     public void onPause() {
         super.onPause();

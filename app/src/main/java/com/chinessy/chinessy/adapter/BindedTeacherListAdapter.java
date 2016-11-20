@@ -4,22 +4,31 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.chinessy.chinessy.R;
+import com.chinessy.chinessy.activity.BindedTeacherListActivity;
+import com.chinessy.chinessy.beans.BindTeacher;
+import com.chinessy.chinessy.rtmp.CustomRoundView;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by susan on 16/2/29.
  */
 public class BindedTeacherListAdapter extends RecyclerView.Adapter<BindedTeacherListAdapter.ViewHolder> {
     private Context mContext;
-    private List<Integer> mList;
+    private List<BindTeacher.DataBean.TeacherBean> mList;
 
-    public BindedTeacherListAdapter(Context context, List<Integer> mData) {
+
+    public BindedTeacherListAdapter(BindedTeacherListActivity context, List<BindTeacher.DataBean.TeacherBean> teacherBeanList) {
         super();
         this.mContext = context;
-        this.mList = mData;
+        this.mList = teacherBeanList;
     }
 
 
@@ -33,33 +42,43 @@ public class BindedTeacherListAdapter extends RecyclerView.Adapter<BindedTeacher
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//            holder.mName.setText("userName");
-//            holder.mName.setText("client.email");
-//            holder.mName.setText("client.phone");
-//        holder.mAddress.setText("address");
+        BindTeacher.DataBean.TeacherBean teacher = mList.get(position);
+        holder.tutoritem_tv_name.setText(teacher.getName());
+        holder.tutoritem_tv_address.setText(teacher.getCountry());
+        holder.tutoritem_tv_score.setText(teacher.getScore());
+        holder.tv_binding_min.setText(teacher.getBinding_minutes());
+        holder.served_minutes.setText(teacher.getServed_minutes());
+        if ("available".equals(teacher.getStatus())) {
+            holder.tutoritem_iv_status.setImageResource(R.mipmap.dot_available);
+        } else if ("offline".equals(teacher.getStatus())) {
+            holder.tutoritem_iv_status.setImageResource(R.mipmap.dot_offline);
+        }else if("busy".equals(teacher.getStatus())){
+            holder.tutoritem_iv_status.setImageResource(R.mipmap.dot_busy);
+        }
+        Glide.with(mContext)
+                .load("http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg")
+                .into(holder.tutoritem_iv_headimg);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-//        CustomRoundView roundview_avatar;
-//        TextView mName;
-//        TextView tv_score;
-//        TextView tv_location;
-//        TextView tv_country;
-//        TextView tv_onlive;
-//        ImageView iv_screenshot;
-
+        ImageView tutoritem_iv_status;
+        CircleImageView tutoritem_iv_headimg;
+        TextView tutoritem_tv_name;
+        TextView tutoritem_tv_address;
+        TextView tutoritem_tv_score;
+        TextView tv_binding_min;
+        TextView served_minutes;
 
 
         public ViewHolder(View itemView) {
             super(itemView);
-//            this.roundview_avatar = (CustomRoundView) itemView.findViewById(R.id.roundview_avatar);
-//            this.mName = (TextView) itemView.findViewById(R.id.tv_name);
-//            this.tv_score = (TextView) itemView.findViewById(R.id.tv_score);
-//            this.tv_location = (TextView) itemView.findViewById(R.id.tv_location);
-//            this.tv_country = (TextView) itemView.findViewById(R.id.tv_country);
-//            this.iv_screenshot = (ImageView) itemView.findViewById(R.id.iv_screenshot);
-//            this.tv_onlive = (TextView) itemView.findViewById(R.id.tv_onlive);
-
+            this.tutoritem_iv_headimg = (CircleImageView) itemView.findViewById(R.id.tutoritem_iv_headimg);
+            this.tutoritem_tv_name = (TextView) itemView.findViewById(R.id.tutoritem_tv_name);
+            this.tutoritem_tv_address = (TextView) itemView.findViewById(R.id.tutoritem_tv_address);
+            this.tutoritem_tv_score = (TextView) itemView.findViewById(R.id.tutoritem_tv_score);
+            this.tv_binding_min = (TextView) itemView.findViewById(R.id.tv_binding_min);
+            this.tutoritem_iv_status = (ImageView) itemView.findViewById(R.id.tutoritem_iv_status);
+            this.served_minutes = (TextView) itemView.findViewById(R.id.tutoritem_tv_servedminutes);
 
 
             //为item添加普通点击回调

@@ -46,7 +46,10 @@ import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.beans.liveBeans;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.utils.DisplayUtil;
+import com.chinessy.chinessy.utils.LogUtils;
 import com.google.gson.Gson;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -322,6 +325,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
                 new Response.Listener() {
                     @Override
                     public void onResponse(Object response) {
+                        LogUtils.d(ConstValue.getPlayUrl + " :-->" + response.toString());
                         liveBeans Beans = new Gson().fromJson(response.toString(), liveBeans.class);
                         if ("true".equals(Beans.getStatus().toString())) {
                             String playUrl = Beans.getData();
@@ -333,7 +337,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e("VolleyPostPost", error.getMessage(), error);
+                LogUtils.d(ConstValue.getPlayUrl + " :error-->" + error.toString());
             }
         }) {
             @Override
@@ -361,7 +365,6 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
             mPlayerVodFragment.setArguments(bundle);
             transaction.replace(R.id.content_layout, mPlayerVodFragment);
             transaction.commit();
-            Log.d("playurl", "ShowLive");
         }
     }
        /*直播---end */
@@ -553,7 +556,6 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
      * 发送消息
      */
     private void sendText() {
-        Log.d("send", "sendText");
         if (!etInput.getText().toString().trim().isEmpty()) {
             messageData.add("Johnny: " + etInput.getText().toString().trim());
             etInput.setText("");
