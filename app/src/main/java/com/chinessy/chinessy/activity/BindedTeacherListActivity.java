@@ -1,12 +1,10 @@
 package com.chinessy.chinessy.activity;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,19 +13,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.chinessy.chinessy.Chinessy;
-import com.chinessy.chinessy.Config;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.BindedTeacherListAdapter;
-import com.chinessy.chinessy.adapter.LiveRoomListAdapter;
-import com.chinessy.chinessy.beans.BindTeacher;
-import com.chinessy.chinessy.beans.liveBeans;
+import com.chinessy.chinessy.beans.getStudentBinds;
 import com.chinessy.chinessy.clients.ConstValue;
-import com.chinessy.chinessy.fragment.TutorsFragment;
-import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.utils.LogUtils;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,10 +65,10 @@ public class BindedTeacherListActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Object response) {
                         LogUtils.d(ConstValue.getStudentBinds + " :-->" + response.toString());
-                        BindTeacher Beans = new Gson().fromJson(response.toString(), BindTeacher.class);
+                        getStudentBinds Beans = new Gson().fromJson(response.toString(), getStudentBinds.class);
                         if ("true".equals(Beans.getStatus().toString())) {
-                            BindTeacher.DataBean beans = Beans.getData();
-                            List<BindTeacher.DataBean.TeacherBean> teacherBeanList = Beans.getData().getTeacher();
+                            getStudentBinds.DataBean beans = Beans.getData();
+                            List<getStudentBinds.DataBean.TeacherBean> teacherBeanList = Beans.getData().getTeacher();
 
 
                             BindedTeacherListAdapter mAdapter = new BindedTeacherListAdapter(BindedTeacherListActivity.this, teacherBeanList);
@@ -107,8 +99,8 @@ public class BindedTeacherListActivity extends AppCompatActivity {
             protected Map getParams() {
                 //在这里设置需要post的参数
                 Map map = new HashMap();
-                //  map.put("userId", Chinessy.chinessy.getUser().getId());
-                map.put("userId", "611");
+                map.put("userId", Chinessy.chinessy.getUser().getId());
+                //  map.put("userId", "611");
 
                 return map;
             }

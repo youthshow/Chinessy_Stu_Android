@@ -363,7 +363,6 @@ public class UserProfile implements Serializable{
                         switch (response.getInt("code")) {
                             case 10000:
                                 User.updateUserBalance(context, response);
-
                                 afterRefreshBalance.execute();
                                 break;
                         }

@@ -6,6 +6,7 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentTransaction;
@@ -149,10 +150,17 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         }
     };
 
+    String user_id;
+    String room_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_room);
+        Intent intent = getIntent();
+
+        user_id = intent.getStringExtra("user_id");
+        room_id = intent.getStringExtra("room_id");
         SystemSetting();
         webRequest();
 
@@ -344,7 +352,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
             protected Map getParams() {
                 //在这里设置需要post的参数
                 Map map = new HashMap();
-                map.put("roomId", "002");
+                map.put("roomId", room_id);
 
                 return map;
             }

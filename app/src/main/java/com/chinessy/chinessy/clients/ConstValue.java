@@ -24,5 +24,28 @@ public class ConstValue {
      * 传递参数：
      * 1)userId		学生的用户ID
      */
+    //todo 头像
     public static final String getStudentBinds = "getStudentBinds";
+
+    /**
+     * 功能点：直播间列表展示
+     * 接口类型：http
+     * 接口地址：http://192.168.3.239:8090/Chinessy/index.php/Home/Index/getStudioList
+     * 接口方式：POST
+     * 功能描述：查询学生端里直播间列表
+     * 传递参数：
+     * --不用
+     */
+    public static final String getStudioList = "getStudioList";
+
+    /**
+     * 功能点：查看购买及充值的虚拟币、总时间和绑定给单个教师1对1视频学习的总时间
+     * 接口地址：http://192.168.3.239:8090/Chinessy/index.php/Home/Index/getMoneyInfo
+     * 接口方式：POST
+     * 功能描述：查询虚拟币、时间和一对一绑定视频总时长
+     * 传递参数：
+     * 1)userId		学生的用户ID
+     */
+    public static final String getMoneyInfo = "getMoneyInfo";
+
 }

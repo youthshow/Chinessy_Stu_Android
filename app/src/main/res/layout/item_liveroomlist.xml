@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -9,10 +10,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
         android:background="@android:color/white"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <com.chinessy.chinessy.rtmp.CustomRoundView
             android:id="@+id/roundview_avatar"
@@ -35,24 +36,25 @@
                 android:layout_weight="1">
 
                 <TextView
-                    android:layout_alignParentBottom="true"
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Lucy 李红"
+                    android:layout_alignParentBottom="true"
                     android:textColor="@android:color/black"
-                    android:textSize="@dimen/text_size_m" />
+                    android:textSize="@dimen/text_size_m"
+                    tools:text="Lucy 李红" />
 
                 <TextView
-                    android:layout_alignParentBottom="true"
-                    android:id="@+id/tv_score"
+                    android:id="@+id/tv_online_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="159484"
+                    android:layout_marginRight="8dp"
                     android:textColor="@color/main_color"
-                    android:textSize="@dimen/text_size_m" />
+                    android:textSize="@dimen/text_size_m"
+                    tools:text="159484" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -63,52 +65,57 @@
 
 
                 <ImageView
-                    android:layout_centerVertical="true"
                     android:id="@+id/iv_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:src="@mipmap/location" />
 
                 <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="2dp"
-                    android:id="@+id/tv_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/iv_location"
-                    android:text="xian, China"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/text_size_s" />
+                    android:textSize="@dimen/text_size_xs"
+                    tools:text="xian, China" />
 
                 <ImageView
-                    android:layout_centerVertical="true"
                     android:id="@+id/iv_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="4dp"
                     android:layout_toRightOf="@id/tv_location"
                     android:src="@mipmap/earth" />
 
 
                 <TextView
+                    android:id="@+id/tv_language"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="2dp"
-                    android:id="@+id/tv_country"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/iv_country"
-                    android:text="xian, China"
+                    android:ellipsize="end"
+                    android:lines="1"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/text_size_s" />
+                    android:textSize="@dimen/text_size_xs"
+                    tools:text="xian, China" />
 
                 <TextView
-                    android:layout_centerVertical="true"
+                    android:id="@+id/tv_statue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Online"
+                    android:layout_centerVertical="true"
                     android:textColor="@color/gray"
-                    android:textSize="@dimen/text_size_s" />
+                    android:textSize="@dimen/text_size_s"
+                    tools:text="Online" />
             </RelativeLayout>
 
 
@@ -125,16 +132,15 @@
             android:id="@+id/iv_screenshot"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitXY"
-            android:src="@mipmap/startpage" />
+            android:scaleType="fitXY" />
 
         <TextView
-            android:layout_marginRight="8dp"
-            android:layout_alignParentRight="true"
             android:id="@+id/tv_onlive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/bg_live"
             android:text="@string/tab_live"

@@ -10,8 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.activity.BindedTeacherListActivity;
-import com.chinessy.chinessy.beans.BindTeacher;
-import com.chinessy.chinessy.rtmp.CustomRoundView;
+import com.chinessy.chinessy.beans.getStudentBinds;
 
 import java.util.List;
 
@@ -22,10 +21,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class BindedTeacherListAdapter extends RecyclerView.Adapter<BindedTeacherListAdapter.ViewHolder> {
     private Context mContext;
-    private List<BindTeacher.DataBean.TeacherBean> mList;
+    private List<getStudentBinds.DataBean.TeacherBean> mList;
 
 
-    public BindedTeacherListAdapter(BindedTeacherListActivity context, List<BindTeacher.DataBean.TeacherBean> teacherBeanList) {
+    public BindedTeacherListAdapter(BindedTeacherListActivity context, List<getStudentBinds.DataBean.TeacherBean> teacherBeanList) {
         super();
         this.mContext = context;
         this.mList = teacherBeanList;
@@ -42,21 +41,30 @@ public class BindedTeacherListAdapter extends RecyclerView.Adapter<BindedTeacher
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        BindTeacher.DataBean.TeacherBean teacher = mList.get(position);
+        getStudentBinds.DataBean.TeacherBean teacher = mList.get(position);
         holder.tutoritem_tv_name.setText(teacher.getName());
         holder.tutoritem_tv_address.setText(teacher.getCountry());
         holder.tutoritem_tv_score.setText(teacher.getScore());
-        holder.tv_binding_min.setText(teacher.getBinding_minutes());
-        holder.served_minutes.setText(teacher.getServed_minutes());
+        holder.tv_binding_min.setText(teacher.getBinding_minutes() + " minute");
+        int servedminute = Integer.parseInt(teacher.getServed_minutes());
+        int hour = servedminute / 60;
+        int minute = servedminute % 60;
+        String servedMinutes = "";
+        if (hour != 0) {
+            servedMinutes = hour + "hour";
+        }
+        servedMinutes = servedMinutes + minute + "minute";
+        holder.served_minutes.setText(servedMinutes);
         if ("available".equals(teacher.getStatus())) {
             holder.tutoritem_iv_status.setImageResource(R.mipmap.dot_available);
         } else if ("offline".equals(teacher.getStatus())) {
             holder.tutoritem_iv_status.setImageResource(R.mipmap.dot_offline);
-        }else if("busy".equals(teacher.getStatus())){
+        } else if ("busy".equals(teacher.getStatus())) {
             holder.tutoritem_iv_status.setImageResource(R.mipmap.dot_busy);
         }
         Glide.with(mContext)
                 .load("http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg")
+                .placeholder(R.mipmap.me_profilepic)
                 .into(holder.tutoritem_iv_headimg);
     }
 

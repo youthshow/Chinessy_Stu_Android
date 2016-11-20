@@ -181,7 +181,6 @@ public class TutorsFragment extends Fragment {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 //                    super.onSuccess(statusCode, headers, response);
 
-                    Log.w(tag, response.toString()+"teacherteacherteacherteacher");
                     try {
                         switch (response.getInt("code")) {
                             case 10000:

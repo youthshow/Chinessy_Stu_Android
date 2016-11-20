@@ -11,7 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.activity.AddBalanceActivity;
@@ -20,8 +25,17 @@ import com.chinessy.chinessy.activity.GuideActivity;
 import com.chinessy.chinessy.activity.HistoryActivity;
 import com.chinessy.chinessy.activity.PersonInfoActivity;
 import com.chinessy.chinessy.activity.PromotionActivity;
+import com.chinessy.chinessy.beans.getMoneyInfo;
+import com.chinessy.chinessy.clients.ConstValue;
+import com.chinessy.chinessy.utils.LogUtils;
+import com.google.gson.Gson;
+import com.rey.material.app.DialogFragment;
 import com.rey.material.app.SimpleDialog;
+import com.rey.material.app.ThemeManager;
 import com.umeng.analytics.MobclickAgent;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,9 +70,10 @@ public class MyFragment extends Fragment {
     RelativeLayout mRlPersonalInfo;
     Button mBtnLogout;
     TextView mTvName;
-    TextView mTvPhone;
+    TextView mTvMoney;
     TextView mReferralCode;
     TextView mTvBalance;
+    TextView mTvBindedMinutes;
 
     /**
      * Use this factory method to create a new instance of
@@ -124,11 +139,9 @@ public class MyFragment extends Fragment {
     private class BindedMinutesOnClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            // Toast.makeText(getContext(), "my_tv_binded_minutes", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getContext(), BindedTeacherListActivity.class));
         }
     }
-
 
 
     private class HistoryOnClickListener implements View.OnClickListener {
@@ -171,16 +184,14 @@ public class MyFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-
-            final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
+            final SimpleDialog simpleDialog = new SimpleDialog(getContext());
             simpleDialog.title(R.string.Logout);
             simpleDialog.message(R.string.dialog_logout_message);
             simpleDialog.positiveAction(R.string.OK);
             simpleDialog.positiveActionClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     simpleDialog.cancel();
-
                     Intent intent = new Intent();
                     intent.setClass(mActivity, GuideActivity.class);
                     mActivity.startActivity(intent);
@@ -211,6 +222,7 @@ public class MyFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        webRequest();
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_me, container, false);
         mActivity = getActivity();
@@ -224,8 +236,9 @@ public class MyFragment extends Fragment {
         mRlHistory = (RelativeLayout) rootView.findViewById(R.id.my_rl_history);
         mRlAbout = (RelativeLayout) rootView.findViewById(R.id.my_rl_about);
         mTvName = (TextView) rootView.findViewById(R.id.my_tv_name);
-        mTvPhone = (TextView) rootView.findViewById(R.id.my_tv_phone);
+        mTvMoney = (TextView) rootView.findViewById(R.id.my_tv_money);
         mTvBalance = (TextView) rootView.findViewById(R.id.my_tv_balance);
+        mTvBindedMinutes = (TextView) rootView.findViewById(R.id.my_tv_binded_minutes);
         mRlPersonalInfo = (RelativeLayout) rootView.findViewById(R.id.my_rl_personalinfo);
 
         mReferralCode = (TextView) rootView.findViewById(R.id.my_tv_referralcode);
@@ -245,6 +258,47 @@ public class MyFragment extends Fragment {
 
         return rootView;
     }
+
+    private void webRequest() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getMoneyInfo,
+                // StringRequest stringRequest = new StringRequest(Request.Method.GET, ConstValue.BasicUrl + "getPlayUrl"+"?roomId=002",
+                new Response.Listener() {
+                    @Override
+                    public void onResponse(Object response) {
+                        LogUtils.d(ConstValue.getMoneyInfo + " :-->" + response.toString());
+                        getMoneyInfo Beans = new Gson().fromJson(response.toString(), getMoneyInfo.class);
+                        if ("true".equals(Beans.getStatus().toString())) {
+                            getMoneyInfo.DataBean dataBean = Beans.getData();
+                            String beans = dataBean.getBeans();
+                            String allTime = dataBean.getAllTime();
+                            String allBindingTime = dataBean.getAllBindingTime();
+                            mTvMoney.setText("Balance: " + allTime + " min & " + beans + " beans");
+                            // 50beans,15mins remaining
+                            mTvBalance.setText(beans + " beans," + allTime + " mins remaining");
+                            mTvBindedMinutes.setText(allBindingTime + " mins");
+                        }
+                    }
+
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                LogUtils.d(ConstValue.getMoneyInfo + " :error-->" + error.toString());
+            }
+        }) {
+            @Override
+            protected Map getParams() {
+                //在这里设置需要post的参数
+                Map map = new HashMap();
+                map.put("userId", Chinessy.chinessy.getUser().getId());
+
+                return map;
+            }
+        };
+
+        Chinessy.requestQueue.add(stringRequest);
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -289,7 +343,7 @@ public class MyFragment extends Fragment {
         String name = Chinessy.chinessy.getUser().getUserProfile().getName();
         name = name.equals("") ? Chinessy.chinessy.getUser().getEmail() : name;
         mTvName.setText(name);
-        mTvPhone.setText("Balance: " + Chinessy.chinessy.getUser().getUserProfile().getBalance() + "min");
+        mTvMoney.setText("Balance: " + Chinessy.chinessy.getUser().getUserProfile().getBalance() + "min");
         mReferralCode.setText("Ref. Code:" + Chinessy.chinessy.getUser().getUserProfile().getReferralCode());
         mTvBalance.setText(Chinessy.chinessy.getUser().getUserProfile().getBalance() + "min remaining");
     }

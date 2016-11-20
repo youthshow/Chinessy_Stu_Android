@@ -47,7 +47,7 @@
                             android:textSize="20sp" />
 
                         <TextView
-                            android:id="@+id/my_tv_phone"
+                            android:id="@+id/my_tv_money"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
@@ -119,7 +119,8 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m" />
+                            android:textSize="@dimen/text_size_m"
+                            tools:text="50beans,15mins remaining" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -146,7 +147,8 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
                             android:textColor="@color/gray"
-                            android:textSize="@dimen/text_size_m" />
+                            android:textSize="@dimen/text_size_m"
+                            tools:text=" 15mins " />
                     </RelativeLayout>
 
 

@@ -6,7 +6,7 @@ import java.util.List;
  * Created by susan on 2016/11/20.
  */
 
-public class BindTeacher {
+public class getStudentBinds {
 
     /**
      * data : {"teacher":[{"user_id":"412","head_img_key":"selfJessyScalled.jpg","name":"Jessy 马洁雪","binding_minutes":"30","country":"Xi'an, China","score":"5.00","served_minutes":"17","status":"offline"},{"user_id":"197","head_img_key":"13728617827.jpg","name":"Kristy 黄柳婷","binding_minutes":"15","country":"Shenzhen, China","score":"5.00","served_minutes":"3083","status":"busy"}]}

@@ -11,12 +11,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.LiveRoomListAdapter;
+import com.chinessy.chinessy.beans.getStudioList;
+import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.rtmp.LiveRoomActivity;
+import com.chinessy.chinessy.utils.LogUtils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,38 +94,64 @@ public class LiveRoomListFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRv_roomlists.setLayoutManager(layoutManager);
-
-        List list = new ArrayList<Integer>();
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-        list.add(1);
-
-        LiveRoomListAdapter mAdapter = new LiveRoomListAdapter(getContext(), list);
-        mAdapter.setOnItemClickListener(new LiveRoomListAdapter.ItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                startActivity(new Intent(getContext(), LiveRoomActivity.class));
-            }
-        });
-        // specify an adapter (see also next example)
-        mRv_roomlists.setAdapter(mAdapter);
+        webRequest();
 
 
         return rootView;
     }
+
+
+    private void webRequest() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getStudioList,
+                // StringRequest stringRequest = new StringRequest(Request.Method.GET, ConstValue.BasicUrl + "getPlayUrl"+"?roomId=002",
+                new Response.Listener() {
+                    @Override
+                    public void onResponse(Object response) {
+                        LogUtils.d(ConstValue.getStudioList + " :-->" + response.toString());
+                        getStudioList Beans = new Gson().fromJson(response.toString(), getStudioList.class);
+                        if ("true".equals(Beans.getStatus().toString())) {
+                            getStudioList.DataBean dataBean = Beans.getData();
+                            final List<getStudioList.DataBean.StudioBean> studioBeen = dataBean.getStudio();
+
+
+                            LiveRoomListAdapter mAdapter = new LiveRoomListAdapter(getContext(), studioBeen);
+                            mAdapter.setOnItemClickListener(new LiveRoomListAdapter.ItemClickListener() {
+                                @Override
+                                public void onItemClick(View view, int position) {
+                                    Intent intent = new Intent(getContext(), LiveRoomActivity.class);
+                                    intent.putExtra("room_id", studioBeen.get(position).getRoom_id());
+                                    intent.putExtra("user_id", studioBeen.get(position).getUser_id());
+                                    startActivity(intent);
+                                }
+                            });
+                            // specify an adapter (see also next example)
+                            mRv_roomlists.setAdapter(mAdapter);
+
+                        }
+                    }
+
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                LogUtils.d(ConstValue.getStudioList + " :error-->" + error.toString());
+            }
+        }) {
+            /*
+            @Override
+            protected Map getParams() {
+                //在这里设置需要post的参数
+                Map map = new HashMap();
+                map.put("roomId", "002");
+
+                return map;
+            }
+            */
+        };
+
+        Chinessy.requestQueue.add(stringRequest);
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {

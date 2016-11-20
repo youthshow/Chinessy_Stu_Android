@@ -16,7 +16,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
-import com.chinessy.chinessy.beans.liveBeans;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
