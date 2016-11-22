@@ -13,8 +13,8 @@ import com.chinessy.chinessy.Chinessy;
  * Created by larry on 15/7/10.
  */
 public class FileUtil {
-    public static String SDCARD_DIR = "/sdcard/";
-    public static String NOSDCARD_DIR = "/data/data/" + Chinessy.chinessy.getPackageName();
+    public static String SDCARD_DIR = Environment.getExternalStorageState();
+    public static String NOSDCARD_DIR = Environment.getDataDirectory() + Chinessy.chinessy.getPackageName();
 
 
     public static boolean hasSDCard() {
