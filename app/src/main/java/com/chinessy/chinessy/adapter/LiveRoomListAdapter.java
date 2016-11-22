@@ -54,11 +54,11 @@ public class LiveRoomListAdapter extends RecyclerView.Adapter<LiveRoomListAdapte
 
         Glide.with(mContext)
                 .load(studioBean.getCover())
-                .placeholder(R.mipmap.me_profilepic)
+                .placeholder(R.mipmap.profile_square)
                 .into(holder.iv_screenshot);
         Glide.with(mContext)  //head_img_key
                 .load("http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg")
-                .placeholder(R.mipmap.me_profilepic)
+                .placeholder(R.mipmap.profile_head)
                 .into(holder.roundview_avatar);
 
     }

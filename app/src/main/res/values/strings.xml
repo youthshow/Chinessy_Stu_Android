@@ -80,9 +80,12 @@
     <!--personal info activity-->
     <string name="WaitingForComfirmation">waitingforcomfirmation</string>
     <string name="Email">Email</string>
+    <string name="Facebook">Facebook</string>
+    <string name="Twitter">Twitter</string>
     <string name="Full_Name">Full Name</string>
     <string name="Phone_Number">Phone Number</string>
     <string name="Country">Country</string>
+    <string name="proficient_Language">Proficient Language</string>
     <string name="Country_Code">Country Code</string>
     <string name="dialog_info_not_complete_message">Please enter your name</string>
 

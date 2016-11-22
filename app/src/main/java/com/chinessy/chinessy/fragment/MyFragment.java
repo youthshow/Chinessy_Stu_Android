@@ -25,6 +25,7 @@ import com.chinessy.chinessy.activity.GuideActivity;
 import com.chinessy.chinessy.activity.HistoryActivity;
 import com.chinessy.chinessy.activity.PersonInfoActivity;
 import com.chinessy.chinessy.activity.PromotionActivity;
+import com.chinessy.chinessy.beans.BasicBean;
 import com.chinessy.chinessy.beans.getMoneyInfo;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.utils.LogUtils;
@@ -266,8 +267,10 @@ public class MyFragment extends Fragment {
                     @Override
                     public void onResponse(Object response) {
                         LogUtils.d(ConstValue.getMoneyInfo + " :-->" + response.toString());
-                        getMoneyInfo Beans = new Gson().fromJson(response.toString(), getMoneyInfo.class);
-                        if ("true".equals(Beans.getStatus().toString())) {
+
+                        BasicBean basicBean = new Gson().fromJson(response.toString(), BasicBean.class);
+                        if ("true".equals(basicBean.getStatus().toString())) {
+                            getMoneyInfo Beans = new Gson().fromJson(response.toString(), getMoneyInfo.class);
                             getMoneyInfo.DataBean dataBean = Beans.getData();
                             String beans = dataBean.getBeans();
                             String allTime = dataBean.getAllTime();
@@ -277,6 +280,8 @@ public class MyFragment extends Fragment {
                             mTvBalance.setText(beans + " beans," + allTime + " mins remaining");
                             mTvBindedMinutes.setText(allBindingTime + " mins");
                         }
+
+
                     }
 
 

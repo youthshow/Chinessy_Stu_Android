@@ -44,6 +44,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
+import com.chinessy.chinessy.beans.BasicBean;
 import com.chinessy.chinessy.beans.liveBeans;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.utils.DisplayUtil;
@@ -334,14 +335,13 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onResponse(Object response) {
                         LogUtils.d(ConstValue.getPlayUrl + " :-->" + response.toString());
-                        liveBeans Beans = new Gson().fromJson(response.toString(), liveBeans.class);
-                        if ("true".equals(Beans.getStatus().toString())) {
+                        BasicBean basicBean = new Gson().fromJson(response.toString(), BasicBean.class);
+                        if ("true".equals(basicBean.getStatus().toString())) {
+                            liveBeans Beans = new Gson().fromJson(response.toString(), liveBeans.class);
                             String playUrl = Beans.getData();
                             ShowLive(playUrl);
                         }
                     }
-
-
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

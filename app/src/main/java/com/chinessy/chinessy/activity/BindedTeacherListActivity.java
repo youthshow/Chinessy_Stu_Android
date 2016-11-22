@@ -15,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.BindedTeacherListAdapter;
+import com.chinessy.chinessy.beans.BasicBean;
 import com.chinessy.chinessy.beans.getStudentBinds;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.utils.LogUtils;
@@ -65,8 +66,9 @@ public class BindedTeacherListActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Object response) {
                         LogUtils.d(ConstValue.getStudentBinds + " :-->" + response.toString());
-                        getStudentBinds Beans = new Gson().fromJson(response.toString(), getStudentBinds.class);
-                        if ("true".equals(Beans.getStatus().toString())) {
+                        BasicBean basicBean = new Gson().fromJson(response.toString(), BasicBean.class);
+                        if ("true".equals(basicBean.getStatus().toString())) {
+                            getStudentBinds Beans = new Gson().fromJson(response.toString(), getStudentBinds.class);
                             getStudentBinds.DataBean beans = Beans.getData();
                             List<getStudentBinds.DataBean.TeacherBean> teacherBeanList = Beans.getData().getTeacher();
 
@@ -86,6 +88,8 @@ public class BindedTeacherListActivity extends AppCompatActivity {
                             // specify an adapter (see also next example)
                             mRv_bindedtecherlists.setAdapter(mAdapter);
                         }
+
+
                     }
 
 
