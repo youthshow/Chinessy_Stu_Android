@@ -10,7 +10,7 @@ public class getStudioList {
 
 
     /**
-     * data : {"studio":[{"room_id":"109","user_id":"109","head_img_key":"self1.pic_hd.jpg","name":"Ryan 洪俊杰","country":"Shenzhen, China","spoken_languages":"Mandarin(Native), Cantonese(Native), English(Fluent)","online_num":"29523","status":"inactive","cover":"192.168.3.239:8090/Chinessy/image/006brYTkgw1f5py4hafwoj30j60y10x7.jpg"},{"room_id":"267","user_id":"267","head_img_key":"xiaoqian.jpg","name":"Sue 袁小倩","country":"Shanghai, China","spoken_languages":"Fluent English ,Basic Dutch , Low Spanish .","online_num":"24456","status":"inactive","cover":"192.168.3.239:8090/Chinessy/image/0060KzfCgw1f3114tza5mj30dw0jugod.jpg"}]}
+     * data : {"studio":[{"play_url":"rtmp://5228.liveplay.myqcloud.com/live/5228_109","room_id":"109","user_id":"109","head_img_key":"self1.pic_hd.jpg","name":"Ryan 洪俊杰","country":"Shenzhen, China","spoken_languages":"Mandarin(Native), Cantonese(Native), English(Fluent)","online_num":"29523","status":"inactive","cover":"192.168.3.239:8090/Chinessy/image/006brYTkgw1f5py4hafwoj30j60y10x7.jpg"},{"play_url":"rtmp://5228.liveplay.myqcloud.com/live/5228_267","room_id":"267","user_id":"267","head_img_key":"xiaoqian.jpg","name":"Sue 袁小倩","country":"Shanghai, China","spoken_languages":"Fluent English ,Basic Dutch , Low Spanish .","online_num":"24456","status":"inactive","cover":"192.168.3.239:8090/Chinessy/image/0060KzfCgw1f3114tza5mj30dw0jugod.jpg"}]}
      * msg : 获取成功！直播间列表
      * status : true
      */
@@ -56,6 +56,7 @@ public class getStudioList {
 
         public static class StudioBean {
             /**
+             * play_url : rtmp://5228.liveplay.myqcloud.com/live/5228_109
              * room_id : 109
              * user_id : 109
              * head_img_key : self1.pic_hd.jpg
@@ -67,6 +68,7 @@ public class getStudioList {
              * cover : 192.168.3.239:8090/Chinessy/image/006brYTkgw1f5py4hafwoj30j60y10x7.jpg
              */
 
+            private String play_url;
             private String room_id;
             private String user_id;
             private String head_img_key;
@@ -76,6 +78,14 @@ public class getStudioList {
             private String online_num;
             private String status;
             private String cover;
+
+            public String getPlay_url() {
+                return play_url;
+            }
+
+            public void setPlay_url(String play_url) {
+                this.play_url = play_url;
+            }
 
             public String getRoom_id() {
                 return room_id;

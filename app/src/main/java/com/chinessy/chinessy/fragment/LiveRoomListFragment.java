@@ -20,8 +20,10 @@ import com.chinessy.chinessy.R;
 import com.chinessy.chinessy.adapter.LiveRoomListAdapter;
 import com.chinessy.chinessy.beans.BasicBean;
 import com.chinessy.chinessy.beans.getStudioList;
+import com.chinessy.chinessy.beans.liveBeans;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.rtmp.LiveRoomActivity;
+import com.chinessy.chinessy.rtmp.PlayerActivity;
 import com.chinessy.chinessy.utils.LogUtils;
 import com.google.gson.Gson;
 
@@ -101,6 +103,7 @@ public class LiveRoomListFragment extends Fragment {
         return rootView;
     }
 
+    String room_id;
 
     private void webRequest() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getStudioList,
@@ -121,10 +124,62 @@ public class LiveRoomListFragment extends Fragment {
                             mAdapter.setOnItemClickListener(new LiveRoomListAdapter.ItemClickListener() {
                                 @Override
                                 public void onItemClick(View view, int position) {
-                                    Intent intent = new Intent(getContext(), LiveRoomActivity.class);
-                                    intent.putExtra("room_id", studioBeen.get(position).getRoom_id());
-                                    intent.putExtra("user_id", studioBeen.get(position).getUser_id());
+                                    LogUtils.d(ConstValue.getPlayUrl + " :-->" + studioBeen.get(position).getPlay_url());
+                                    Intent intent = new Intent();
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("TITLE", "");
+                                    bundle.putString("URI", "rtmp://live.hkstv.hk.lxdns.com/live/hks");
+                                    bundle.putInt("decode_type", 1);
+                                    intent.putExtras(bundle);
+                                    intent.setClass(getContext(), PlayerActivity.class);
                                     startActivity(intent);
+//                                    Intent intent = new Intent(getContext(), LiveRoomActivity.class);
+//                                    intent.putExtra("room_id", studioBeen.get(position).getRoom_id());
+//                                    intent.putExtra("user_id", studioBeen.get(position).getUser_id());
+//                                    startActivity(intent);
+
+/*
+                                    room_id = studioBeen.get(position).getRoom_id();
+                                    StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getPlayUrl,
+                                            // StringRequest stringRequest = new StringRequest(Request.Method.GET, ConstValue.BasicUrl + "getPlayUrl"+"?roomId=002",
+                                            new Response.Listener() {
+                                                @Override
+                                                public void onResponse(Object response) {
+                                                    LogUtils.d(ConstValue.getPlayUrl + " :-->" + response.toString());
+                                                    BasicBean basicBean = new Gson().fromJson(response.toString(), BasicBean.class);
+                                                    if ("true".equals(basicBean.getStatus().toString())) {
+                                                        liveBeans Beans = new Gson().fromJson(response.toString(), liveBeans.class);
+                                                        String playUrl = Beans.getData();
+                                                        LogUtils.d(ConstValue.getPlayUrl + " :-->" + playUrl);
+//                                                        Intent intent = new Intent();
+//                                                        Bundle bundle = new Bundle();
+//                                                        bundle.putString("TITLE", "");
+//                                                        bundle.putString("URI", playUrl);
+//                                                        bundle.putInt("decode_type", 1);
+//                                                        intent.putExtras(bundle);
+//                                                        intent.setClass(getContext(), PlayerActivity.class);
+//                                                        startActivity(intent);
+                                                    }
+                                                }
+                                            }, new Response.ErrorListener() {
+                                        @Override
+                                        public void onErrorResponse(VolleyError error) {
+                                            LogUtils.d(ConstValue.getPlayUrl + " :error-->" + error.toString());
+                                        }
+                                    }) {
+                                        @Override
+                                        protected Map getParams() {
+                                            //在这里设置需要post的参数
+                                            Map map = new HashMap();
+                                            map.put("roomId", room_id);
+
+                                            return map;
+                                        }
+                                    };
+
+                                    Chinessy.requestQueue.add(stringRequest);
+*/
+
                                 }
                             });
                             // specify an adapter (see also next example)
