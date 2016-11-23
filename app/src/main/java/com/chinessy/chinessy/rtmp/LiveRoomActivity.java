@@ -163,7 +163,6 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         user_id = intent.getStringExtra("user_id");
         room_id = intent.getStringExtra("room_id");
         SystemSetting();
-        webRequest();
 
         findViewById(R.id.content_layout).setOnClickListener(this);
         //直播头部
@@ -327,55 +326,7 @@ public class LiveRoomActivity extends AppCompatActivity implements View.OnClickL
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);/*同时将界面改为resize已达到软键盘弹出时LiveFragment不会跟随移动*/
     }
 
-    /*直播--start*/
-    private void webRequest() {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, ConstValue.BasicUrl + ConstValue.getPlayUrl,
-                // StringRequest stringRequest = new StringRequest(Request.Method.GET, ConstValue.BasicUrl + "getPlayUrl"+"?roomId=002",
-                new Response.Listener() {
-                    @Override
-                    public void onResponse(Object response) {
-                        LogUtils.d(ConstValue.getPlayUrl + " :-->" + response.toString());
-                        BasicBean basicBean = new Gson().fromJson(response.toString(), BasicBean.class);
-                        if ("true".equals(basicBean.getStatus().toString())) {
-                            liveBeans Beans = new Gson().fromJson(response.toString(), liveBeans.class);
-                            String playUrl = Beans.getData();
-                            ShowLive(playUrl);
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                LogUtils.d(ConstValue.getPlayUrl + " :error-->" + error.toString());
-            }
-        }) {
-            @Override
-            protected Map getParams() {
-                //在这里设置需要post的参数
-                Map map = new HashMap();
-                map.put("roomId", room_id);
 
-                return map;
-            }
-        };
-
-        Chinessy.requestQueue.add(stringRequest);
-    }
-
-    private LivePlayerActivity mPlayerVodFragment;
-
-    private void ShowLive(String playurl) {
-
-        if (!TextUtils.isEmpty(playurl)) {
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            mPlayerVodFragment = new LivePlayerActivity();
-            Bundle bundle = new Bundle();
-            bundle.putString("url", playurl);
-            mPlayerVodFragment.setArguments(bundle);
-            transaction.replace(R.id.content_layout, mPlayerVodFragment);
-            transaction.commit();
-        }
-    }
-       /*直播---end */
 
 
     public void Dialog_AudienceInfo() {
