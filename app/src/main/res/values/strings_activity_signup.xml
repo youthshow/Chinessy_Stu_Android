@@ -1,6 +1,7 @@
 <resources>
     <string name="action_signup">Signup</string>
     <string name="prompt_invitation_code">Invitation Code(Optinonal)</string>
+    <string name="Email_Code">Email Code(Check email)</string>
 
     <string name="error_name_is_invalid">Name is invalid</string>
     <string name="error_email_is_invalid">Email is invalid</string>

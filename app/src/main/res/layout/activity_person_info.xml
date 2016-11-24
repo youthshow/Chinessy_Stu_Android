@@ -1,204 +1,228 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.chinessy.chinessy.activity.PersonInfoActivity"
-    android:orientation="vertical">
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.chinessy.chinessy.activity.PersonInfoActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        >
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
         <RelativeLayout
+            android:id="@+id/pinfo_rl_email"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:padding="5dp"
-            android:id="@+id/pinfo_rl_email"
             android:background="@drawable/btn_long_white"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_l"
-                android:text="@string/Email"
-                />
+            android:padding="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/gray"
-                android:textSize="@dimen/text_size_s"
+                android:text="@string/Email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
                 android:id="@+id/pinfo_tv_email"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_s" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="1dp"
+            android:id="@+id/pinfo_rl_twitter"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_long_white"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/Twitter"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_s" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="1dp"
+            android:id="@+id/pinfo_rl_facebook"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_long_white"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="@string/Facebook"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_s" />
         </RelativeLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="10dp"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
+            android:id="@+id/pinfo_rl_name"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:padding="5dp"
-            android:id="@+id/pinfo_rl_name"
-            android:background="@color/white"
             android:layout_marginBottom="1dp"
+            android:background="@color/white"
             android:orientation="horizontal"
-            >
+            android:padding="5dp">
+
             <TextView
+                android:id="@+id/pinfo_tv_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:textColor="@color/black"
-                android:textSize="@dimen/text_size_l"
-                android:text="@string/Full_Name"
-                android:id="@+id/pinfo_tv_name"
+                android:layout_centerVertical="true"
                 android:layout_weight="1"
-                />
+                android:text="@string/Full_Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_l" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/pinfo_tv_name"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                >
+                android:layout_toRightOf="@id/pinfo_tv_name"
+                android:layout_weight="1">
 
                 <EditText
+                    android:id="@+id/pinfo_et_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/text_size_s"
-                    android:id="@+id/pinfo_et_name"
-                    android:padding="0dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:background="@color/transparent"
-                    />
+                    android:padding="0dp"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_s" />
 
             </RelativeLayout>
 
         </LinearLayout>
 
+
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:id="@+id/ll_proficient_language"
             android:padding="5dp"
-            android:id="@+id/pinfo_rl_country"
-            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="1dp"
-            android:orientation="horizontal"
-            >
+            android:layout_marginTop="1dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
+
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
+                android:layout_height="wrap_content"
+                android:text="@string/proficient_Language"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size_l"
-                android:text="@string/Country"
+                android:textSize="@dimen/text_size_l" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text="system will push the teachers who proficient in the language to teach you chinese"
+                android:textColor="@color/light_gray_text"
+                android:textSize="@dimen/text_size_s" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pinfo_rl_country"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
                 android:id="@+id/pinfo_tv_country"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:layout_weight="1"
-                />
+                android:text="@string/Country"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_l" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_toRightOf="@id/pinfo_tv_country"
                 android:layout_marginLeft="5dp"
-                android:layout_weight="1"
-                >
+                android:layout_toRightOf="@id/pinfo_tv_country"
+                android:layout_weight="1">
 
                 <TextView
+                    android:id="@+id/pinfo_et_countrydetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
-                    android:textColor="@color/gray"
-                    android:textSize="@dimen/text_size_s"
-                    android:id="@+id/pinfo_et_countrydetail"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
                     android:background="@color/transparent"
-                    />
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_s" />
 
             </RelativeLayout>
 
         </LinearLayout>
 
-        <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="48dp"-->
-        <!--android:padding="5dp"-->
-        <!--android:id="@+id/pinfo_rl_countrycode"-->
-        <!--android:background="@color/white"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:layout_marginBottom="1dp"-->
-        <!--android:visibility="gone"-->
-        <!-->-->
-        <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:textColor="@color/black"-->
-        <!--android:textSize="@dimen/text_size_l"-->
-        <!--android:text="@string/Country_Code"-->
-        <!--android:id="@+id/pinfo_tv_countrycode"-->
-        <!--android:layout_weight="1"-->
-        <!--/>-->
-
-
-        <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_toRightOf="@id/pinfo_tv_countrycode"-->
-        <!--android:layout_marginLeft="5dp"-->
-        <!--android:layout_weight="1"-->
-        <!-->-->
-
-        <!--<EditText-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:textColor="@color/gray"-->
-        <!--android:textSize="@dimen/text_size_s"-->
-        <!--android:id="@+id/pinfo_et_countrycode"-->
-        <!--android:padding="0dp"-->
-        <!--android:layout_marginRight="10dp"-->
-        <!--android:background="@color/transparent"-->
-        <!--/>-->
-
-        <!--</RelativeLayout>-->
-
-        <!--</LinearLayout>-->
         <TextView
+            android:id="@+id/pinfo_tv_countrycode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/pinfo_tv_countrycode"
+            android:layout_marginRight="5dp"
             android:textColor="@color/gray"
             android:textSize="@dimen/text_size_s"
-            android:layout_marginRight="5dp"
-            android:visibility="gone"
-            />
-
+            android:visibility="gone" />
     </LinearLayout>
 
 </LinearLayout>

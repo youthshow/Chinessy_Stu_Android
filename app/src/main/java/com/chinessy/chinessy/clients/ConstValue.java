@@ -48,4 +48,22 @@ public class ConstValue {
      */
     public static final String getMoneyInfo = "getMoneyInfo";
 
+    //todo +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    /*
+    * 注册邮箱验证码发送
+    *  接口方式：get
+    *  接口地址：http://lande88.com/live/home/live/code?mail=465070308@qq.com
+    * */
+    public static final String CODE = "http://lande88.com/live/home/live/code";
+    public static final String mail = "mail";
+    public static final String code = "code";
+    /*
+    * 注册邮箱验证码校验
+    *  接口方式：get
+    *  接口地址：http://lande88.com/live/home/live/valid?mail=465070308@qq.com&code=788430
+    * */
+    public static final String VAILD = "http://lande88.com/live/home/live/valid";
+
+
+
 }

@@ -2,8 +2,10 @@ package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.KeyListener;
@@ -25,6 +27,7 @@ import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.models.ModifyObject;
 import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.models.UserProfile;
+import com.chinessy.chinessy.utils.LogUtils;
 import com.countrypicker.CountryPicker;
 import com.countrypicker.CountryPickerListener;
 import com.rey.material.app.SimpleDialog;
@@ -40,17 +43,17 @@ public class PersonInfoActivity extends AppCompatActivity {
     final String mEgPhone = "e.g +1 xxxxxxxxx";
 
     EditText mEtName;
-//    EditText mEtPhone;
+    //    EditText mEtPhone;
 //    EditText mEtCountryCode;
     TextView mTvCountry;
     TextView mTvEmail;
     TextView mTvCountryCode;
 
     LinearLayout mRlName;
-//    LinearLayout mRlPhone;
+    //    LinearLayout mRlPhone;
 //    LinearLayout mLlPhoneAndCountryCode;
     LinearLayout mLlCountry;
-//    LinearLayout mLlCountryCode;
+    //    LinearLayout mLlCountryCode;
     RelativeLayout mRlEmail;
 
     MenuItem mMiSave;
@@ -58,6 +61,11 @@ public class PersonInfoActivity extends AppCompatActivity {
     ProgressDialog mProgressDialog;
 
     Activity mActivity;
+
+    LinearLayout mLlProficientLanguage;
+    RelativeLayout mRlTwitter;
+    RelativeLayout mRlFacebook;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,18 +78,25 @@ public class PersonInfoActivity extends AppCompatActivity {
         actionBar.setElevation(0f);
 
 
-
-        mEtName = (EditText)findViewById(R.id.pinfo_et_name);
+        mEtName = (EditText) findViewById(R.id.pinfo_et_name);
 //        mEtPhone = (EditText)findViewById(R.id.pinfo_et_phone);
 //        mEtCountryCode = (EditText)findViewById(R.id.pinfo_et_countrycode);
-        mTvEmail = (TextView)findViewById(R.id.pinfo_tv_email);
-        mTvCountry = (TextView)findViewById(R.id.pinfo_et_countrydetail);
-        mTvCountryCode = (TextView)findViewById(R.id.pinfo_tv_countrycode);
+        mTvEmail = (TextView) findViewById(R.id.pinfo_tv_email);
+        mTvCountry = (TextView) findViewById(R.id.pinfo_et_countrydetail);
+        mTvCountryCode = (TextView) findViewById(R.id.pinfo_tv_countrycode);
 
-        mRlName = (LinearLayout)findViewById(R.id.pinfo_rl_name);
+
+        mLlProficientLanguage = (LinearLayout) findViewById(R.id.ll_proficient_language);
+        mLlProficientLanguage.setOnClickListener(new ProficientLanguageOnClickListener());
+        mRlTwitter = (RelativeLayout) findViewById(R.id.pinfo_rl_twitter);
+        mRlTwitter.setOnClickListener(new TwitterOnClickListener());
+        mRlFacebook = (RelativeLayout) findViewById(R.id.pinfo_rl_facebook);
+        mRlFacebook.setOnClickListener(new FacebookOnClickListener());
+
+        mRlName = (LinearLayout) findViewById(R.id.pinfo_rl_name);
 //        mRlPhone = (LinearLayout)findViewById(R.id.pinfo_rl_phone);
-        mLlCountry = (LinearLayout)findViewById(R.id.pinfo_rl_country);
-        mRlEmail = (RelativeLayout)findViewById(R.id.pinfo_rl_email);
+        mLlCountry = (LinearLayout) findViewById(R.id.pinfo_rl_country);
+        mRlEmail = (RelativeLayout) findViewById(R.id.pinfo_rl_email);
 //        mLlPhoneAndCountryCode = (LinearLayout)findViewById(R.id.pinfo_ll_phoneandcountrycode);
 //        mLlCountryCode = (LinearLayout)findViewById(R.id.pinfo_rl_countrycode);
 
@@ -91,7 +106,7 @@ public class PersonInfoActivity extends AppCompatActivity {
 //        mLlCountryCode.setOnClickListener(new RlOnClickListener());
 
         User user = Chinessy.chinessy.getUser();
-        if(user != null){
+        if (user != null) {
             mEtName.setText(user.getUserProfile().getName());
             String phone = user.getUserProfile().getPhone();
             phone = phone.equals("") ? mEgPhone : phone;
@@ -100,16 +115,16 @@ public class PersonInfoActivity extends AppCompatActivity {
             mTvCountry.setText(user.getUserProfile().getCountry());
 //            mEtCountryCode.setText(user.getUserProfile().getCountryCode());
             mTvCountryCode.setText(user.getUserProfile().getCountryCode());
-        }else{
+        } else {
             Log.w(tag, "user is:" + user);
         }
 
         setUnEditable();
     }
 
-    void setEditable(){
+    void setEditable() {
         mEtName.setKeyListener((KeyListener) mEtName.getTag());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)mEtName.getLayoutParams();
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mEtName.getLayoutParams();
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
         mEtName.setLayoutParams(layoutParams);
 
@@ -129,7 +144,7 @@ public class PersonInfoActivity extends AppCompatActivity {
         mMiSave.setVisible(true);
     }
 
-    public void setEtNameEditable(){
+    public void setEtNameEditable() {
         setEditable();
 
         mEtName.requestFocus();
@@ -153,8 +168,8 @@ public class PersonInfoActivity extends AppCompatActivity {
 //        mEtCountryCode.setSelection(mEtCountryCode.getText().toString().length());
 //    }
 
-    public void setUnEditable(){
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)mEtName.getLayoutParams();
+    public void setUnEditable() {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mEtName.getLayoutParams();
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 0);
         mEtName.setLayoutParams(layoutParams);
         mEtName.setTag(mEtName.getKeyListener());
@@ -175,28 +190,75 @@ public class PersonInfoActivity extends AppCompatActivity {
 //        mEtCountryCode.setTag(mEtCountryCode.getKeyListener());
 //        mEtCountryCode.setKeyListener(null);
 
-        if(mMiSave != null){
+        if (mMiSave != null) {
             mMiSave.setVisible(false);
         }
     }
 
-    void showProgressDialog(){
-        if(mProgressDialog == null){
+    void showProgressDialog() {
+        if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(mActivity);
         }
         mProgressDialog.setMessage(mActivity.getString(R.string.Waiting));
         mProgressDialog.show();
     }
 
-    void hideProgressDialog(){
+    void hideProgressDialog() {
         mProgressDialog.cancel();
     }
 
-    class RlOnClickListener implements View.OnClickListener{
+    String items[] = new String[]{"English", "French", "Spanish", "German", "Russian", "Japanese", "Korean", "Arabic"};
+    AlertDialog dialog;
+
+    class ProficientLanguageOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+
+            dialog = new AlertDialog.Builder(PersonInfoActivity.this).setTitle("单选对话框").setMultiChoiceItems(items, null, new DialogInterface.OnMultiChoiceClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i, boolean b) {
+                            //Toast.makeText(PersonInfoActivity.this, items[which], Toast.LENGTH_SHORT).show();
+                            // dialog.dismiss();
+
+                            LogUtils.d("int+---------" + i + "------, boolean +++++++++" + b);
+                            // todo 如果 boolean true 而且 int 有值就添加
+                        }
+
+                    }
+            ).setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    dialog.dismiss();
+                }
+            }).create();
+
+            dialog.show();
+
+
+        }
+    }
+
+    class TwitterOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+
+
+        }
+    }
+
+    class FacebookOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+
+
+        }
+    }
+
+    class RlOnClickListener implements View.OnClickListener {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()){
+            switch (v.getId()) {
                 case R.id.pinfo_rl_name:
                     setEtNameEditable();
                     break;
@@ -228,7 +290,7 @@ public class PersonInfoActivity extends AppCompatActivity {
         }
     }
 
-    class RlNameClickListener implements View.OnClickListener{
+    class RlNameClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
@@ -243,7 +305,7 @@ public class PersonInfoActivity extends AppCompatActivity {
         }
     }
 
-    class RlPhoneClickListener implements View.OnClickListener{
+    class RlPhoneClickListener implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent();
@@ -257,6 +319,7 @@ public class PersonInfoActivity extends AppCompatActivity {
             mActivity.startActivityForResult(intent, Config.ACTIVITY_RESULT_MODIFY_PHONE);
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -279,10 +342,10 @@ public class PersonInfoActivity extends AppCompatActivity {
 //            return true;
 //        }
 
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             PersonInfoActivity.this.finish();
-        }else if(id == R.id.pinfo_menu_save){
-            if(mEtName.getText().toString().equals("")){
+        } else if (id == R.id.pinfo_menu_save) {
+            if (mEtName.getText().toString().equals("")) {
                 final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
                 simpleDialog.message(R.string.dialog_info_not_complete_message);
                 simpleDialog.positiveAction(R.string.OK);
@@ -337,30 +400,30 @@ public class PersonInfoActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case Config.ACTIVITY_RESULT_MODIFY_NAME:
-                if(resultCode == RESULT_OK){
+                if (resultCode == RESULT_OK) {
 //                    Toast.makeText(mActivity, "RESULT_OK", Toast.LENGTH_SHORT).show();
-                    ModifyObject modifyObject = (ModifyObject)data.getSerializableExtra("modify_object");
+                    ModifyObject modifyObject = (ModifyObject) data.getSerializableExtra("modify_object");
                     Chinessy.chinessy.getUser().getUserProfile().setName(modifyObject.getFieldValue(), mActivity);
                     mEtName.setText(modifyObject.getFieldValue());
-                }else{
+                } else {
 //                    Toast.makeText(mActivity, "NOT_OK", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case Config.ACTIVITY_RESULT_MODIFY_PHONE:
-                if(resultCode == RESULT_OK){
-                    ModifyObject modifyObject = (ModifyObject)data.getSerializableExtra("modify_object");
+                if (resultCode == RESULT_OK) {
+                    ModifyObject modifyObject = (ModifyObject) data.getSerializableExtra("modify_object");
                     Chinessy.chinessy.getUser().getUserProfile().setPhone(modifyObject.getFieldValue(), mActivity);
 //                    mEtPhone.setText(modifyObject.getFieldValue());
-                }else{
+                } else {
 
                 }
                 break;
         }
     }
 
-    void afterModify(){
+    void afterModify() {
         UserProfile userProfile = Chinessy.chinessy.getUser().getUserProfile();
 
 //        userProfile.setPhone(mEtPhone.getText().toString(), mActivity);

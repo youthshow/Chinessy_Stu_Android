@@ -1,17 +1,28 @@
 package com.chinessy.chinessy.beans;
 
 /**
- * Created by susan on 2016/11/21.
+ * Created by susan on 2016/11/24.
  */
 
-public class BasicBean {
+public class EmailVerificationCode {
 
     /**
-     * msg : 获取成功！老师信息
+     * data : 983190
+     * msg : 验证已发送
      * status : true
      */
+
+    private int data;
     private String msg;
     private String status;
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
 
     public String getMsg() {
         return msg;

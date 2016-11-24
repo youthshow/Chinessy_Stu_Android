@@ -42,7 +42,9 @@
     <!-- OpenGL ES 2.0 -->
     <uses-feature android:glEsVersion="0x00020000" />
 
-    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- Allow writing to external storage -->
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Allow writing to external storage -->
     <!-- 阿里云播放器- https://help.aliyun.com/document_detail/45265.html?spm=5176.doc29962.6.125.E4Y5Zd -->
     <application
         android:name=".Chinessy"
@@ -163,6 +165,7 @@
         <activity android:name=".activity.HistoryActivity" />
         <activity android:name=".activity.BindedTeacherListActivity" />
         <activity android:name=".rtmp.LiveRoomActivity" />
+        <activity android:name=".activity.SignUpSucessActivity"></activity>
     </application>
 
 </manifest>
