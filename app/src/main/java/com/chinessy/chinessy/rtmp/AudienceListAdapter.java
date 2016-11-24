@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 
 import com.chinessy.chinessy.R;
+import com.rey.material.app.SimpleDialog;
 
 import java.util.List;
 

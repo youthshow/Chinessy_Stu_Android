@@ -2,11 +2,13 @@ package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -233,6 +235,19 @@ public class AddExtraMinutesActivity extends AppCompatActivity {
                                             default:
 //                                                SimpleJsonHttpResponseHandler.defaultHandler(mActivity, getString(R.string.payment_failed_message));
                                                 mProgressDialog.dismiss();
+
+                                                AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);  //先得到构造器
+                                                builder.setMessage(R.string.payment_failed_message); //设置内容
+                                                builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        dialog.dismiss(); //关闭dialog
+                                                    }
+                                                });
+
+                                                //参数都设置完成了，创建并显示出来
+                                                builder.create().show();
+/*
                                                 final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
                                                 simpleDialog.message(R.string.payment_failed_message);
                                                 simpleDialog.positiveAction(R.string.OK);
@@ -243,6 +258,7 @@ public class AddExtraMinutesActivity extends AppCompatActivity {
                                                     }
                                                 });
                                                 simpleDialog.show();
+                                                */
                                                 break;
                                         }
                                     } catch (JSONException e) {

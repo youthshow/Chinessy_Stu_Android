@@ -1,10 +1,12 @@
 package com.chinessy.chinessy.fragment;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -185,6 +187,32 @@ public class MyFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());  //先得到构造器
+            builder.setTitle(R.string.Logout); //设置标题
+            builder.setMessage(R.string.dialog_logout_message); //设置内容
+//builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
+            builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss(); //关闭dialog
+                    Intent intent = new Intent();
+                    intent.setClass(mActivity, GuideActivity.class);
+                    mActivity.startActivity(intent);
+                    mActivity.finish();
+                    Chinessy.chinessy.logout();
+                }
+            });
+            builder.setNegativeButton(R.string.Cancel, new DialogInterface.OnClickListener() { //设置取消按钮
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+
+//参数都设置完成了，创建并显示出来
+            builder.create().show();
+
+/*
             final SimpleDialog simpleDialog = new SimpleDialog(getContext());
             simpleDialog.title(R.string.Logout);
             simpleDialog.message(R.string.dialog_logout_message);
@@ -208,6 +236,7 @@ public class MyFragment extends Fragment {
                 }
             });
             simpleDialog.show();
+            */
         }
     }
 

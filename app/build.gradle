@@ -51,6 +51,11 @@ dependencies {
     compile project(':countryPicker')
     compile project(':juscall')
     compile files('src/main/libs/PayPalAndroidSDK-2.10.0.jar')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile files('libs/alivc-player-2.2.0.13.jar')
     compile 'in.srain.cube:ultra-ptr:1.0.10'
     compile 'de.hdodenhof:circleimageview:2.0.0'
     compile 'com.android.support:appcompat-v7:25.0.0'
@@ -65,9 +70,4 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.github.rey5137:material:1.2.2'
     compile 'com.umeng.analytics:analytics:6.0.4'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile files('libs/alivc-player-2.2.0.13.jar')
 }

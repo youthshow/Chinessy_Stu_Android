@@ -70,7 +70,21 @@ public class Chinessy extends MultiDexApplication implements Application.Activit
         initPaypal();
         initALiyun();
     }
+
+    String AccessKeyID = "LTAIfzejY651wFYS";
+    String AccessKeySecret = "zGMpKNkj1iSQxlL7DsFNIZQELm2VbO";
+
+    private void initALiyun() {
+        String businessId = chinessy.getPackageName();
+        AliVcMediaPlayer.init(getApplicationContext(), businessId, new AccessKeyCallback() {
+            public AccessKey getAccessToken() {
+                return new AccessKey(AccessKeyID, AccessKeySecret);
+            }
+        });
+    }
+
     //阿里云播放器  https://help.aliyun.com/document_detail/45265.html?spm=5176.doc29962.6.125.E4Y5Zd
+    /*
     private void initALiyun() {
         // 检查/mnt/sdcard/TAOBAOPLAYER 是否存在,不存在创建
         File rootPath = new File("/mnt/sdcard/aliyun");
@@ -128,7 +142,7 @@ public class Chinessy extends MultiDexApplication implements Application.Activit
         myInput.close();
         myOutput.close();
     }
-
+*/
     //阿里云播放器  https://help.aliyun.com/document_detail/45265.html?spm=5176.doc29962.6.125.E4Y5Zd
     void initPaypal() {
         Intent intent = new Intent(this, PayPalService.class);

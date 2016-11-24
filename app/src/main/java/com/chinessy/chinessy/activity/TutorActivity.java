@@ -1,6 +1,7 @@
 package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -8,6 +9,7 @@ import android.graphics.Matrix;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -409,6 +411,20 @@ public class TutorActivity extends AppCompatActivity {
                 UserProfile userProfile = Chinessy.chinessy.getUser().getUserProfile();
                 userProfile.refreshBalance(mActivity, new AfterRefreshBalance());
             } else {
+                AlertDialog.Builder builder = new AlertDialog.Builder(TutorActivity.this);  //先得到构造器
+                builder.setTitle(R.string.practice_now_tutor_unavailable_title); //设置标题
+                builder.setMessage(R.string.practice_now_tutor_unavailable_message); //设置内容
+//builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
+                builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss(); //关闭dialog
+                    }
+                });
+
+//参数都设置完成了，创建并显示出来
+                builder.create().show();
+/*
                 final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
                 simpleDialog.title(R.string.practice_now_tutor_unavailable_title);
                 simpleDialog.message(R.string.practice_now_tutor_unavailable_message);
@@ -420,6 +436,7 @@ public class TutorActivity extends AppCompatActivity {
                     }
                 });
                 simpleDialog.show();
+                */
             }
         }
 
@@ -429,6 +446,27 @@ public class TutorActivity extends AppCompatActivity {
             public void execute() {
                 changeButtonMode(0);
                 if (Chinessy.chinessy.getUser().getUserProfile().getBalance() <= 0) {
+
+                    AlertDialog.Builder builder = new AlertDialog.Builder(TutorActivity.this);  //先得到构造器
+                    builder.setTitle(R.string.practice_now_need_to_pay_title); //设置标题
+                    builder.setMessage(R.string.practice_now_need_to_pay_message); //设置内容
+//builder.setIcon(R.mipmap.ic_launcher);//设置图标，图片id即可
+                    builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss(); //关闭dialog
+                            Intent intent = new Intent();
+                            intent.setClass(mActivity, GuideActivity.class);
+                            mActivity.startActivity(intent);
+                            mActivity.finish();
+                            Chinessy.chinessy.logout();
+                        }
+                    });
+
+                    //参数都设置完成了，创建并显示出来
+                    builder.create().show();
+
+/*
                     final SimpleDialog simpleDialog = new SimpleDialog(mActivity);
                     simpleDialog.title(R.string.practice_now_need_to_pay_title);
                     simpleDialog.message(R.string.practice_now_need_to_pay_message);
@@ -440,6 +478,7 @@ public class TutorActivity extends AppCompatActivity {
                         }
                     });
                     simpleDialog.show();
+                    */
                 } else {
                     practiceNow2();
                 }

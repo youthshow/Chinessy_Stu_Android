@@ -50,16 +50,6 @@ public class TutorListAdapter extends BaseAdapter {
 
     }
 
-//    public TutorListAdapter(Context context, ArrayList<User> tutorList){
-//        mContext = context;
-//
-//        mTutorList = tutorList;
-//
-//        for(User tutor : tutorList){
-//            View view = makeItemView(tutor);
-//            mAvailableViewList.add(view);
-//        }
-//    }
 
     View makeItemView(final User user){
         final View view = LayoutInflater.from(mContext).inflate(R.layout.tutor_item, null);

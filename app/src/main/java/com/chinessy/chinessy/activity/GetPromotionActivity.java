@@ -1,8 +1,10 @@
 package com.chinessy.chinessy.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +27,7 @@ import cz.msebera.android.httpclient.Header;
 public class GetPromotionActivity extends AppCompatActivity {
     Activity mActivity;
     EditText mEtPromotionCode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,7 @@ public class GetPromotionActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.black));
         actionBar.setElevation(0f);
 
-        mEtPromotionCode = (EditText)findViewById(R.id.getpromotion_et_promotioncode);
+        mEtPromotionCode = (EditText) findViewById(R.id.getpromotion_et_promotioncode);
     }
 
     @Override
@@ -53,11 +56,13 @@ public class GetPromotionActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             mActivity.finish();
-        }else if(id == R.id.getpromotion_menu_apply){
+        } else if (id == R.id.getpromotion_menu_apply) {
             String code = mEtPromotionCode.getText().toString();
-            if(code.equals("")){
+            if (code.equals("")) {
+
+
                 final SimpleDialog promptDialog1 = new SimpleDialog(mActivity);
                 promptDialog1.title(R.string.promotion_code_invalid_title);
                 promptDialog1.message(R.string.promotion_code_invalid_message);
@@ -89,6 +94,19 @@ public class GetPromotionActivity extends AppCompatActivity {
                                     GetPromotionActivity.this.finish();
                                     break;
                                 case 10006:
+                                    AlertDialog.Builder promptDialog1 = new AlertDialog.Builder(mActivity);  //先得到构造器
+                                    promptDialog1.setTitle(R.string.promotion_code_invalid_title);
+                                    promptDialog1.setMessage(R.string.promotion_code_invalid_message); //设置内容
+                                    promptDialog1.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss(); //关闭dialog
+                                        }
+                                    });
+
+                                    //参数都设置完成了，创建并显示出来
+                                    promptDialog1.create().show();
+/*
                                     final SimpleDialog promptDialog1 = new SimpleDialog(mActivity);
                                     promptDialog1.title(R.string.promotion_code_invalid_title);
                                     promptDialog1.message(R.string.promotion_code_invalid_message);
@@ -100,8 +118,22 @@ public class GetPromotionActivity extends AppCompatActivity {
                                         }
                                     });
                                     promptDialog1.show();
+                                    */
                                     break;
                                 case 30001:
+                                    AlertDialog.Builder promptDialog2 = new AlertDialog.Builder(mActivity);  //先得到构造器
+                                    promptDialog2.setTitle(R.string.promotion_code_expired_title);
+                                    promptDialog2.setMessage(R.string.promotion_code_expired_message); //设置内容
+                                    promptDialog2.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss(); //关闭dialog
+                                        }
+                                    });
+
+                                    //参数都设置完成了，创建并显示出来
+                                    promptDialog2.create().show();
+/*
                                     final SimpleDialog promptDialog2 = new SimpleDialog(mActivity);
                                     promptDialog2.title(R.string.promotion_code_expired_title);
                                     promptDialog2.message(R.string.promotion_code_expired_message);
@@ -113,8 +145,22 @@ public class GetPromotionActivity extends AppCompatActivity {
                                         }
                                     });
                                     promptDialog2.show();
+                                    */
                                     break;
                                 case 30002:
+                                    AlertDialog.Builder promptDialog3 = new AlertDialog.Builder(mActivity);  //先得到构造器
+                                    promptDialog3.setTitle(R.string.promotion_code_already_used_title);
+                                    promptDialog3.setMessage(R.string.promotion_code_already_used_message); //设置内容
+                                    promptDialog3.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() { //设置确定按钮
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss(); //关闭dialog
+                                        }
+                                    });
+
+                                    //参数都设置完成了，创建并显示出来
+                                    promptDialog3.create().show();
+/*
                                     final SimpleDialog promptDialog3 = new SimpleDialog(mActivity);
                                     promptDialog3.title(R.string.promotion_code_already_used_title);
                                     promptDialog3.message(R.string.promotion_code_already_used_message);
@@ -126,6 +172,7 @@ public class GetPromotionActivity extends AppCompatActivity {
                                         }
                                     });
                                     promptDialog3.show();
+                                    */
                                     break;
                             }
                         } catch (JSONException e) {

@@ -152,6 +152,7 @@ public class ReservationDialog extends BottomSheetDialog{
     }
 
     public void inputUserPhone(){
+
         final SimpleDialog simpleDialog = new SimpleDialog(mContext);
         simpleDialog.title(R.string.dialog_reservation_no_phone_number_title);
         simpleDialog.message(R.string.dialog_reservation_no_phone_number_message);

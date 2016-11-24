@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.chinessy.chinessy.adapter.TabPagerAdapter;
 import com.chinessy.chinessy.fragment.HomeFragment;
+import com.chinessy.chinessy.fragment.LiveListFragment;
 import com.chinessy.chinessy.fragment.LiveRoomListFragment;
 import com.chinessy.chinessy.fragment.MyFragment;
 import com.chinessy.chinessy.fragment.TutorsFragment;
@@ -31,7 +32,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity implements HomeFragment.OnFragmentInteractionListener,
         TutorsFragment.OnFragmentInteractionListener,
-        LiveRoomListFragment.OnFragmentInteractionListener,
+        LiveListFragment.OnFragmentInteractionListener,
         MyFragment.OnFragmentInteractionListener {
 
     private ViewPager mViewPager;
@@ -224,7 +225,7 @@ public class MainActivity extends ActionBarActivity implements HomeFragment.OnFr
 
         HomeFragment tabDebt = new HomeFragment();
         TutorsFragment tabMessage = new TutorsFragment();
-        LiveRoomListFragment tabLive = new LiveRoomListFragment();
+        LiveListFragment tabLive = new LiveListFragment();
         MyFragment tabMy = new MyFragment();
         mFragments.add(tabDebt);
         mFragments.add(tabLive);
