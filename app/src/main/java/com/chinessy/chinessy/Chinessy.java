@@ -8,9 +8,7 @@ import android.os.Bundle;
 import android.support.multidex.MultiDexApplication;
 import android.widget.Toast;
 
-import com.alivc.player.AccessKey;
-import com.alivc.player.AccessKeyCallback;
-import com.alivc.player.AliVcMediaPlayer;
+ 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.chinessy.chinessy.handlers.JusTalkHandler;
@@ -68,82 +66,10 @@ public class Chinessy extends MultiDexApplication implements Application.Activit
         //   AnalyticsConfig.enableEncrypt(true);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         initPaypal();
-        initALiyun();
+
     }
 
-    String AccessKeyID = "LTAIfzejY651wFYS";
-    String AccessKeySecret = "zGMpKNkj1iSQxlL7DsFNIZQELm2VbO";
 
-    private void initALiyun() {
-        String businessId = chinessy.getPackageName();
-        AliVcMediaPlayer.init(getApplicationContext(), businessId, new AccessKeyCallback() {
-            public AccessKey getAccessToken() {
-                return new AccessKey(AccessKeyID, AccessKeySecret);
-            }
-        });
-    }
-
-    //阿里云播放器  https://help.aliyun.com/document_detail/45265.html?spm=5176.doc29962.6.125.E4Y5Zd
-    /*
-    private void initALiyun() {
-        // 检查/mnt/sdcard/TAOBAOPLAYER 是否存在,不存在创建
-        File rootPath = new File("/mnt/sdcard/aliyun");
-        if (!rootPath.exists()) {
-            rootPath.mkdir();
-        }
-
-
-
-        // accesstoken.txt 是否存在,不存在复制
-        File assessKeyFile = new File(rootPath, "accesstoken.txt");
-        if (!assessKeyFile.exists()) {
-            try {
-                copyAssetsToSD("accesstoken.txt", assessKeyFile.getAbsolutePath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
-        File file = new File("/mnt/sdcard/aliyun/accesstoken.txt");
-        if (file.exists()) {
-            try {
-                BufferedReader fileReader = new BufferedReader(new FileReader(file));
-                final String accessKeyId = fileReader.readLine();
-                final String accessKeySecret = fileReader.readLine();
-                final String businessId = "video_live";
-
-                AliVcMediaPlayer.init(getApplicationContext(), businessId, new AccessKeyCallback() {
-                    public AccessKey getAccessToken() {
-                        return new AccessKey(accessKeyId, accessKeySecret);
-                    }
-                });
-
-            } catch (Throwable t) {
-                t.printStackTrace();
-            }
-        } else {
-            Toast.makeText(getApplicationContext(), "accesstoken.txt not exists.", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void copyAssetsToSD(String assetsFile, String sdFile) throws IOException {
-        InputStream myInput;
-        OutputStream myOutput = new FileOutputStream(sdFile);
-        myInput = this.getAssets().open(assetsFile);
-        byte[] buffer = new byte[1024];
-        int length = myInput.read(buffer);
-        while (length > 0) {
-            myOutput.write(buffer, 0, length);
-            length = myInput.read(buffer);
-        }
-
-        myOutput.flush();
-        myInput.close();
-        myOutput.close();
-    }
-*/
-    //阿里云播放器  https://help.aliyun.com/document_detail/45265.html?spm=5176.doc29962.6.125.E4Y5Zd
     void initPaypal() {
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);

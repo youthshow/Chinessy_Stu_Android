@@ -19,9 +19,13 @@ so manually move them:
 From ijkplayerForEC:
 * .DS_Store
 * ic_launcher-web.png
+* ijkplayerForEC.iml
 * proguard-project.txt
+From preference:
+* preference.iml
 From recyclerview:
 * README.txt
+* recyclerview.iml
 
 Replaced Jars with Dependencies:
 --------------------------------

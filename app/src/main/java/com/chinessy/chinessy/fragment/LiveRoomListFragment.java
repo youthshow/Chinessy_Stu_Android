@@ -23,7 +23,6 @@ import com.chinessy.chinessy.beans.getStudioList;
 import com.chinessy.chinessy.beans.liveBeans;
 import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.rtmp.LiveRoomActivity;
-import com.chinessy.chinessy.rtmp.PlayerActivity;
 import com.chinessy.chinessy.utils.LogUtils;
 import com.google.gson.Gson;
 
@@ -131,7 +130,7 @@ public class LiveRoomListFragment extends Fragment {
                                     bundle.putString("URI", "rtmp://live.hkstv.hk.lxdns.com/live/hks");
                                     bundle.putInt("decode_type", 1);
                                     intent.putExtras(bundle);
-                                    intent.setClass(getContext(), PlayerActivity.class);
+                                    intent.setClass(getContext(), LiveRoomActivity.class);
                                     startActivity(intent);
 //                                    Intent intent = new Intent(getContext(), LiveRoomActivity.class);
 //                                    intent.putExtra("room_id", studioBeen.get(position).getRoom_id());

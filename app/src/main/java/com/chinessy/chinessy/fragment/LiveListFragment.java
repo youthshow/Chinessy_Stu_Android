@@ -23,7 +23,7 @@ import com.chinessy.chinessy.adapter.LiveListAdapter;
 import com.chinessy.chinessy.beans.BasicBean;
 import com.chinessy.chinessy.beans.getStudioList;
 import com.chinessy.chinessy.clients.ConstValue;
-import com.chinessy.chinessy.rtmp.PlayerActivity;
+import com.chinessy.chinessy.rtmp.LiveRoomActivity;
 import com.chinessy.chinessy.utils.LogUtils;
 import com.google.gson.Gson;
 
@@ -120,6 +120,7 @@ public class LiveListFragment extends Fragment {
         }, 100);
         return view;
     }
+
     class TutorsPtrHandler implements PtrHandler {
         @Override
         public boolean checkCanDoRefresh(PtrFrameLayout ptrFrameLayout, View view, View view1) {
@@ -176,7 +177,7 @@ public class LiveListFragment extends Fragment {
                                     bundle.putString("URI", "rtmp://live.hkstv.hk.lxdns.com/live/hks");
                                     bundle.putInt("decode_type", 1);
                                     intent.putExtras(bundle);
-                                    intent.setClass(getContext(), PlayerActivity.class);
+                                    intent.setClass(getContext(), LiveRoomActivity.class);
                                     startActivity(intent);
                                 }
                             });
@@ -208,6 +209,7 @@ public class LiveListFragment extends Fragment {
 
         Chinessy.requestQueue.add(stringRequest);
     }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
