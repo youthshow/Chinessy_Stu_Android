@@ -214,7 +214,9 @@ public class PersonInfoActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
-            dialog = new AlertDialog.Builder(PersonInfoActivity.this).setTitle("单选对话框").setMultiChoiceItems(items, null, new DialogInterface.OnMultiChoiceClickListener() {
+            dialog = new AlertDialog.Builder(PersonInfoActivity.this)
+//                    .setTitle("单选对话框")
+                    .setMultiChoiceItems(items, null, new DialogInterface.OnMultiChoiceClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                             //Toast.makeText(PersonInfoActivity.this, items[which], Toast.LENGTH_SHORT).show();

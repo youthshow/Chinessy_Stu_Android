@@ -65,5 +65,13 @@ public class ConstValue {
     public static final String VAILD = "http://lande88.com/live/home/live/valid";
 
 
+    /*
+  * 版本升级检测
+  *  接口方式：get
+  *  接口地址：http://lande88.com/live/home/live/version
+  * */
+    public static final String VERSION = "http://lande88.com/live/home/live/version";
+
+
 
 }

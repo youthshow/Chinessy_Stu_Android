@@ -12,12 +12,14 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,7 @@ import com.chinessy.chinessy.models.CallData;
 import com.chinessy.chinessy.models.User;
 import com.chinessy.chinessy.models.UserProfile;
 import com.chinessy.chinessy.utils.FileUtil;
+import com.chinessy.chinessy.utils.LogUtils;
 import com.chinessy.chinessy.utils.PictureUtil;
 import com.chinessy.chinessy.utils.Utils;
 import com.rey.material.app.SimpleDialog;
@@ -40,8 +43,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.util.TextUtils;
 
 public class TutorActivity extends AppCompatActivity {
     final String tag = "TutorActivity";
@@ -74,7 +82,8 @@ public class TutorActivity extends AppCompatActivity {
     //todo +++++++++++++++++++++++++
 //    Button mBtnScheduleaReservation;
 
-    private TextView mTvRemainTime;
+    private TextView mTvRemainTime;//01/10/2016 09:30AM
+    private LinearLayout mLlRemainTime;
     private Button mBtnResrve;
     private Button mBtnLive;
 
@@ -121,9 +130,10 @@ public class TutorActivity extends AppCompatActivity {
 //todo +++++++++++++++++++++++++
 
         mTvRemainTime = (TextView) findViewById(R.id.tv_remain_time);
+        mLlRemainTime = (LinearLayout) findViewById(R.id.ll_remain_time);
         mBtnResrve = (Button) findViewById(R.id.tutor_btn_resrve);
         mBtnLive = (Button) findViewById(R.id.tutor_btn_live);
-
+        mBtnResrve.setOnClickListener(new BtnResrveOnClickListener());
 
 
 
@@ -516,4 +526,129 @@ public class TutorActivity extends AppCompatActivity {
         super.onPause();
         MobclickAgent.onPause(this);
     }
+
+    String ReserveTime;
+    String items[] = new String[]{"1min", "5min", "10min"};
+    AlertDialog dialog;
+
+    private class BtnResrveOnClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            dialog = new AlertDialog.Builder(TutorActivity.this).setTitle(R.string.Select_time).setSingleChoiceItems(items, -1, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    ReserveTime = items[i];
+                    ResrveBtnCancelableStatue();
+                    dialog.dismiss();
+                    getTime();
+                }
+            }).create();
+
+            dialog.show();
+        }
+    }
+
+    int ResrveBtnStatue;
+    private final int ResrveBtnInit = 0;//初始状态 绿色
+    private final int ResrveBtnCancelable = 1;//红色,还有倒计时
+    private final int ResrveBtnUnCancelable = 2;//老师已经确认, 灰色不能取消 还有倒计时
+    private final int ResrveBtnUnable = 3;//或者老师在直播状态 ,灰色不能取消
+    /*Cancelable*/
+    private void ResrveBtnCancelableStatue() {
+        mBtnResrve.setBackgroundColor(getResources().getColor(R.color.busy_red));
+        mBtnResrve.setText(R.string.Cancel);
+
+
+    }
+
+    /*老师已同意不能取消*/
+    private void ResrveBtnUNcancelableStatue() {
+        mBtnResrve.setBackgroundColor(getResources().getColor(R.color.darker_gray));
+        mBtnResrve.setText(R.string.Cancel);
+    }
+
+    /*还未预约的初始状态*/
+    private void ResrveBtnInitStatue() {
+        mBtnResrve.setBackgroundColor(getResources().getColor(R.color.main_color));
+        mBtnResrve.setText(R.string.Reserve);
+    }
+
+    private Handler mCountDownHandler = new Handler();//全局handler
+    int CountDownSecond;//倒计时的整个时间数
+
+    class ClassCut implements Runnable {//倒计时逻辑子线程
+
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            while (CountDownSecond > 0) {//整个倒计时执行的循环
+                CountDownSecond--;
+                mCountDownHandler.post(new Runnable() {//通过它在UI主线程中修改显示的剩余时间
+                    @Override
+                    public void run() {
+                        // TODO Auto-generated method stub
+                        mBtnResrve.setText("Cancel(" + CountDownSecond + ")");//显示剩余时间
+                    }
+                });
+                try {
+                    Thread.sleep(1000);//线程休眠一秒钟     这个就是倒计时的间隔时间
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            //下面是倒计时结束逻辑
+            mCountDownHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    // TODO Auto-generated method stub
+                    mBtnResrve.setText("Cancel");//一轮倒计时结束  修改剩余时间为一分钟
+                    Toast.makeText(TutorActivity.this, "倒计时完成", Toast.LENGTH_LONG).show();//提示倒计时完成
+                }
+            });
+        }
+    }
+
+
+    private void getTime() {
+        if (TextUtils.isEmpty(ReserveTime)) {
+            Toast.makeText(TutorActivity.this, "please choose reserve time", Toast.LENGTH_SHORT).show();
+            ResrveBtnInitStatue();
+        } else {
+            int addTime = 0;
+
+            Calendar calendar = Calendar.getInstance();
+            switch (ReserveTime) {
+                case "1min":
+                    addTime = 1;
+                    break;
+                case "5min":
+                    addTime = 5;
+                    break;
+                case "10min":
+                    addTime = 10;
+                    break;
+            }
+            calendar.add(Calendar.MINUTE, addTime);
+            CountDownSecond = addTime * 60;
+            LogUtils.d(Calendar.HOUR_OF_DAY + ":" + calendar.get(Calendar.MINUTE) + "Calendar");
+            int HOUR_OF_DAY = calendar.get(Calendar.HOUR_OF_DAY);
+            String hour;
+            if (HOUR_OF_DAY > 12) {
+                hour = String.format("%02d", (HOUR_OF_DAY - 12)) + ":" + calendar.get(Calendar.MINUTE) + "PM";
+            } else {
+                hour = String.format("%02d", HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE) + "AM";
+            }
+            String appointmentTime = calendar.get(Calendar.DAY_OF_MONTH) + "/"
+                    + (calendar.get(Calendar.MONTH) + 1) + "/"//从0计算
+                    + calendar.get(Calendar.YEAR) + "/ "
+                    + hour;
+            mTvRemainTime.setText(appointmentTime);
+            mLlRemainTime.setVisibility(View.VISIBLE);
+
+            new Thread(new ClassCut()).start();//开启倒计时
+        }
+
+
+    }
+
 }

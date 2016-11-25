@@ -78,7 +78,7 @@
     <string name="dialog_logout_message">Are you sure to logout?</string>
 
     <!--personal info activity-->
-    <string name="WaitingForComfirmation">waitingforcomfirmation</string>
+    <string name="WaitingForComfirmation">waiting for comfirmation</string>
     <string name="Email">Email</string>
     <string name="Facebook">Facebook</string>
     <string name="Twitter">Twitter</string>
@@ -228,4 +228,5 @@
     <string name="OneOnOne_Tutor_packag">1-on-1 Tutor package</string>
     <string name="WrongCode">wrong code</string>
     <string name="send_code_to_email_faill">faill to send code to your email,please check your email</string>
+    <string name="Select_time">Select time</string>
 </resources>

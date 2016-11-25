@@ -9,17 +9,24 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.chinessy.chinessy.Chinessy;
 import com.chinessy.chinessy.Config;
 import com.chinessy.chinessy.MainActivity;
 import com.chinessy.chinessy.R;
+import com.chinessy.chinessy.beans.BasicBean;
+import com.chinessy.chinessy.clients.ConstValue;
 import com.chinessy.chinessy.clients.InternalClient;
 import com.chinessy.chinessy.handlers.SimpleJsonHttpResponseHandler;
 import com.chinessy.chinessy.utils.FileUtil;
 import com.chinessy.chinessy.utils.Utils;
+import com.google.gson.Gson;
 import com.umeng.analytics.MobclickAgent;
 
 
@@ -63,7 +70,6 @@ public class SplashActivity extends Activity {
         // umeng force update
         mActivity = this;
 
-
         /*
         UmengUpdateAgent.setUpdateOnlyWifi(false);
         UmengUpdateAgent.setDialogListener(new UmengDialogButtonListener() {
@@ -94,6 +100,41 @@ public class SplashActivity extends Activity {
 
     }
 
+    /*
+    private void checkVersion() {
+
+        StringRequest stringRequest = new StringRequest(ConstValue.VERSION,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        if (TextUtils.isEmpty(response)) {
+                            Toast.makeText(this, R.string.WrongCode, Toast.LENGTH_SHORT).show();
+                        } else {
+
+                            BasicBean basicBean = new Gson().fromJson(response.toString(), BasicBean.class);
+                            if ("true".equals(basicBean.getStatus().toString())) {
+                                EmailVerificationCode emailVerificationCode = new Gson().fromJson(response.toString(), EmailVerificationCode.class);
+                                Intent intent = new Intent(SignupActivity.this, SignUpSucessActivity.class);
+                                intent.putExtra("Mail", email);
+                                intent.putExtra("password", password);
+                                intent.putExtra("referee_code", invitationCode);
+                                intent.putExtra("name", name);
+                                startActivity(intent);
+                            }
+
+                        }
+                        showProgress(false);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                showProgress(false);
+                LogUtils.d(ConstValue.mail + " :error-->" + error.toString());
+            }
+        });
+        Chinessy.requestQueue.add(stringRequest);
+    }
+  */
     private void endLoading() {
         if (mFinish) {
             if (mAutoLogin) {
